@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true">
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </coverage>
+    <testsuites>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">./tests/Integration</directory>
+            <directory suffix="Test.php">./tests/Infrastructure</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <server name="APP_NAME" value="api" />
+        <server name="APP_ENV" value="testing" />
+        <server name="APP_KEY" value="base64:+cmPwh/cXnWTBH684DpGlJTsaT+2dDg982h+QJcLH7g=" />
+        <server name="APP_DEBUG" value="true" />
+        <server name="APP_URL" value="http://localhost" />
+        <server name="DB_CONNECTION" value="pgsql" />
+        <server name="LOG_CHANNEL" value="stack" />
+        <server name="LOG_LEVEL" value="debug" />
+        <server name="BCRYPT_ROUNDS" value="4" />
+        <server name="CACHE_DRIVER" value="array" />
+        <server name="BROADCAST_DRIVER" value="log" />
+        <server name="MAIL_MAILER" value="array" />
+        <server name="QUEUE_CONNECTION" value="sync" />
+        <server name="SESSION_DRIVER" value="array" />
+        <server name="TELESCOPE_ENABLED" value="false" />
+        <server name="L5_SWAGGER_GENERATE_ALWAYS" value="false" />
+        <server name="PASSPORT_PRIVATE_KEY" value="-----BEGIN PRIVATE KEY-----\n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\n4eYEqc9+P/UWUxDi0Lnn6k72Rjq4lw==\n-----END PRIVATE KEY-----" />
+        <server name="PASSPORT_PUBLIC_KEY" value="-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0CWjT/blHg9yS4T/EX72\ngmIZ3nHVwmdzxRBHec/rwJDoV+kOASzKgrh7j9R2xemt17kRkVAUp4a3BPk4hxSU\nNDUSluQ+2QnMzPHKkL6ZhP02HdhWFCiApQLi2MG4ziSMpyx5bMsWIB2rX5k0wHwL\nL17qU2NAbvwVvOhww3dYDS5D6XLfSK/+/+K2G3HxWosJErbmLcGY9Ebk1iLh1i0z\n3UsJ94E2Q2u0PvdH/EUUOSXOyp3fFf7xe28p0tnh4kOOR/8XiSocuwZuAV8si7cs\n65BHP+yw1EOiYVWcPPuegWPYgIaHc+7UUcCJMNWOfy5n5Hiue0wGpdeuQFHAJ6cx\nA1Gx/jPsuLVTUyQmcAwvUKspg9uGYn5hPTUg9s1SB15Og6n+lNfbdhXpKrFao2zT\nnnZH7j+n1A+cnR3zz3bYl6I/9alKQ95RXd0oL0OK/bHsjEhKcLSBcEwOfWe5mZ/A\nLE1xZMEiEcQsp7ZvN4JhJcP5RSouK3unWFDKyefo33XbGN985h+oUBCjzI5z5VHv\nq+z/96tv/Z7CKR2Du7Q3tZ1UUmWpi62mqnc3E4zR63+ACO8aRbomN5MDCTRknEa8\nzlClvjeG1RTImGcMRkYhiT0npsRUQr87CP937I8daR79HvterfaEowYRCSfWwNkj\n2VbO/E2jzLBTNFBXKsMCB6kCAwEAAQ==\n-----END PUBLIC KEY-----" />
+    </php>
+</phpunit>

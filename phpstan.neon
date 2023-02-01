@@ -1,0 +1,23 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+parameters:
+    paths:
+        - src
+        - database/factories
+        - database/migrations
+        - database/seeders
+    level: 5
+    ignoreErrors:
+        - '#Parameter (.*) of class (.*)Dto constructor expects (.*), (.*) given.#'
+        - '#Parameter(.*)of class(.*)Schema constructor expects(.*)given.#'
+        - '#Creating callable from a non-native static method (.*).#'
+        - '#Call to an undefined method Faker\\Generator\:\:(.*).#'
+        - '#Method (.*) should return (.*) but returns Illuminate\\Database\\Eloquent\\Model.#'
+        - '#Access to an undefined property Infrastructure\\Eloquent\\Models\\(.*)\:\:\$(.*)_count.#'
+        - '#Access to an undefined property Laravel\\Passport\\Client\:\:\$(.).#'
+    excludePaths:
+        - 'src/Infrastructure/Exceptions/Handler.php'
+        - 'tests/Utils/SchemaAssertions/AssertSchema.php'
+    reportUnmatchedIgnoredErrors: false
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
