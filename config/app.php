@@ -166,7 +166,20 @@ return [
         Infrastructure\Faker\ServiceProvider::class,
         Infrastructure\Http\ServiceProvider::class,
         Infrastructure\HealthCheck\ServiceProvider::class,
+        Infrastructure\Google2FA\ServiceProvider::class,
 
+        /*
+         * Module Service Providers...
+         */
+        Modules\HealthCheck\ServiceProvider::class,
+        Modules\AuthProfile\ServiceProvider::class,
+        Modules\OAuth\ServiceProvider::class,
+        Modules\AuthEmail\ServiceProvider::class,
+        Modules\AuthPassword\ServiceProvider::class,
+        Modules\AuthFacebook\ServiceProvider::class,
+        Modules\AuthGoogle\ServiceProvider::class,
+        Modules\AuthTrustedDevice\ServiceProvider::class,
+        Modules\AuthGoogle2FA\ServiceProvider::class,
         /*
          * Module Service Providers...
          */
