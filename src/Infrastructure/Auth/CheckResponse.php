@@ -11,16 +11,19 @@ final class CheckResponse
         //
     }
 
-    public static function allowed(): static
+    public static function allowed(): CheckResponse
     {
-        return new static(true);
+        return new CheckResponse(true);
     }
 
-    public static function denied(): static
+    public static function denied(): CheckResponse
     {
-        return new static(false);
+        return new CheckResponse(false);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function authorize(): void
     {
         if ($this->allow) {

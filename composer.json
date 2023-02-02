@@ -12,6 +12,7 @@
         "ext-pdo_pgsql": "*",
         "ext-pgsql": "*",
         "ext-redis": "*",
+        "bacon/bacon-qr-code": "^2.0",
         "darkaonline/l5-swagger": "^8.4",
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^9.50",

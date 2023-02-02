@@ -7,7 +7,7 @@ use Infrastructure\Auth\AbstractPolicy;
 use Infrastructure\Eloquent\Models\User;
 use Modules\AuthGoogle\Dto\AuthGoogleLinkDto;
 use Modules\AuthGoogle\Dto\AuthGoogleForgetDto;
-use Infrastructure\Auth\Checks\UserHasEmailCheck;
+use Infrastructure\Auth\Checks\UserHasFacebookCheck;
 use Infrastructure\Auth\Checks\UserHasGoogleCheck;
 use Infrastructure\Auth\Operators\Logical\OrCheck;
 use Infrastructure\Auth\Operators\Logical\AndCheck;
@@ -34,7 +34,7 @@ final class AuthGooglePolicy extends AbstractPolicy
             new OrCheck(
                 new UserHasFacebookCheck($user),
                 new AndCheck(
-                    new UserHasEmailCheck($user),
+                    new UserHasFacebookCheck($user),
                     new UserHasPasswordCheck($user),
                 ),
             ),

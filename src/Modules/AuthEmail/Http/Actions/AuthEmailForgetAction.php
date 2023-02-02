@@ -3,6 +3,7 @@
 namespace Modules\AuthEmail\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
+use Infrastructure\Auth\Checks\UserHasEmailCheck;
 use Modules\AuthEmail\Services\AuthEmailCommandService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthEmail\Http\Requests\AuthEmailForgetRequest;
@@ -40,7 +41,7 @@ final class AuthEmailForgetAction
     public function __invoke(AuthEmailForgetRequest $request, AuthEmailCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:email@forget', [$dto]);
+        $this->authorize(new UserHasEmailCheck(Auth::user()));
 
         $service->forget($dto);
 

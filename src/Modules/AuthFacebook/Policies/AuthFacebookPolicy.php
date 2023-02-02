@@ -5,7 +5,7 @@ namespace Modules\AuthFacebook\Policies;
 use Illuminate\Auth\Access\Response;
 use Infrastructure\Auth\AbstractPolicy;
 use Infrastructure\Eloquent\Models\User;
-use Infrastructure\Auth\Checks\UserHasEmailCheck;
+use Infrastructure\Auth\Checks\UserHasFacebookCheck;
 use Modules\AuthFacebook\Dto\AuthFacebookLinkDto;
 use Infrastructure\Auth\Checks\UserHasGoogleCheck;
 use Infrastructure\Auth\Operators\Logical\OrCheck;
@@ -34,7 +34,7 @@ final class AuthFacebookPolicy extends AbstractPolicy
             new OrCheck(
                 new UserHasGoogleCheck($user),
                 new AndCheck(
-                    new UserHasEmailCheck($user),
+                    new UserHasFacebookCheck($user),
                     new UserHasPasswordCheck($user),
                 ),
             ),

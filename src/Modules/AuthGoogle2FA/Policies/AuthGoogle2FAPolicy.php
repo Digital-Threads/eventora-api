@@ -5,7 +5,7 @@ namespace Modules\AuthGoogle2FA\Policies;
 use Illuminate\Auth\Access\Response;
 use Infrastructure\Auth\AbstractPolicy;
 use Infrastructure\Eloquent\Models\User;
-use Infrastructure\Auth\Checks\UserHasEmailCheck;
+use Infrastructure\Auth\Checks\UserHasFacebookCheck;
 use Infrastructure\Auth\Operators\Logical\AndCheck;
 use Infrastructure\Auth\Operators\Logical\NotCheck;
 use Modules\AuthGoogle2FA\Dto\AuthGoogle2FAIssueDto;
@@ -23,7 +23,7 @@ final class AuthGoogle2FAPolicy extends AbstractPolicy
     {
         return $this->check(new AndCheck(
             new IsTrueCheck($user->id === $request->userId),
-            new UserHasEmailCheck($user),
+            new UserHasFacebookCheck($user),
             new NotCheck(new UserHasGoogle2FACheck($user)),
         ));
     }

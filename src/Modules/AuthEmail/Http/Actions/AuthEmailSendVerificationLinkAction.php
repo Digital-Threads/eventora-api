@@ -3,6 +3,7 @@
 namespace Modules\AuthEmail\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
+use Infrastructure\Auth\Checks\UserHasEmailCheck;
 use Modules\AuthEmail\Services\AuthEmailCommandService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthEmail\Http\Requests\AuthEmailSendVerificationLinkRequest;
@@ -48,7 +49,7 @@ final class AuthEmailSendVerificationLinkAction
     public function __invoke(AuthEmailSendVerificationLinkRequest $request, AuthEmailCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:email@sendVerificationLink', [$dto]);
+        $this->authorize(new UserHasEmailCheck(Auth::user()));
 
         $service->sendVerificationLink($dto);
 
