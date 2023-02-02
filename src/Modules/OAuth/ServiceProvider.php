@@ -2,26 +2,34 @@
 
 namespace Modules\OAuth;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Laravel\Passport\Bridge\RefreshTokenRepository;
-use Laravel\Passport\Bridge\UserRepository;
 use Laravel\Passport\Passport;
-use League\OAuth2\Server\AuthorizationServer;
-use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
-use League\OAuth2\Server\Repositories\UserRepositoryInterface;
+use Modules\OAuth\Grants\GoogleGrant;
+use Modules\OAuth\Grants\FacebookGrant;
 use Modules\OAuth\Grants\PasswordGrant;
+use Laravel\Passport\Bridge\UserRepository;
+use Modules\OAuth\Grants\GoogleSignupGrant;
+use League\OAuth2\Server\AuthorizationServer;
+use Modules\OAuth\Grants\FacebookSignupGrant;
 use Modules\OAuth\Grants\PasswordSignupGrant;
+use Laravel\Passport\Bridge\RefreshTokenRepository;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use League\OAuth2\Server\Repositories\UserRepositoryInterface;
+use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
 
 final class ServiceProvider extends BaseServiceProvider
 {
     public array $bindings = [
-        UserRepositoryInterface::class         => UserRepository::class,
+        UserRepositoryInterface::class => UserRepository::class,
         RefreshTokenRepositoryInterface::class => RefreshTokenRepository::class,
     ];
 
     protected array $grants = [
         PasswordGrant::class,
         PasswordSignupGrant::class,
+        GoogleGrant::class,
+        GoogleSignupGrant::class,
+        FacebookGrant::class,
+        FacebookSignupGrant::class,
     ];
 
     public function register(): void
@@ -30,6 +38,7 @@ final class ServiceProvider extends BaseServiceProvider
             foreach ($this->grants as $grant) {
                 $server->enableGrantType(app($grant), Passport::tokensExpireIn());
             }
+
             return $server;
         });
     }

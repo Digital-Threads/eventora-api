@@ -15,6 +15,11 @@ final class PasswordSignupGrant extends AbstractGrant
         return 'password_signup';
     }
 
+    protected function shouldValidateOtp(): bool
+    {
+        return false;
+    }
+
     protected function getServerRequestValidationRules(ServerRequestInterface $request): array
     {
         return [
@@ -61,10 +66,5 @@ final class PasswordSignupGrant extends AbstractGrant
             $data['first_name'],
             $data['last_name'],
         ));
-    }
-
-    protected function shouldValidateOtp(): bool
-    {
-        return true;
     }
 }

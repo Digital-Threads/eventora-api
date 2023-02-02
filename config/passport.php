@@ -4,19 +4,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Passport Guard
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify which authentication guard Passport will use when
-    | authenticating users. This value should correspond with one of your
-    | guards that is already present in your "auth" configuration file.
-    |
-    */
-
-    'guard' => 'web',
-
-    /*
-    |--------------------------------------------------------------------------
     | Encryption Keys
     |--------------------------------------------------------------------------
     |
@@ -24,7 +11,7 @@ return [
     | your application. By default, the keys are stored as local files but
     | can be set via environment variables when that is more convenient.
     |
-    */
+     */
 
     'private_key' => env('PASSPORT_PRIVATE_KEY'),
 
@@ -39,9 +26,9 @@ return [
     | IDs to clients. However, if Passport is installed using the provided
     | --uuids switch, this will be set to "true" and UUIDs will be used.
     |
-    */
+     */
 
-    'client_uuids' => false,
+    'client_uuids' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -52,17 +39,45 @@ return [
     | ID and unhashed secret within your environment file. The values will
     | get used while issuing fresh personal access tokens to your users.
     |
-    */
+     */
 
     'personal_access_client' => [
         'id' => env('PASSPORT_PERSONAL_ACCESS_CLIENT_ID'),
         'secret' => env('PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Passport Storage Driver
+    |--------------------------------------------------------------------------
+    |
+    | This configuration value allows you to customize the storage options
+    | for Passport, such as the database connection that should be used
+    | by Passport's internal database models which store tokens, etc.
+    |
+     */
+
+    'storage' => [
+        'database' => [
+            'connection' => 'pgsql',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Access Token Scopes
+    |--------------------------------------------------------------------------
+     */
 
     'scopes' => [
         //
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Tokens Expiration Time in Days
+    |--------------------------------------------------------------------------
+     */
 
     'tokens_expire_in' => 1,
 

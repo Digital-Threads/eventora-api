@@ -2,10 +2,10 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Database\Factories\UserTrustedDeviceFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\UserTrustedDeviceFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @method static UserTrustedDeviceFactory factory()
