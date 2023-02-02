@@ -4,6 +4,7 @@ namespace Modules\AuthGoogle2FA\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasGoogle2FACheck;
 use Modules\AuthGoogle2FA\Services\AuthGoogle2FACommandService;
 use Modules\AuthGoogle2FA\Http\Requests\AuthGoogle2FAEnableRequest;
 
@@ -56,7 +57,7 @@ final class AuthGoogle2FAEnableAction
     public function __invoke(AuthGoogle2FAEnableRequest $request, AuthGoogle2FACommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:google2fa@enable', [$dto]);
+        $this->authorize(new UserHasGoogle2FACheck(\Auth::user()));
 
         $service->enable($dto);
 

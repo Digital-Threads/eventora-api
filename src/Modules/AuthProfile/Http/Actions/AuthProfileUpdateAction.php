@@ -4,6 +4,7 @@ namespace Modules\AuthProfile\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Eloquent\Models\User;
 use Modules\AuthProfile\Services\AuthProfileCommandService;
 use Modules\AuthProfile\Http\Requests\AuthProfileUpdateRequest;
 
@@ -45,10 +46,10 @@ final class AuthProfileUpdateAction
      *      ),
      * )
      */
-    public function __invoke(AuthProfileUpdateRequest $request, AuthProfileCommandService $service): JsonResponse
+    public function __invoke(AuthProfileUpdateRequest $request, AuthProfileCommandService $service, User $user): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:profile@update', [$dto]);
+        $this->authorize($user->id === $dto->userId);
 
         $service->update($dto);
 

@@ -4,6 +4,7 @@ namespace Modules\AuthGoogle\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasGoogleCheck;
 use Modules\AuthGoogle\Services\AuthGoogleCommandService;
 use Modules\AuthGoogle\Http\Requests\AuthGoogleLinkRequest;
 
@@ -55,7 +56,7 @@ final class AuthGoogleLinkAction
     public function __invoke(AuthGoogleLinkRequest $request, AuthGoogleCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:google@link', [$dto]);
+        $this->authorize(new UserHasGoogleCheck(\Auth::user()));
 
         $service->link($dto);
 

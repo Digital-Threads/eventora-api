@@ -4,6 +4,7 @@ namespace Modules\AuthGoogle2FA\Http\Actions;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasGoogle2FAEnabledCheck;
 use Modules\AuthGoogle2FA\Services\AuthGoogle2FACommandService;
 use Modules\AuthGoogle2FA\Http\Requests\AuthGoogle2FAIssueRequest;
 use Modules\AuthGoogle2FA\Http\Resources\AuthGoogle2FACredentialsResource;
@@ -49,7 +50,7 @@ final class AuthGoogle2FAIssueAction
     public function __invoke(AuthGoogle2FAIssueRequest $request, AuthGoogle2FACommandService $service): JsonResource
     {
         $dto = $request->toDto();
-        $this->authorize('auth:google2fa@issue', [$dto]);
+        $this->authorize(new UserHasGoogle2FAEnabledCheck(\Auth::user()));
 
         $credentials = $service->issue($dto);
 

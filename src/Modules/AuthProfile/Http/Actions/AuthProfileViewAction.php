@@ -4,6 +4,7 @@ namespace Modules\AuthProfile\Http\Actions;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Eloquent\Models\User;
 use Modules\AuthProfile\Services\AuthProfileQueryService;
 use Modules\AuthProfile\Http\Resources\AuthProfileResource;
 use Modules\AuthProfile\Http\Requests\AuthProfileViewRequest;
@@ -38,10 +39,10 @@ final class AuthProfileViewAction
      *      ),
      * )
      */
-    public function __invoke(AuthProfileViewRequest $request, AuthProfileQueryService $service): JsonResource
+    public function __invoke(AuthProfileViewRequest $request, AuthProfileQueryService $service, User $user): JsonResource
     {
         $dto = $request->toDto();
-        $this->authorize('auth:profile@view', [$dto]);
+        $this->authorize($user->id === $dto->userId);
 
         $me = $service->view($dto);
 

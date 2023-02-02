@@ -4,6 +4,8 @@ namespace Modules\AuthGoogle2FA\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasGoogle2FAEnabledCheck;
+use Infrastructure\Auth\Checks\UserHasGoogleCheck;
 use Modules\AuthGoogle2FA\Services\AuthGoogle2FACommandService;
 use Modules\AuthGoogle2FA\Http\Requests\AuthGoogle2FADisableRequest;
 
@@ -48,7 +50,7 @@ final class AuthGoogle2FADisableAction
     public function __invoke(AuthGoogle2FADisableRequest $request, AuthGoogle2FACommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:google2fa@disable', [$dto]);
+        $this->authorize(new UserHasGoogle2FAEnabledCheck(\Auth::user()));
 
         $service->disable($dto);
 

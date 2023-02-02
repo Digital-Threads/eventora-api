@@ -4,6 +4,7 @@ namespace Modules\AuthGoogle2FA\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasGoogle2FAEnabledCheck;
 use Modules\AuthGoogle2FA\Services\AuthGoogle2FACommandService;
 use Modules\AuthGoogle2FA\Http\Requests\AuthGoogle2FAForgetRequest;
 
@@ -48,7 +49,7 @@ final class AuthGoogle2FAForgetAction
     public function __invoke(AuthGoogle2FAForgetRequest $request, AuthGoogle2FACommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:google2fa@forget', [$dto]);
+        $this->authorize(new UserHasGoogle2FAEnabledCheck(\Auth::user()));
 
         $service->forget($dto);
 

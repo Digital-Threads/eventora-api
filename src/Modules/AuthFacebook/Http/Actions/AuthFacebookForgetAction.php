@@ -4,6 +4,7 @@ namespace Modules\AuthFacebook\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasFacebookCheck;
 use Modules\AuthFacebook\Services\AuthFacebookCommandService;
 use Modules\AuthFacebook\Http\Requests\AuthFacebookForgetRequest;
 
@@ -48,7 +49,7 @@ final class AuthFacebookForgetAction
     public function __invoke(AuthFacebookForgetRequest $request, AuthFacebookCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:facebook@forget', [$dto]);
+        $this->authorize(new UserHasFacebookCheck(\Auth::user()));
 
         $service->forget($dto);
 

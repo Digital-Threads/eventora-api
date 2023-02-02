@@ -4,6 +4,7 @@ namespace Modules\AuthFacebook\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Infrastructure\Auth\Checks\UserHasFacebookCheck;
 use Modules\AuthFacebook\Services\AuthFacebookCommandService;
 use Modules\AuthFacebook\Http\Requests\AuthFacebookLinkRequest;
 
@@ -55,7 +56,7 @@ final class AuthFacebookLinkAction
     public function __invoke(AuthFacebookLinkRequest $request, AuthFacebookCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize('auth:facebook@link', [$dto]);
+        $this->authorize(new UserHasFacebookCheck(\Auth::user()));
 
         $service->link($dto);
 

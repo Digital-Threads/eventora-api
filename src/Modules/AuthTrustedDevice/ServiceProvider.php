@@ -10,11 +10,7 @@ use Modules\AuthTrustedDevice\Events\Listeners\AuthTrustedDeviceCreateListener;
 
 final class ServiceProvider extends BaseServiceProvider
 {
-    use DefineGates, RegisterListeners;
-
-    protected array $gates = [
-        'auth:trustedDevice' => AuthTrustedDevicePolicy::class,
-    ];
+    use RegisterListeners;
 
     protected array $listeners = [
         'auth_trusted_device.create' => AuthTrustedDeviceCreateListener::class,
@@ -22,7 +18,6 @@ final class ServiceProvider extends BaseServiceProvider
 
     public function boot(): void
     {
-        $this->defineGates();
         $this->registerListeners();
         $this->loadRoutesFrom(__DIR__ . '/Http/routes.php');
     }
