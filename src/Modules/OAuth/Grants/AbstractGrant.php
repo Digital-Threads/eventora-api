@@ -6,7 +6,6 @@ use DateInterval;
 use Ramsey\Uuid\Uuid;
 use Modules\OAuth\Utils\RequestMeta;
 use League\OAuth2\Server\RequestEvent;
-use Modules\OAuth\Dto\OAuthVerifyOtpDto;
 use Modules\OAuth\Services\OAuthService;
 use Illuminate\Support\Facades\Validator;
 use Psr\Http\Message\ServerRequestInterface;
@@ -44,7 +43,7 @@ abstract class AbstractGrant extends LeagueAbstractGrant
 
     abstract protected function validateUser(ServerRequestInterface $request, ClientEntityInterface $client): UserEntityInterface;
 
-    abstract protected function shouldValidateOtp(): bool;
+//    abstract protected function shouldValidateOtp(): bool;
 
     /**
      * {@inheritDoc}
@@ -61,9 +60,9 @@ abstract class AbstractGrant extends LeagueAbstractGrant
         $scopes = $this->validateScopes($this->getRequestParameter('scope', $request, $this->defaultScope));
         $user = $this->validateUser($request, $client);
 
-        if ($this->shouldValidateOtp()) {
-            $this->validateOtp($request, $user);
-        }
+//        if ($this->shouldValidateOtp()) {
+//            $this->validateOtp($request, $user);
+//        }
 
         $finalizedScopes = $this->scopeRepository->finalizeScopes(
             $scopes,
@@ -109,9 +108,9 @@ abstract class AbstractGrant extends LeagueAbstractGrant
         try {
             $rules = collect($this->getServerRequestValidationRules($request));
 
-            if ($this->shouldValidateOtp()) {
-                $rules->merge($this->getServerRequestOTPValidationRules());
-            }
+//            if ($this->shouldValidateOtp()) {
+//                $rules->merge($this->getServerRequestOTPValidationRules());
+//            }
 
             $data = $rules
                 ->keys()

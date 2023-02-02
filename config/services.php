@@ -14,6 +14,7 @@ return [
     |
      */
 
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -34,6 +35,16 @@ return [
         'client_id' => env('GOOGLE_OAUTH_CLIENT_ID'),
         'client_secret' => env('GOOGLE_OAUTH_CLIENT_SECRET'),
         'redirect' => null,
+    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_OAUTH_APP_ID'),
+        'client_secret' => env('FACEBOOK_OAUTH_APP_SECRET'),
+        'redirect' => null,
+    ],
+
+    'google2fa' => [
+        'company' => env('GOOGLE2FA_COMPANY', ''),
     ],
 
 ];

@@ -18,6 +18,8 @@
         "laravel/framework": "^9.50",
         "laravel/passport": "^11.6",
         "laravel/tinker": "^2.8",
+        "pragmarx/google2fa": "^8.0",
+        "pragmarx/google2fa-qrcode": "^3.0",
         "ramsey/uuid": "^4.7"
     },
     "require-dev": {
