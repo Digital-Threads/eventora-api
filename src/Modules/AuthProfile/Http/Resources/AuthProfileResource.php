@@ -3,9 +3,9 @@
 namespace Modules\AuthProfile\Http\Resources;
 
 use Infrastructure\Eloquent\Models\User;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Infrastructure\Http\Resources\JsonResource;
-use Modules\AuthProfile\Http\Schemas\AuthProfileSchema;
-use Infrastructure\Http\Resources\Traits\ConvertsSchemaToArray;
+use Modules\AuthProfile\Http\Schemas\CompanyTypeSchema;
 
 /**
  * @property User $resource
@@ -14,9 +14,9 @@ final class AuthProfileResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    public function toSchema($request): AuthProfileSchema
+    public function toSchema($request): CompanyTypeSchema
     {
-        return new AuthProfileSchema(
+        return new CompanyTypeSchema(
             $this->resource->id,
             $this->resource->first_name,
             $this->resource->last_name,

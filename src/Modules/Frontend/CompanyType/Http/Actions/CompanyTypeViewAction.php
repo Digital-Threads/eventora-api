@@ -1,22 +1,20 @@
 <?php
 
-namespace Modules\AuthProfile\Http\Actions;
+namespace Modules\Frontend\CompanyType\Http\Actions;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Eloquent\Models\User;
-use Modules\AuthProfile\Services\CompanyTypeQueryService;
-use Modules\AuthProfile\Http\Resources\CompanyTypeResource;
-use Modules\AuthProfile\Http\Requests\CompanyTypeViewRequest;
+use Modules\Frontend\CompanyType\Services\CompanyTypeQueryService;
+use Modules\Frontend\CompanyType\Http\Resources\CompanyTypeResource;
+use Modules\Frontend\CompanyType\Http\Requests\CompanyTypeViewRequest;
 
-final class AuthProfileViewAction
+final class CompanyTypeViewAction
 {
-    use AuthorizesRequests;
 
     /**
      * @OA\Get(
-     *      path="/authProfile",
-     *      tags={"AuthProfile"},
+     *      path="/companyType",
+     *      tags={"CompanyType"},
      *      description="Get current authenticated user profile",
      *      security={
      *          {"passport": {}},
@@ -26,7 +24,7 @@ final class AuthProfileViewAction
      *          description="Successful",
      *          @OA\JsonContent(
      *              type="object",
-     *              @OA\Property(property="data", ref="#/components/schemas/AuthProfileSchema"),
+     *              @OA\Property(property="data", ref="#/components/schemas/CompanyTypeSchema"),
      *          ),
      *      ),
      *      @OA\Response(

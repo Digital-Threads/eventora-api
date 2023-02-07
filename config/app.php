@@ -184,6 +184,7 @@ return [
          * Module Service Providers...
          */
         Modules\Example\ServiceProvider::class,
+        Modules\Frontend\CompanyType\ServiceProvider::class,
     ],
 
     /*

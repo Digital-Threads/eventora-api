@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\AuthProfile\Http\Requests;
+namespace Modules\Frontend\CompanyType\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
-use Modules\AuthProfile\Dto\CompanyTypeViewDto;
+use Modules\Frontend\CompanyType\Dto\CompanyTypeViewDto;
 
-final class AuthProfileViewRequest extends FormRequest
+final class CompanyTypeViewRequest extends FormRequest
 {
     public function rules(): array
     {
@@ -17,8 +17,6 @@ final class AuthProfileViewRequest extends FormRequest
 
     public function toDto(): CompanyTypeViewDto
     {
-        return new CompanyTypeViewDto(
-            Auth::id()
-        );
+        return new CompanyTypeViewDto();
     }
 }
