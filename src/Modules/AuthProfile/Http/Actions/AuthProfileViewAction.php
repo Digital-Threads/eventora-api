@@ -5,9 +5,9 @@ namespace Modules\AuthProfile\Http\Actions;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Eloquent\Models\User;
-use Modules\AuthProfile\Services\CompanyTypeQueryService;
-use Modules\AuthProfile\Http\Resources\CompanyTypeResource;
-use Modules\AuthProfile\Http\Requests\CompanyTypeViewRequest;
+use Modules\AuthProfile\Services\AuthProfileQueryService;
+use Modules\AuthProfile\Http\Resources\AuthProfileResource;
+use Modules\AuthProfile\Http\Requests\AuthProfileViewRequest;
 
 final class AuthProfileViewAction
 {
@@ -39,13 +39,13 @@ final class AuthProfileViewAction
      *      ),
      * )
      */
-    public function __invoke(CompanyTypeViewRequest $request, CompanyTypeQueryService $service, User $user): JsonResource
+    public function __invoke(AuthProfileViewRequest $request, AuthProfileQueryService $service, User $user): JsonResource
     {
 
         $dto = $request->toDto();
 
         $me = $service->view($dto);
 
-        return new CompanyTypeResource($me);
+        return new AuthProfileResource($me);
     }
 }

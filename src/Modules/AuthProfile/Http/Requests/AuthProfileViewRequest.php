@@ -4,7 +4,7 @@ namespace Modules\AuthProfile\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
-use Modules\AuthProfile\Dto\CompanyTypeViewDto;
+use Modules\AuthProfile\Dto\AuthProfileViewDto;
 
 final class AuthProfileViewRequest extends FormRequest
 {
@@ -15,9 +15,9 @@ final class AuthProfileViewRequest extends FormRequest
         ];
     }
 
-    public function toDto(): CompanyTypeViewDto
+    public function toDto(): AuthProfileViewDto
     {
-        return new CompanyTypeViewDto(
+        return new AuthProfileViewDto(
             Auth::id()
         );
     }
