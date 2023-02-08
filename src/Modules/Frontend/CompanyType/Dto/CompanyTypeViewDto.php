@@ -6,6 +6,5 @@ final class CompanyTypeViewDto
 {
     public function __construct(
     ) {
-        //
     }
 }

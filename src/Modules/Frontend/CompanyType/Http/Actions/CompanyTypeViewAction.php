@@ -42,8 +42,7 @@ final class CompanyTypeViewAction
 
         $dto = $request->toDto();
 
-        $me = $service->view($dto);
-
-        return new CompanyTypeResource($me);
+        $companyTypes = $service->view($dto);
+        return  CompanyTypeResource::collection($companyTypes);
     }
 }

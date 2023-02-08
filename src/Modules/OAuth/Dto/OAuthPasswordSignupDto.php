@@ -9,6 +9,9 @@ final class OAuthPasswordSignupDto
         public readonly string $password,
         public readonly string $firstName,
         public readonly string $lastName,
+        public readonly string $companyType,
+        public readonly string $companyAddress,
+        public readonly string $companyName,
     ) {
         //
     }

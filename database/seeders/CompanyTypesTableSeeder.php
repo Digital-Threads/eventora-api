@@ -24,7 +24,7 @@ class CompanyTypesTableSeeder extends Seeder
         foreach ($companyTypes as $type) {
             CompanyType::firstOrCreate([
                 'name' => $type,
-                'slug' => Str::slug('$type')
+                'slug' => Str::slug($type)
             ]);
         }
     }

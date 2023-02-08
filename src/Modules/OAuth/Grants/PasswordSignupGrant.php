@@ -34,7 +34,6 @@ final class PasswordSignupGrant extends AbstractGrant
                 'required',
                 'string',
                 'max:255',
-                new PasswordRule(),
             ],
             'first_name' => [
                 'required',
@@ -42,6 +41,21 @@ final class PasswordSignupGrant extends AbstractGrant
                 'max:255',
             ],
             'last_name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'company_name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'company_address' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'company_type' => [
                 'required',
                 'string',
                 'max:255',
@@ -59,12 +73,14 @@ final class PasswordSignupGrant extends AbstractGrant
     protected function validateUser(ServerRequestInterface $request, ClientEntityInterface $client): UserEntityInterface
     {
         $data = $this->validateRequest($request);
-
         return $this->service->passwordSignup(new OAuthPasswordSignupDto(
             $data['username'],
             $data['password'],
             $data['first_name'],
             $data['last_name'],
+            $data['company_type'],
+            $data['company_address'],
+            $data['company_name'],
         ));
     }
 }
