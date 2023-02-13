@@ -187,6 +187,8 @@ return [
         Modules\Frontend\CompanyType\ServiceProvider::class,
         Modules\Frontend\Company\ServiceProvider::class,
         Modules\Frontend\Bank\ServiceProvider::class,
+        Modules\Frontend\BankCard\ServiceProvider::class,
+        Modules\Frontend\BankAccount\ServiceProvider::class,
     ],
 
     /*

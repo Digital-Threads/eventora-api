@@ -4,7 +4,6 @@ namespace Modules\Frontend\Bank\Services;
 
 use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\Bank;
-use Infrastructure\Eloquent\Models\Company;
 use Modules\Frontend\Bank\Dto\BankViewDto;
 
 final class BankQueryService

@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('bank_cards', function (Blueprint $table) {
             $table->id();
-            $table->integer('card_number');
+            $table->bigInteger('card_number');
             $table->string('card_employee_name');
             $table->integer('expired_month');
             $table->integer('expired_year');
