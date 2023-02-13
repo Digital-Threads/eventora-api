@@ -14,7 +14,7 @@ class Company extends Model
     /**
      * @var string[]
      */
-    protected $fillable = ['name', 'cover_id', 'company_type_id', 'user_id'];
+    protected $fillable = ['name', 'cover_id', 'company_type_id', 'user_id',];
 
     /**
      * @return BelongsTo

@@ -9,6 +9,7 @@ final class AuthProfileQueryService
 {
     public function view(AuthProfileViewDto $request): User
     {
-        return User::findOrFail($request->userId);
+        $user = User::findOrFail($request->userId);
+        return $user->load('ownCompanies');
     }
 }
