@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/finance-api.iml" filepath="$PROJECT_DIR$/.idea/finance-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../menq-api/.idea/menq-api.iml" filepath="$PROJECT_DIR$/../menq-api/.idea/menq-api.iml" />
     </modules>
   </component>
 </project>
