@@ -3,6 +3,7 @@
 namespace Modules\Frontend\BankAccount\Http\Actions;
 
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Infrastructure\Eloquent\Models\Bank;
 use Modules\Frontend\BankAccount\Http\Requests\BankAccountViewRequest;
 use Modules\Frontend\BankAccount\Http\Resources\BankAccountResource;
 use Modules\Frontend\BankAccount\Services\BankAccountQueryService;
@@ -14,7 +15,7 @@ final class BankAccountViewAction
      * @OA\Get(
      *      path="/bankAccount",
      *      tags={"BankAccount"},
-     *      description="Get company bankAccounts list",
+     *      description="Get Bank Accounts list",
      *      security={
      *          {"passport": {}},
      *      },
@@ -36,11 +37,11 @@ final class BankAccountViewAction
      *      ),
      * )
      */
-    public function __invoke(BankAccountViewRequest $request, BankAccountQueryService $service, int $companyId): AnonymousResourceCollection
+    public function __invoke(BankAccountViewRequest $request, BankAccountQueryService $service, Bank $bank): AnonymousResourceCollection
     {
         $dto = $request->toDto();
 
-        $bankAccounts = $service->view($dto, $companyId);
+        $bankAccounts = $service->view($dto, $bank);
 
         return BankAccountResource::collection($bankAccounts);
     }
