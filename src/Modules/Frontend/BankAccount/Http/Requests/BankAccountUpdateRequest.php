@@ -18,12 +18,8 @@ final class BankAccountUpdateRequest extends FormRequest
     {
         return new BankAccountCreateDto(
             $this->input('bank_id'),
-            $this->input('card_number'),
-            $this->input('card_employee_name'),
-            $this->input('expired_month'),
-            $this->input('expired_year'),
+            $this->input('bank_account'),
             $this->input('currency_id'),
-
         );
     }
 }

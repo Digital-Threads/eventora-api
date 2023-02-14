@@ -1,15 +1,12 @@
 <?php
 
-namespace Modules\Frontend\BankCard\Dto;
+namespace Modules\Frontend\BankAccount\Dto;
 
 final class BankAccountUpdateDto
 {
     public function __construct(
         public int $bankId,
-        public int $cardNumber,
-        public ?string $cardEmployeeName,
-        public ?int $expiredMonth,
-        public ?int $expiredYear,
+        public int $bankAccount,
         public int $currencyId
     ) {
     }
