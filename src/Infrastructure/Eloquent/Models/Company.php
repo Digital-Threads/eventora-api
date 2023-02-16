@@ -39,4 +39,12 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    /**
+     * @return HasMany
+     */
+    public function banks(): HasMany
+    {
+        return $this->hasMany(Bank::class);
+    }
 }

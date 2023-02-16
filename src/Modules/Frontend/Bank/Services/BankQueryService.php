@@ -10,8 +10,6 @@ final class BankQueryService
 {
     public function view(BankViewDto $request, int $companyId): Collection|array
     {
-        return Bank::query()->with('companies')->whereHas('companies', function ($query) use ($companyId) {
-            $query->where('company_id', $companyId);
-        })->get();
+        return Bank::query()->where('company_id', $companyId)->get();
     }
 }
