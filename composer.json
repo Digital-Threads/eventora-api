@@ -3,7 +3,7 @@
     "type": "project",
     "description": "API",
     "license": "proprietary",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": "^8.1",
@@ -15,22 +15,22 @@
         "bacon/bacon-qr-code": "^2.0",
         "darkaonline/l5-swagger": "^8.4",
         "guzzlehttp/guzzle": "^7.5",
-        "laravel/framework": "^9.50",
-        "laravel/passport": "^11.6",
+        "laravel/framework": "^11.0",
+        "laravel/passport": "^12.0",
         "laravel/tinker": "^2.8",
         "pragmarx/google2fa": "^8.0",
         "pragmarx/google2fa-qrcode": "^3.0",
         "ramsey/uuid": "^4.7"
     },
     "require-dev": {
-        "brianium/paratest": "^6.8",
+        "brianium/paratest": "^7.0",
         "fakerphp/faker": "^1.21",
         "friendsofphp/php-cs-fixer": "^3.14",
         "mockery/mockery": "^1.5",
-        "nunomaduro/collision": "^6.4",
+        "nunomaduro/collision": "^8.1",
         "nunomaduro/larastan": "^2.4",
-        "phpunit/phpunit": "^9.5",
-        "spatie/laravel-ignition": "^1.6"
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
