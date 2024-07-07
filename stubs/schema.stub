@@ -1,0 +1,12 @@
+<?php
+
+namespace {{ namespace }}\Http\Schemas;
+
+class {{ class }}
+{
+    public function __construct(
+        // Define your schema properties here
+    ) {
+        //
+    }
+}

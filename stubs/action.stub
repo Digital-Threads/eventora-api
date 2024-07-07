@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }}\Http\Actions;
+
+class {{ class }}
+{
+    public function __invoke()
+    {
+        //
+    }
+}
