@@ -4,7 +4,7 @@ namespace Modules\AuthTrustedDevice\Http\Resources;
 
 use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Eloquent\Models\UserTrustedDevice;
-use Infrastructure\Http\Resources\Traits\ConvertsSchemaToArray;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Modules\AuthTrustedDevice\Http\Schemas\AuthTrustedDeviceSchema;
 
 /**

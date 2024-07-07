@@ -52,7 +52,7 @@
         "test": "phpunit",
         "test:coverage": "php -dpcov.directory=. ./vendor/bin/phpunit --coverage-html=./coverage",
         "php-cs-fixer:fix": "./vendor/bin/php-cs-fixer fix ./src ./database ./tests --config=./.php-cs-fixer.php",
-        "phpstan": "phpstan --memory-limit=4096M",
+        "phpstan": "phpstan --memory-limit=512M",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

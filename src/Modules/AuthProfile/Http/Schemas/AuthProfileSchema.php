@@ -35,8 +35,6 @@ final class AuthProfileSchema extends AbstractSchema
         public ?string $passwordChangedAt,
         /** @OA\Property(format="date-time") */
         public string $registeredAt,
-        /** @OA\Property(type="array", @OA\Items(ref="#/components/schemas/CompanySchema")) */
-        public array $companies,
     ) {
         //
     }

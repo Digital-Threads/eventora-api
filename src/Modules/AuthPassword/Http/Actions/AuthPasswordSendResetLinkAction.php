@@ -2,11 +2,12 @@
 
 namespace Modules\AuthPassword\Http\Actions;
 
-use Illuminate\Http\JsonResponse;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Modules\AuthPassword\Services\AuthPasswordCommandService;
+use Illuminate\Http\JsonResponse;
 use Modules\AuthPassword\Exceptions\AuthPasswordResetFailedException;
 use Modules\AuthPassword\Http\Requests\AuthPasswordSendResetLinkRequest;
+use Modules\AuthPassword\Services\AuthPasswordCommandService;
 
 final class AuthPasswordSendResetLinkAction
 {
@@ -48,9 +49,9 @@ final class AuthPasswordSendResetLinkAction
             $dto = $request->toDto();
             $service->sendResetLink($dto);
 
-            return response()->message(trans('messages.auth_password.password_reset_link_sent'));
-        } catch (AuthPasswordResetFailedException) {
-            return response()->errorMessage(trans('messages.auth_password.failed_to_send_password_reset_link'));
+            return response()->json(['message' => (trans('messages.auth_password.password_reset_link_sent'))]);
+        } catch(AuthPasswordResetFailedException) {
+            return response()->json(['error' => (trans('messages.auth_password.failed_to_send_password_reset_link'))]);
         }
     }
 }

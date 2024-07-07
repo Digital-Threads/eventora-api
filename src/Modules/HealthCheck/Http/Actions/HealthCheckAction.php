@@ -34,6 +34,6 @@ final class HealthCheckAction
     {
         $service->healthCheck();
 
-        return response()->message(trans('messages.http.healthy'));
+        return response()->json(['message' => trans('messages.http.healthy')]);
     }
 }

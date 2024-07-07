@@ -6,7 +6,6 @@ use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Http\Resources\JsonResource;
 use Modules\AuthProfile\Http\Schemas\AuthProfileSchema;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
-use Modules\Frontend\Company\Http\Resources\CompanyResource;
 
 /**
  * @property User $resource
@@ -30,7 +29,6 @@ final class AuthProfileResource extends JsonResource
             $this->resource->email_verified_at?->toRfc3339String(),
             $this->resource->password_changed_at?->toRfc3339String(),
             $this->resource->registered_at->toRfc3339String(),
-            CompanyResource::schemas($this->whenLoaded('ownCompanies', $this->resource->ownCompanies)),
         );
     }
 }
