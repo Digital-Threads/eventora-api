@@ -57,7 +57,6 @@ abstract class AbstractGrant extends LeagueAbstractGrant
         ResponseTypeInterface $responseType,
         DateInterval $accessTokenTTL
     ) {
-
         $client = $this->validateClient($request);
         $scopes = $this->validateScopes($this->getRequestParameter('scope', $request, $this->defaultScope));
         $user = $this->validateUser($request, $client);

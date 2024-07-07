@@ -1,4 +1,5 @@
 <?php
+
 namespace Infrastructure\Auth\Checks;
 
 use Infrastructure\Auth\Check;
@@ -8,7 +9,6 @@ use Infrastructure\Eloquent\Models\User;
 
 final class UserHasPasswordCheck extends Check
 {
-
     public function __construct(private readonly User $user)
     {
         //

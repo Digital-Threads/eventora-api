@@ -62,7 +62,7 @@ final class AuthTrustedDeviceDeleteAction
     public function __invoke(AuthTrustedDeviceDeleteRequest $request, AuthTrustedDeviceCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-//        $this->authorize('auth:trustedDevice@delete', [$dto]);
+        //        $this->authorize('auth:trustedDevice@delete', [$dto]);
 
         $service->delete($dto);
 

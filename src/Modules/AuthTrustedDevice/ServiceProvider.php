@@ -2,10 +2,8 @@
 
 namespace Modules\AuthTrustedDevice;
 
-use Infrastructure\Auth\DefineGates;
 use Infrastructure\Events\RegisterListeners;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\AuthTrustedDevice\Policies\AuthTrustedDevicePolicy;
 use Modules\AuthTrustedDevice\Events\Listeners\AuthTrustedDeviceCreateListener;
 
 final class ServiceProvider extends BaseServiceProvider

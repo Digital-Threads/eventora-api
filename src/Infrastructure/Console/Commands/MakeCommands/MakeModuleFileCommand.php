@@ -2,10 +2,10 @@
 
 namespace Infrastructure\Console\Commands\MakeCommands;
 
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Input\InputArgument;
+use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
 class MakeModuleFileCommand extends GeneratorCommand
 {
@@ -95,7 +95,7 @@ class MakeModuleFileCommand extends GeneratorCommand
         $className = class_basename($name);
 
         return str_replace(
-            ['{{ namespace }}', '{{ class }}',],
+            ['{{ namespace }}', '{{ class }}'],
             [$namespace, $className],
             $stub
         );
@@ -121,7 +121,7 @@ class MakeModuleFileCommand extends GeneratorCommand
         $this->makeDirectory($this->getPath($name));
         $this->files->put($this->getPath($name), $this->buildClass($name));
 
-        $this->info("File created successfully.");
+        $this->info('File created successfully.');
     }
 
     protected function makeDirectory($path)

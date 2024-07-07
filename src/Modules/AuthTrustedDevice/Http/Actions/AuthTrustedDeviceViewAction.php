@@ -56,7 +56,7 @@ final class AuthTrustedDeviceViewAction
     public function __invoke(AuthTrustedDeviceViewRequest $request, AuthTrustedDeviceQueryService $service): JsonResource
     {
         $dto = $request->toDto();
-//        $this->authorize('auth:trustedDevice@view', [$dto]);
+        //        $this->authorize('auth:trustedDevice@view', [$dto]);
 
         $device = $service->view($dto);
 

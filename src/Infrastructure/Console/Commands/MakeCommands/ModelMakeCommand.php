@@ -2,9 +2,8 @@
 
 namespace Infrastructure\Console\Commands\MakeCommands;
 
-
-use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 use Illuminate\Support\Str;
+use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 
 class ModelMakeCommand extends BaseModelMakeCommand
 {

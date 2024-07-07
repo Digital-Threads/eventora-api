@@ -2,7 +2,6 @@
 
 namespace Infrastructure\Validation\Rules;
 
-
 use Exception;
 use Google_Client;
 use Google_Service_Oauth2;
@@ -34,7 +33,7 @@ class GoogleAccessTokenRule implements Rule
 
         try {
             $client->setAccessToken($value);
-            $oauth2   = new Google_Service_Oauth2($client);
+            $oauth2 = new Google_Service_Oauth2($client);
             $userInfo = $oauth2->userinfo->get();
 
             return !empty($userInfo);

@@ -3,8 +3,8 @@
 namespace Modules\AuthProfile\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Eloquent\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthProfile\Services\AuthProfileCommandService;
 use Modules\AuthProfile\Http\Requests\AuthProfileUpdateRequest;
 

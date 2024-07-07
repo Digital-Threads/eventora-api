@@ -3,8 +3,8 @@
 namespace Modules\AuthPassword\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Auth\Checks\UserHasPasswordCheck;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthPassword\Services\AuthPasswordCommandService;
 use Modules\AuthPassword\Http\Requests\AuthPasswordForgetRequest;
 

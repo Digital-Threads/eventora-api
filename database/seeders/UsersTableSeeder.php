@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'last_name' => 'Test',
             'email' => 'test@finance.test',
             'password' => Hash::make('password'),
-            'registered_at' => now()
+            'registered_at' => now(),
         ]);
     }
 }

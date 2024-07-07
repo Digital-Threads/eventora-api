@@ -2,10 +2,10 @@
 
 namespace Infrastructure\Console\Commands\MakeCommands;
 
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Input\InputArgument;
+use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
 class ModuleMakeCommand extends GeneratorCommand
 {
@@ -87,15 +87,15 @@ class ModuleMakeCommand extends GeneratorCommand
     protected function createFiles($modulePath, $moduleName, $directory)
     {
         $files = [
-            "Dto/{$moduleName}QueryRequestDto.php"        => 'module.dto.stub',
-            "Dto/{$moduleName}QueryRequestDto.php"        => 'module.dto.stub',
-            "Http/Actions/QueryAction.php"                => 'module.action.stub',
+            "Dto/{$moduleName}QueryRequestDto.php" => 'module.dto.stub',
+            "Dto/{$moduleName}QueryRequestDto.php" => 'module.dto.stub',
+            'Http/Actions/QueryAction.php' => 'module.action.stub',
             "Http/Requests/{$moduleName}QueryRequest.php" => 'module.request.stub',
-            "Http/Resources/{$moduleName}Resource.php"    => 'module.resource.stub',
-            "Http/Schemas/{$moduleName}Schema.php"        => 'module.schema.stub',
-            "Http/routes.php"                             => 'module.routes.stub',
-            "Services/{$moduleName}QueryService.php"      => 'module.service.stub',
-            "ServiceProvider.php"                         => 'module.serviceprovider.stub',
+            "Http/Resources/{$moduleName}Resource.php" => 'module.resource.stub',
+            "Http/Schemas/{$moduleName}Schema.php" => 'module.schema.stub',
+            'Http/routes.php' => 'module.routes.stub',
+            "Services/{$moduleName}QueryService.php" => 'module.service.stub',
+            'ServiceProvider.php' => 'module.serviceprovider.stub',
         ];
 
         foreach ($files as $path => $stub) {
@@ -116,7 +116,7 @@ class ModuleMakeCommand extends GeneratorCommand
 
     protected function buildFileContent($stub, $moduleName, $directory)
     {
-        $stubPath    = base_path("stubs/$stub");
+        $stubPath = base_path("stubs/$stub");
         $stubContent = $this->files->get($stubPath);
 
         $namespace = 'Modules';
@@ -156,8 +156,4 @@ class ModuleMakeCommand extends GeneratorCommand
             $this->info("ServiceProvider for $moduleName already exists in config/app.php.");
         }
     }
-
-
-
 }
-

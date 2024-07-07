@@ -3,8 +3,8 @@
 namespace Modules\AuthGoogle\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Auth\Checks\UserHasGoogleCheck;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthGoogle\Services\AuthGoogleCommandService;
 use Modules\AuthGoogle\Http\Requests\AuthGoogleLinkRequest;
 

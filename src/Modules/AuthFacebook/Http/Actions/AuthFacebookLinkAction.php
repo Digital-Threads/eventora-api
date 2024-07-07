@@ -3,8 +3,8 @@
 namespace Modules\AuthFacebook\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Auth\Checks\UserHasFacebookCheck;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthFacebook\Services\AuthFacebookCommandService;
 use Modules\AuthFacebook\Http\Requests\AuthFacebookLinkRequest;
 

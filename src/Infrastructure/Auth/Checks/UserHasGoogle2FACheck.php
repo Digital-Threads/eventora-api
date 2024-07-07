@@ -9,7 +9,6 @@ use Infrastructure\Eloquent\Models\User;
 
 final class UserHasGoogle2FACheck extends Check
 {
-
     public function __construct(private readonly User $user)
     {
         //

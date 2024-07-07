@@ -4,7 +4,6 @@ namespace Modules\OAuth\Grants;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Modules\OAuth\Dto\OAuthPasswordSignupDto;
-use Infrastructure\Validation\Rules\PasswordRule;
 use League\OAuth2\Server\Entities\UserEntityInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 

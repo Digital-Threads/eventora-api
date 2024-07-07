@@ -2,26 +2,25 @@
 
 namespace Modules\OAuth\Services;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
-use Infrastructure\Eloquent\Models\User;
-use Infrastructure\Eloquent\Models\UserTrustedDevice;
-use Infrastructure\Google2FA\Google2FAService;
-use Infrastructure\Socialite\Facebook\FacebookUserProvider;
-use Infrastructure\Socialite\Google\GoogleUserProvider;
-use Laravel\Passport\Bridge\User as UserEntity;
-use League\OAuth2\Server\Entities\UserEntityInterface;
-use Modules\OAuth\Dto\OAuthFacebookDto;
-use Modules\OAuth\Dto\OAuthFacebookSignupDto;
+use Illuminate\Support\Facades\Event;
 use Modules\OAuth\Dto\OAuthGoogleDto;
-use Modules\OAuth\Dto\OAuthGoogleSignupDto;
+use Modules\OAuth\Dto\OAuthFacebookDto;
 use Modules\OAuth\Dto\OAuthPasswordDto;
-use Modules\OAuth\Dto\OAuthPasswordSignupDto;
+use Infrastructure\Eloquent\Models\User;
 use Modules\OAuth\Dto\OAuthVerifyOtpDto;
+use Modules\OAuth\Dto\OAuthGoogleSignupDto;
+use Modules\OAuth\Dto\OAuthFacebookSignupDto;
+use Modules\OAuth\Dto\OAuthPasswordSignupDto;
+use Infrastructure\Google2FA\Google2FAService;
+use Laravel\Passport\Bridge\User as UserEntity;
 use Modules\OAuth\Exceptions\InvalidOtpException;
+use Infrastructure\Eloquent\Models\UserTrustedDevice;
+use League\OAuth2\Server\Entities\UserEntityInterface;
+use Infrastructure\Socialite\Google\GoogleUserProvider;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Infrastructure\Socialite\Facebook\FacebookUserProvider;
 use Modules\OAuth\Exceptions\InvalidOtpRecoveryCodeException;
-use Str;
 
 final class OAuthService
 {
@@ -88,14 +87,13 @@ final class OAuthService
                     'userId' => $user->id,
                     'ip' => $request->ip,
                     'userAgent' => $request->userAgent,
-                ]
+                ],
             ]);
         }
     }
 
     public function passwordSignup(OAuthPasswordSignupDto $request): UserEntityInterface
     {
-
         $user = User::create([
             'email' => $request->username,
             'password' => Hash::make($request->password),

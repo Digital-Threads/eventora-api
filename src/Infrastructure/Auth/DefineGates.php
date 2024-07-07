@@ -2,9 +2,9 @@
 
 namespace Infrastructure\Auth;
 
-use Illuminate\Support\Facades\Gate;
 use ReflectionClass;
 use ReflectionMethod;
+use Illuminate\Support\Facades\Gate;
 
 trait DefineGates
 {

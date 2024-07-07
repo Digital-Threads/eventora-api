@@ -9,7 +9,6 @@ use Infrastructure\Eloquent\Models\User;
 
 final class UserVerifiedEmailCheck extends Check
 {
-
     public function __construct(private readonly User $user)
     {
         //

@@ -5,7 +5,6 @@ namespace Modules\AuthGoogle2FA\Http\Actions;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Infrastructure\Auth\Checks\UserHasGoogle2FAEnabledCheck;
-use Infrastructure\Auth\Checks\UserHasGoogleCheck;
 use Modules\AuthGoogle2FA\Services\AuthGoogle2FACommandService;
 use Modules\AuthGoogle2FA\Http\Requests\AuthGoogle2FADisableRequest;
 

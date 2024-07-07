@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Infrastructure\Eloquent\Models\User;
 use Modules\AuthGoogle\Dto\AuthGoogleLinkDto;
-use Illuminate\Auth\Access\AuthorizationException;
 use Modules\AuthGoogle\Dto\AuthGoogleForgetDto;
+use Illuminate\Auth\Access\AuthorizationException;
 use Infrastructure\Socialite\Google\GoogleUserProvider;
 
 final class AuthGoogleCommandService
