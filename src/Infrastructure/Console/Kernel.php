@@ -3,6 +3,7 @@
 namespace Infrastructure\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Infrastructure\Console\Commands\MakeCommands\ModelMakeCommand;
 use Infrastructure\Console\Commands\CiCommand;
 use Infrastructure\Console\Commands\InstallCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -15,6 +16,7 @@ final class Kernel extends ConsoleKernel
     protected $commands = [
         InstallCommand::class,
         CiCommand::class,
+        ModelMakeCommand::class,
     ];
 
     protected function schedule(Schedule $schedule): void
