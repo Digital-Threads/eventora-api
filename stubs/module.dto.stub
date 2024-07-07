@@ -1,0 +1,13 @@
+<?php
+
+    namespace {{ namespace }}\Dto;
+
+    final class {{ module }}QueryRequestDto
+    {
+        public function __construct(
+
+        ) {
+            //
+        }
+    }
+

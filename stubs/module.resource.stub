@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }}\Http\Resources;
+
+use Infrastructure\Http\Resources\JsonResource;
+use {{ namespace }}\Http\Schemas\{{ module }}Schema;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
+
+final class {{ module }}Resource extends JsonResource
+{
+    use ConvertsSchemaToArray;
+
+    public function toSchema($request): {{ module }}Schema
+    {
+        return new {{ module }}Schema(
+
+        );
+    }
+}

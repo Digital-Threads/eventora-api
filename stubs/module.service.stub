@@ -1,0 +1,13 @@
+<?php
+
+namespace {{ namespace }}\Services;
+
+use {{ namespace }}\Dto\{{ module }}QueryRequestDto;
+
+final class {{ module }}QueryService
+{
+    public function query({{ module }}QueryRequestDto $request)
+    {
+
+    }
+}

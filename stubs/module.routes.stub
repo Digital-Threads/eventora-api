@@ -1,0 +1,8 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use {{ namespace }}\Http\Actions\QueryAction;
+
+Route::name('{{ moduleLower }}.')->prefix('{{ moduleLower }}')->middleware(['api'])->group(function () {
+    Route::name('query')->get('/', QueryAction::class);
+});

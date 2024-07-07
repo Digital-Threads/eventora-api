@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }}\Http\Actions;
+
+use Infrastructure\Auth\Authorize;
+use {{ namespace }}\Services\{{ module }}QueryService;
+use {{ namespace }}\Http\Requests\{{ module }}QueryRequest;
+use Illuminate\Http\Resources\Json\JsonResource;
+use {{ namespace }}\Http\Resources\{{ module }}Resource;
+
+final class QueryAction
+{
+    use Authorize;
+
+    public function __invoke({{ module }}QueryRequest $request, {{ module }}QueryService $service): JsonResource
+    {
+
+    }
+}

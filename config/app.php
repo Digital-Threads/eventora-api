@@ -180,9 +180,6 @@ return [
         Modules\AuthGoogle\ServiceProvider::class,
         Modules\AuthTrustedDevice\ServiceProvider::class,
         Modules\AuthGoogle2FA\ServiceProvider::class,
-        /*
-         * Module Service Providers...
-         */
         Modules\Example\ServiceProvider::class,
 
     ],

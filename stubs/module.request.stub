@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }}\Http\Requests;
+
+use {{ namespace }}\Dto\{{ module }}QueryRequestDto;
+use Illuminate\Foundation\Http\FormRequest;
+
+final class {{ module }}QueryRequest extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+
+        ];
+    }
+
+    public function toDto(): {{ module }}QueryRequestDto
+    {
+        return new {{ module }}QueryRequestDto(
+
+        );
+    }
+}
