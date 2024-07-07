@@ -14,6 +14,7 @@
         "ext-redis": "*",
         "bacon/bacon-qr-code": "^2.0",
         "darkaonline/l5-swagger": "^8.4",
+        "google/apiclient": "^2.16",
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^11.0",
         "laravel/passport": "^12.0",
@@ -28,7 +29,7 @@
         "friendsofphp/php-cs-fixer": "^3.14",
         "mockery/mockery": "^1.5",
         "nunomaduro/collision": "^8.1",
-        "nunomaduro/larastan": "^2.4",
+        "larastan/larastan": "^2.4",
         "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^2.0"
     },
