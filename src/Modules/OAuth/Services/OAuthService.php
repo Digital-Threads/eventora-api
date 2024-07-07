@@ -5,8 +5,6 @@ namespace Modules\OAuth\Services;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
-use Infrastructure\Eloquent\Models\Company;
-use Infrastructure\Eloquent\Models\CompanyType;
 use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Eloquent\Models\UserTrustedDevice;
 use Infrastructure\Google2FA\Google2FAService;
@@ -97,7 +95,6 @@ final class OAuthService
 
     public function passwordSignup(OAuthPasswordSignupDto $request): UserEntityInterface
     {
-        $companyType = CompanyType::where('slug', $request->companyType)->first();
 
         $user = User::create([
             'email' => $request->username,
@@ -106,14 +103,6 @@ final class OAuthService
             'last_name' => $request->lastName,
             'registered_at' => now(),
         ]);
-
-        Company::create([
-            'name' => $request->companyName,
-            'slug' => Str::slug($request->companyName),
-            'company_type_id' => $companyType->id,
-            'user_id' => $user->id
-        ]);
-
 
         Event::dispatch('oauth.password_signed_up', [$user->id]);
 

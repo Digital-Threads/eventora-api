@@ -172,7 +172,6 @@ return [
          * Module Service Providers...
          */
         Modules\HealthCheck\ServiceProvider::class,
-        Modules\Frontend\Case\ServiceProvider::class,
         Modules\AuthProfile\ServiceProvider::class,
         Modules\OAuth\ServiceProvider::class,
         Modules\AuthEmail\ServiceProvider::class,

@@ -19,5 +19,3 @@ parameters:
         - 'src/Infrastructure/Exceptions/Handler.php'
         - 'tests/Utils/SchemaAssertions/AssertSchema.php'
     reportUnmatchedIgnoredErrors: false
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
