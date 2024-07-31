@@ -1,17 +1,17 @@
-FROM php:8.1.14-fpm-alpine
+FROM php:8.3-fpm
 
 WORKDIR /var/www
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/download/1.5.52/install-php-extensions /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/install-php-extensions && install-php-extensions \
-    zip-1.21.1 \
-    bcmath-8.1.14 \
-    pgsql-8.1.14 \
-    pdo_pgsql-8.1.14 \
-    redis-5.3.7 \
+    zip \
+    bcmath \
+    pgsql \
+    pdo_pgsql \
+    redis \
     opcache \
-    @composer-2.5.1
+    @composer
 
 RUN apk update && apk add --no-cache \
     git \
@@ -20,7 +20,7 @@ RUN apk update && apk add --no-cache \
     nginx \
     supervisor
 
-COPY composer* ./
+COPY composer.* ./
 
 RUN composer install \
     --no-dev \
