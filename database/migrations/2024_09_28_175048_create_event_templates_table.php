@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->jsonb('template_data'); // JSON данные шаблона для приглашений
-            $table->foreignId('created_by')->constrained('users'); // Кто создал шаблон
+            $table->json('template_data');
             $table->timestamps();
         });
     }

@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\EventTemplate
+ * App\Models\SubscriptionPlan
  *
  * @property int $id
  * @property string $name
- * @property string|null $description
- * @property array $template_data
+ * @property float $price
+ * @property int $duration_in_days
+ * @property string|null $features
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
-class EventTemplate extends Model
+class SubscriptionPlan extends Model
 {
     use HasFactory;
 
@@ -25,16 +26,16 @@ class EventTemplate extends Model
      */
     protected $fillable = [
         'name',
-        'description',
-        'template_data',
+        'price',
+        'duration_in_days',
+        'features',
     ];
 
     /**
      * @var string[]
      */
     protected $casts = [
-        'template_data' => 'array',
-        'created_at'    => 'datetime',
-        'updated_at'    => 'datetime',
+        'price'            => 'decimal:2',
+        'duration_in_days' => 'integer',
     ];
 }

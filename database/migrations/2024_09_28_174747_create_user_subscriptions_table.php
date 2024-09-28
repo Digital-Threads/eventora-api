@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::create('user_subscriptions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->text('message');
-            $table->boolean('read')->default(false);
-            $table->timestamp('sent_at')->default(now());
+            $table->foreignId('subscription_plan_id')->constrained('subscription_plans')->onDelete('cascade');
+            $table->timestamp('started_at');
+            $table->timestamp('ends_at');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notifications');
+        Schema::dropIfExists('user_subscriptions');
     }
 };

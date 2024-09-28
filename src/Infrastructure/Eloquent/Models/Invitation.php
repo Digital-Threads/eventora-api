@@ -2,21 +2,22 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
 /**
- * App\Models\Invitation
+ * Infrastructure\Eloquent\Models\Invitation
  *
  * @property int $id
  * @property int $event_id
- * @property int $sender_id
- * @property string $recipient_email
+ * @property int|null $user_id
+ * @property string $recipient_contact
+ * @property string $channel
+ * @property string|null $message
+ * @property string $invitation_link
  * @property string $status
- * @property Carbon|null $sent_at
- * @property Carbon|null $responded_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
@@ -24,15 +25,51 @@ class Invitation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['event_id', 'sender_id', 'recipient_email', 'status', 'sent_at', 'responded_at'];
+    /**
+     * @var string[]
+     */
+    protected $fillable = [
+        'event_id',
+        'user_id',
+        'recipient_contact',
+        'channel',
+        'message',
+        'invitation_link',
+        'status',
+    ];
 
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'event_id'          => 'integer',
+        'user_id'           => 'integer',
+        'recipient_contact' => 'string',
+        'channel'           => 'string',
+        'message'           => 'string',
+        'invitation_link'   => 'string',
+        'status'            => 'string',
+        'created_at'        => 'datetime',
+        'updated_at'        => 'datetime',
+    ];
+
+    /**
+     * Связь с событием.
+     *
+     * @return BelongsTo
+     */
     public function event(): BelongsTo
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(Event::class, 'event_id');
     }
 
-    public function sender(): BelongsTo
+    /**
+     * Связь с пользователем.
+     *
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'sender_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

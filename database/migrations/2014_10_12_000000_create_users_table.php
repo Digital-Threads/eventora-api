@@ -20,7 +20,12 @@ return new class() extends Migration {
             $table->string('google_2fa_recovery_code')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('password_changed_at')->nullable();
-            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
+            $table->unsignedBigInteger('role_id'); // Связь с таблицей ролей
+            $table->unsignedBigInteger('company_id')->nullable(); // Связь с таблицей компаний
+
+            // Внешние ключи
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
             $table->timestamp('registered_at');
         });
     }

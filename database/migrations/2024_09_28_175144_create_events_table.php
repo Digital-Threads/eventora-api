@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->timestamp('event_date');
+            $table->dateTime('event_date');
             $table->string('location')->nullable();
-            $table->boolean('is_public')->default(true);
-            $table->foreignId('organizer_id')->constrained('users')->onDelete('cascade'); // Организатор события
-            $table->foreignId('template_id')->nullable()->constrained('event_templates')->onDelete('set null'); // Привязка к шаблону
+            $table->boolean('is_public')->default(false);
+            $table->foreignId('organizer_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained('event_categories')->onDelete('cascade');
+            $table->foreignId('template_id')->nullable()->constrained('event_templates')->onDelete('cascade');
+            $table->foreignId('company_id')->nullable()->constrained('companies')->onDelete('cascade');
+            $table->text('terms_conditions')->nullable(); // Условия проведения мероприятия
             $table->timestamps();
         });
     }

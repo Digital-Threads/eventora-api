@@ -2,36 +2,59 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
 /**
- * App\Models\Ticket
+ * Infrastructure\Eloquent\Models\Ticket
  *
  * @property int $id
  * @property int $event_id
- * @property float $price
  * @property string $type
- * @property string $qr_code
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property float $price
+ * @property int $quantity
+ * @property int $sold_quantity
+ * @property float|null $discount
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class Ticket extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['event_id', 'price', 'type', 'qr_code'];
+    /**
+     * @var string[]
+     */
+    protected $fillable = [
+        'event_id',
+        'type',
+        'price',
+        'quantity',
+        'sold_quantity',
+        'discount',
+    ];
 
-    // Один ко многим: билет связан с событием
-    public function event()
-    {
-        return $this->belongsTo(Event::class);
-    }
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'price'         => 'decimal:2',
+        'quantity'      => 'integer',
+        'sold_quantity' => 'integer',
+        'discount'      => 'decimal:2',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+    ];
 
-    // Один ко многим: билет может быть назначен участнику
-    public function attendees()
+    /**
+     * Связь с событием.
+     *
+     * @return BelongsTo
+     */
+    public function event(): BelongsTo
     {
-        return $this->hasMany(Attendee::class);
+        return $this->belongsTo(Event::class, 'event_id');
     }
 }
