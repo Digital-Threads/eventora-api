@@ -2,15 +2,15 @@
 
 namespace Infrastructure\Eloquent\Models;
 
+use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Mail;
 use Infrastructure\Utils\WebUrl;
 use Laravel\Passport\HasApiTokens;
-use Database\Factories\UserFactory;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\AuthPassword\Mail\AuthPasswordResetLinkMail;
 
 /**
@@ -42,19 +42,21 @@ final class User extends Authenticatable
         'email_verified_at',
         'password_changed_at',
         'registered_at',
+        'role_id',
     ];
 
     /**
      * @var string[]
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at'   => 'datetime',
         'password_changed_at' => 'datetime',
-        'registered_at' => 'datetime',
+        'registered_at'       => 'datetime',
     ];
 
     /**
      * @param       $token
+     *
      * @return void
      */
     public function sendPasswordResetNotification($token): void
@@ -82,11 +84,10 @@ final class User extends Authenticatable
         return $this->hasMany(Company::class, 'user_id', 'id');
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function comapnies(): BelongsTo
+
+
+    public function role()
     {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Role::class);
     }
 }

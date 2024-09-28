@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Modules\AuthEmail\Dto\AuthEmailUpdateDto;
 
 final class AuthEmailUpdateRequest extends FormRequest
+
 {
     public function rules(): array
     {

@@ -4,6 +4,8 @@ namespace Infrastructure\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -26,12 +28,12 @@ class Event extends Model
 
     protected $fillable = ['title', 'description', 'event_date', 'location', 'is_public', 'organizer_id', 'template_id'];
 
-    public function organizer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function organizer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'organizer_id');
     }
 
-    public function template(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function template(): BelongsTo
     {
         return $this->belongsTo(EventTemplate::class, 'template_id');
     }
@@ -42,12 +44,12 @@ class Event extends Model
         return $this->hasMany(Ticket::class);
     }
 
-    public function invitations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function invitations(): HasMany
     {
         return $this->hasMany(Invitation::class);
     }
 
-    public function attendees(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function attendees(): HasMany
     {
         return $this->hasMany(Attendee::class);
     }
