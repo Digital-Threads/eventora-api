@@ -20,6 +20,7 @@ return new class() extends Migration {
             $table->string('google_2fa_recovery_code')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('password_changed_at')->nullable();
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
             $table->timestamp('registered_at');
         });
     }
