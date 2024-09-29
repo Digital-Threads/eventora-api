@@ -7,6 +7,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 final class UserCreateRequest extends FormRequest
 {
+    /**
+     * @return string[]
+     */
     public function rules(): array
     {
         return [
@@ -17,6 +20,9 @@ final class UserCreateRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return UserCreateRequestDto
+     */
     public function toDto(): UserCreateRequestDto
     {
         return new UserCreateRequestDto(

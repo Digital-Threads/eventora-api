@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 final class UserCommandService
 {
+    /**
+     * @param  UserUpdateRequestDto  $dto
+     *
+     * @return void
+     */
     public function update(UserUpdateRequestDto $dto): void
     {
         $user = User::findOrFail($dto->userId);
@@ -19,6 +24,11 @@ final class UserCommandService
         ]);
     }
 
+    /**
+     * @param  UserCreateRequestDto  $dto
+     *
+     * @return void
+     */
     public function create(UserCreateRequestDto $dto): void
     {
         User::create([

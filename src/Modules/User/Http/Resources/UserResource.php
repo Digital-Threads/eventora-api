@@ -11,6 +11,11 @@ use Modules\User\Http\Schemas\UserSchema;
  */
 final class UserResource extends JsonResource
 {
+    /**
+     * @param $request
+     *
+     * @return UserSchema
+     */
     public function toSchema($request): UserSchema
     {
         return new UserSchema(

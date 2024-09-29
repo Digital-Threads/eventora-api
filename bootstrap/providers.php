@@ -47,5 +47,6 @@ return [
     Modules\AuthTrustedDevice\ServiceProvider::class,
     Modules\AuthGoogle2FA\ServiceProvider::class,
     Modules\User\ServiceProvider::class,
+    Modules\Event\ServiceProvider::class,
     Modules\Example\ServiceProvider::class,
 ];
