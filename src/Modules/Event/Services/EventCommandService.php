@@ -4,6 +4,7 @@ namespace Modules\Event\Services;
 
 use Infrastructure\Eloquent\Models\Event;
 use Modules\Event\Dto\EventCreateDto;
+use Modules\Event\Dto\EventDeleteRequestDto;
 use Modules\Event\Dto\EventUpdateDto;
 use Modules\Event\Repositories\Interfaces\EventCommandRepositoryInterface;
 
@@ -34,12 +35,14 @@ final class EventCommandService
     }
 
     /**
-     * @param int $eventId
+     * @param EventDeleteRequestDto $dto
      *
      * @return void
      */
-    public function delete(int $eventId): void
+    public function delete(EventDeleteRequestDto $dto): void
     {
-        $this->eventCommandRepository->delete($eventId);
+        $this->eventCommandRepository->delete($dto->id);
+
+
     }
 }

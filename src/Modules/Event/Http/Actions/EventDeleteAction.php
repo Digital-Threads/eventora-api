@@ -2,9 +2,11 @@
 
 namespace Modules\Event\Http\Actions;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Infrastructure\Auth\Checks\UserCanDeleteEventCheck;
+use Modules\Event\Http\Requests\EventDeleteRequest;
 use Modules\Event\Services\EventCommandService;
 
 final class EventDeleteAction
@@ -24,6 +26,7 @@ final class EventDeleteAction
      *          in="path",
      *          required=true,
      *          @OA\Schema(type="integer"),
+     *          description="ID of the event to be deleted"
      *      ),
      *      @OA\Response(
      *          response=204,
@@ -35,12 +38,13 @@ final class EventDeleteAction
      *          @OA\JsonContent(ref="#/components/schemas/ErrorSchema"),
      *      )
      * )
+     * @throws AuthorizationException
      */
-    public function __invoke(int $id, EventCommandService $service): JsonResponse
+    public function __invoke(EventDeleteRequest $request, EventCommandService $service): JsonResponse
     {
         $this->authorize(UserCanDeleteEventCheck::class, auth()->user());
-
-        $service->delete($id);
+        $dto = $request->toDto();
+        $service->delete($dto->id);
 
         return response()->json(null, 204);
     }
