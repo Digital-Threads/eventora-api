@@ -4,6 +4,7 @@ namespace Modules\Event\Services;
 
 use Infrastructure\Eloquent\Models\Event;
 use Modules\Event\Dto\EventCreateDto;
+use Modules\Event\Dto\EventUpdateDto;
 use Modules\Event\Repositories\Interfaces\EventCommandRepositoryInterface;
 
 final class EventCommandService
@@ -24,18 +25,21 @@ final class EventCommandService
     }
 
     /**
-     * @return EventCommandRepositoryInterface
+     * @param EventUpdateDto $event
+     *
+     * @return Event
      */
-    public function getEventCommandRepository(): EventCommandRepositoryInterface
-    {
-        return $this->eventCommandRepository;
+    public function update(EventUpdateDto $event): Event{
+        return $this->eventCommandRepository->update($event);
     }
 
     /**
-     * @param  EventCommandRepositoryInterface  $eventCommandRepository
+     * @param int $eventId
+     *
+     * @return void
      */
-    public function setEventCommandRepository(EventCommandRepositoryInterface $eventCommandRepository): void
+    public function delete(int $eventId): void
     {
-        $this->eventCommandRepository = $eventCommandRepository;
+        $this->eventCommandRepository->delete($eventId);
     }
 }
