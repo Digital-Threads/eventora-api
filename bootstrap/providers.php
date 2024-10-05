@@ -48,5 +48,6 @@ return [
     Modules\AuthGoogle2FA\ServiceProvider::class,
     Modules\User\ServiceProvider::class,
     Modules\Event\ServiceProvider::class,
+    Modules\Invitation\ServiceProvider::class,
     Modules\Example\ServiceProvider::class,
 ];
