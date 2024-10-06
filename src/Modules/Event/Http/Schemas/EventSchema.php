@@ -42,6 +42,30 @@ final class EventSchema extends AbstractSchema
         public ?int $companyId,
 
         /** @OA\Property() */
-        public ?string $termsConditions
+        public ?string $termsConditions,
+
+        /** @OA\Property() */
+        public ?string $imageUrl,
+
+        /** @OA\Property() */
+        public ?int $maxParticipants,
+
+        /** @OA\Property() */
+        public ?int $ageLimit,
+
+        /** @OA\Property() */
+        public ?string $eventType,
+
+        /** @OA\Property() */
+        public ?string $streamingLink,
+
+        /** @OA\Property() */
+        public ?array $tags,
+
+        /** @OA\Property() */
+        public ?DateTime $registrationDeadline,
+
+        /** @OA\Property() */
+        public ?string $qrCode
     ) {}
 }

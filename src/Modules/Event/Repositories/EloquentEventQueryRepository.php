@@ -15,6 +15,7 @@ class EloquentEventQueryRepository implements EventQueryRepositoryInterface
         return Event::query()
             ->when($dto->categoryId, fn($query) => $query->where('category_id', $dto->categoryId))
             ->when($dto->isPublic, fn($query) => $query->where('is_public', $dto->isPublic))
+            ->when($dto->companyId, fn($query) => $query->where('company_id', $dto->companyId))
             ->cursorPaginate($dto->perPage, cursor: $dto->cursor);
     }
 

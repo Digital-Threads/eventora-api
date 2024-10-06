@@ -14,7 +14,7 @@ final class EventQueryAction
      *     path="/events",
      *     tags={"Events"},
      *     description="Получение всех мероприятий с фильтром и пагинацией",
-     *     security={{"passport": {}}},
+     *     security={{"passport": {}} },
      *     @OA\Parameter(
      *         name="categoryId",
      *         in="query",

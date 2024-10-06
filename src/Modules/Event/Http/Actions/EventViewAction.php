@@ -14,7 +14,7 @@ final class EventViewAction
      *     path="/events/{id}",
      *     tags={"Events"},
      *     description="Получение одного мероприятия",
-     *     security={{"passport": {}}},
+     *     security={{"passport": {}} },
      *     @OA\Parameter(
      *         name="id",
      *         in="path",

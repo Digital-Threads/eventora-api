@@ -33,6 +33,14 @@ final class EventResource extends JsonResource
             $this->resource->template_id,
             $this->resource->company_id,
             $this->resource->terms_conditions,
+            $this->resource->image_url,
+            $this->resource->max_participants,
+            $this->resource->age_limit,
+            $this->resource->event_type,
+            $this->resource->streaming_link,
+            $this->resource->tags,
+            $this->resource->registration_deadline,
+            $this->resource->qr_code
         );
     }
 }
