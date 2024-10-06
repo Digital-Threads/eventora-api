@@ -3,30 +3,27 @@
 namespace Modules\Invitation\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Modules\Invitation\Dto\InvitationUpdateDto;
+use Modules\Invitation\Dto\InvitationUpdateRequestDto;
 
 final class InvitationUpdateRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'recipientContact' => 'required|string',
-            'channel' => 'required|string|in:email,sms,whatsapp,telegram,viber,facebook',
+            'title' => 'nullable|string|max:255',
             'message' => 'nullable|string',
-            'invitationLink' => 'required|string',
-            'status' => 'required|string|in:pending,sent,delivered,failed',
+            'invitationLink' => 'nullable|string|url',
         ];
     }
 
-    public function toDto(): InvitationUpdateDto
+    public function toDto(): InvitationUpdateRequestDto
     {
-        return new InvitationUpdateDto(
+        return new InvitationUpdateRequestDto(
             $this->route('id'),
-            $this->input('recipientContact'),
-            $this->input('channel'),
+            $this->input('eventId'),
+            $this->input('title'),
             $this->input('message'),
-            $this->input('invitationLink'),
-            $this->input('status')
+            $this->input('invitationLink')
         );
     }
 }

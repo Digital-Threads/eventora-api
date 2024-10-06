@@ -16,6 +16,8 @@ final class InvitationViewRequest extends FormRequest
 
     public function toDto(): InvitationViewRequestDto
     {
-        return new InvitationViewRequestDto($this->route('id'));
+        return new InvitationViewRequestDto(
+            $this->route('id')
+        );
     }
 }

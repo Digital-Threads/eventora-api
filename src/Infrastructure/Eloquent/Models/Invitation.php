@@ -5,19 +5,18 @@ namespace Infrastructure\Eloquent\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
  * Infrastructure\Eloquent\Models\Invitation
  *
- * @property int $id
- * @property int $event_id
- * @property int|null $user_id
- * @property string $recipient_contact
- * @property string $channel
+ * @property int         $id
+ * @property int         $event_id
+ * @property int|null    $user_id
+ * @property string title
  * @property string|null $message
- * @property string $invitation_link
- * @property string $status
+ * @property string      $invitation_link
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
@@ -25,33 +24,23 @@ class Invitation extends Model
 {
     use HasFactory;
 
-    /**
-     * @var string[]
-     */
     protected $fillable = [
         'event_id',
         'user_id',
-        'recipient_contact',
-        'channel',
         'message',
+        'title',
         'invitation_link',
-        'status',
     ];
 
     /**
-     * @var string[]
+     * Связь с доставками приглашений.
+     *
+     * @return HasMany
      */
-    protected $casts = [
-        'event_id'          => 'integer',
-        'user_id'           => 'integer',
-        'recipient_contact' => 'string',
-        'channel'           => 'string',
-        'message'           => 'string',
-        'invitation_link'   => 'string',
-        'status'            => 'string',
-        'created_at'        => 'datetime',
-        'updated_at'        => 'datetime',
-    ];
+    public function deliveries(): HasMany
+    {
+        return $this->hasMany(InvitationDelivery::class, 'invitation_id');
+    }
 
     /**
      * Связь с событием.

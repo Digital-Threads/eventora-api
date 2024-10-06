@@ -7,7 +7,7 @@ use Modules\Invitation\Dto\InvitationViewRequestDto;
 use Modules\Invitation\Repositories\Interfaces\InvitationQueryRepositoryInterface;
 use Infrastructure\Eloquent\Models\Invitation;
 
-class InvitationQueryRepository implements InvitationQueryRepositoryInterface
+class EloquentInvitationQueryRepository implements InvitationQueryRepositoryInterface
 {
     public function view(InvitationViewRequestDto $dto): Invitation
     {

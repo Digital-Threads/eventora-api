@@ -8,7 +8,7 @@ use Modules\Invitation\Dto\InvitationViewRequestDto;
 
 interface InvitationQueryRepositoryInterface
 {
-    public function view(InvitationViewRequestDto $dto): Invitation;
-
     public function query(InvitationQueryRequestDto $dto): array;
+
+    public function view(InvitationViewRequestDto $dto): Invitation;
 }

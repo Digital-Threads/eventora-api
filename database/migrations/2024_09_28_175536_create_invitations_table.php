@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
+            $table->foreignId('event_id')->constrained('events')->onDelete('cascade'); // Ссылка на событие
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade'); // Если приглашенный пользователь уже зарегистрирован в системе
-            $table->string('recipient_contact'); // Контакт получателя (email или телефон)
-            $table->enum('channel', ['email', 'sms', 'whatsapp', 'telegram', 'viber', 'facebook']); // Канал отправки
-            $table->text('message')->nullable(); // Персонализированное сообщение
+            $table->string('message')->nullable(); // Персонализированное сообщение
             $table->string('invitation_link'); // Уникальная ссылка для регистрации
-            $table->enum('status', ['pending', 'sent', 'delivered', 'failed'])->default('pending'); // Статус приглашения
             $table->timestamps();
         });
     }
