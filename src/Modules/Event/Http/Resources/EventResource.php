@@ -25,7 +25,7 @@ final class EventResource extends JsonResource
             $this->resource->id,
             $this->resource->title,
             $this->resource->description,
-            $this->resource->event_date->toDateTimeString(),
+            $this->resource->event_date,
             $this->resource->location,
             $this->resource->is_public,
             $this->resource->organizer_id,

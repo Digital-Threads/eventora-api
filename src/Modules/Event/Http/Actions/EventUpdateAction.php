@@ -2,12 +2,17 @@
 
 namespace Modules\Event\Http\Actions;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
+use Infrastructure\Auth\Checks\UserCanCreateEventCheck;
+use Infrastructure\Auth\Checks\UserCanUpdateEventCheck;
 use Modules\Event\Services\EventCommandService;
 use Modules\Event\Http\Requests\EventUpdateRequest;
 
 final class EventUpdateAction
 {
+    use AuthorizesRequests;
+
     /**
      * @OA\Put(
      *      path="/events/{id}",
@@ -51,6 +56,8 @@ final class EventUpdateAction
      */
     public function __invoke(EventUpdateRequest $request, EventCommandService $service): JsonResponse
     {
+        $this->authorize(UserCanUpdateEventCheck::class,auth()->user());
+
         $dto = $request->toDto();
         $event = $service->update($dto);
 

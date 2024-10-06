@@ -2,12 +2,17 @@
 
 namespace Modules\Event\Http\Actions;
 
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
+use Infrastructure\Auth\Checks\UserCanCreateEventCheck;
 use Modules\Event\Http\Requests\EventCreateRequest;
 use Modules\Event\Services\EventCommandService;
 
 final class EventCreateAction
 {
+    use AuthorizesRequests;
+
     /**
      * @OA\Post(
      *      path="/events",
@@ -42,9 +47,11 @@ final class EventCreateAction
      *          @OA\JsonContent(ref="#/components/schemas/ErrorSchema"),
      *      )
      * )
+     * @throws AuthorizationException
      */
     public function __invoke(EventCreateRequest $request, EventCommandService $service): JsonResponse
     {
+        $this->authorize(UserCanCreateEventCheck::class,auth()->user());
         $dto   = $request->toDto();
         $event = $service->create($dto);
 
