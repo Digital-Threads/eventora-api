@@ -3,9 +3,10 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryChannel;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('invitation_id')->constrained('invitations')->onDelete('cascade'); // Ссылка на основное приглашение
             $table->string('recipient_contact'); // Email или телефон получателя
-            $table->enum('channel', ['email', 'sms', 'whatsapp', 'telegram', 'viber', 'facebook']); // Канал отправки
-            $table->enum('status', ['pending', 'sent', 'delivered', 'failed'])->default('pending'); // Статус отправки
+            $table->enum('channel', (array) InvitationDeliveryChannel::class)->default(InvitationDeliveryChannel::EMAIL->value); // Канал отправки
+            $table->enum('status', (array) InvitationDeliveryStatus::class)->default(InvitationDeliveryStatus::PENDING->value); // Статус отправки
             $table->integer('retry_count')->default(0); // Количество попыток отправки
             $table->timestamps();
         });
