@@ -8,6 +8,7 @@ final readonly class InvitationDeliveryCreateDto
         public int    $invitationId,
         public string $recipientContact,
         public string $channel,
+        public string $url,
         public string $status,
         public int    $retryCount
     ) {}

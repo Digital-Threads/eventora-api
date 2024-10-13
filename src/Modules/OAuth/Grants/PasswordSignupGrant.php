@@ -49,16 +49,6 @@ final class PasswordSignupGrant extends AbstractGrant
                 'string',
                 'max:255',
             ],
-            'company_address' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'company_type' => [
-                'required',
-                'string',
-                'max:255',
-            ],
         ];
     }
 
@@ -77,8 +67,6 @@ final class PasswordSignupGrant extends AbstractGrant
             $data['password'],
             $data['first_name'],
             $data['last_name'],
-            $data['company_type'],
-            $data['company_address'],
             $data['company_name'],
         ));
     }

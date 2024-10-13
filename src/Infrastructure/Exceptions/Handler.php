@@ -23,7 +23,7 @@ final class Handler extends ExceptionHandler
         \Illuminate\Auth\Access\AuthorizationException::class,
         \Illuminate\Auth\AuthenticationException::class,
         \Illuminate\Http\Exceptions\ThrottleRequestsException::class,
-        \Illuminate\Validation\ValidationException::class,
+//        \Illuminate\Validation\ValidationException::class,
         \Infrastructure\Auth\CheckException::class,
     ];
 

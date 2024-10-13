@@ -35,18 +35,19 @@ return new class() extends Migration {
     public function up(): void
     {
         $this->schema->create('oauth_clients', static function (Blueprint $table): void {
-            $table->uuid('id');
-            $table->unsignedBigInteger('user_id')->nullable()->index();
+            $table->uuid('id')->primary();
+            $table->unsignedBigInteger('user_id')->nullable()->index(); // Это должно совпадать с типом данных id в users
             $table->string('name');
             $table->string('secret', 100)->nullable();
             $table->string('provider')->nullable();
             $table->text('redirect');
-            $table->boolean('personal_access_client');
-            $table->boolean('password_client');
-            $table->boolean('revoked');
+            $table->boolean('personal_access_client')->default(false);
+            $table->boolean('password_client')->default(false);
+            $table->boolean('revoked')->default(false);
             $table->timestamps();
         });
     }
+
 
     public function down(): void
     {

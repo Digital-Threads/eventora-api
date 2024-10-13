@@ -3,6 +3,7 @@
 namespace Modules\Event\Http\Requests;
 
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Event\Dto\EventCreateRequestDto;
 

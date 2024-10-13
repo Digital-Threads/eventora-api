@@ -1,6 +1,6 @@
 <?php
 
-namespace Infrastructure\Auth\Checks;
+namespace Modules\Event\Checks;
 
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;

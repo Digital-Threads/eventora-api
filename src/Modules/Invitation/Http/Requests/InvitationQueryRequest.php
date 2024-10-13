@@ -10,7 +10,7 @@ final class InvitationQueryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'eventId' => 'required|integer|exists:events,id',
+            'eventId' => 'required|integer',
         ];
     }
 

@@ -12,8 +12,6 @@ return new class() extends Migration {
             $table->string('email')->nullable()->unique()->index();
             $table->string('email_verification_token')->nullable();
             $table->string('password')->nullable();
-            $table->string('google_id')->unique()->nullable();
-            $table->string('facebook_id')->unique()->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('google_2fa_secret')->nullable();

@@ -2,11 +2,12 @@
 
 namespace Infrastructure\Eloquent\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
-use Modules\Invitation\InvitationDelivery\Enums\InvitationStatus;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 
 /**
  * Infrastructure\Eloquent\Models\InvitationDelivery
@@ -16,7 +17,9 @@ use Modules\Invitation\InvitationDelivery\Enums\InvitationStatus;
  * @property string      $recipient_contact
  * @property string      $channel
  * @property string      $status
+ * @property string      $link
  * @property int         $retry_count
+ * @property Invitation  $invitation
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
@@ -28,13 +31,15 @@ class InvitationDelivery extends Model
         'invitation_id',
         'recipient_contact',
         'channel',
+        'link',
         'status',
         'retry_count',
     ];
 
-    protected $casts = [
-        'status' => InvitationStatus::class,
+    protected $casts    = [
+        'status' => InvitationDeliveryStatus::class,
     ];
+
     /**
      * Связь с основным приглашением.
      *

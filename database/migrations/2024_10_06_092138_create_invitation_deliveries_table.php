@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('invitation_id')->constrained('invitations')->onDelete('cascade'); // Ссылка на основное приглашение
             $table->string('recipient_contact'); // Email или телефон получателя
+            $table->string('url');
             $table->enum('channel', (array) InvitationDeliveryChannel::class)->default(InvitationDeliveryChannel::EMAIL->value); // Канал отправки
             $table->enum('status', (array) InvitationDeliveryStatus::class)->default(InvitationDeliveryStatus::PENDING->value); // Статус отправки
             $table->integer('retry_count')->default(0); // Количество попыток отправки

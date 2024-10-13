@@ -107,7 +107,6 @@ abstract class AbstractGrant extends LeagueAbstractGrant
     {
         try {
             $rules = collect($this->getServerRequestValidationRules($request));
-
             if ($this->shouldValidateOtp()) {
                 $rules->merge($this->getServerRequestOTPValidationRules());
             }
