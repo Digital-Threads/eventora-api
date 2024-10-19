@@ -4,14 +4,13 @@ namespace Infrastructure\Http\Resources;
 
 use Illuminate\Http\Request;
 use Infrastructure\Http\Schemas\AbstractSchema;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 trait ConvertsSchemaToArray
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      */
-    abstract public function toSchema($request): AbstractSchema;
+    abstract public function toSchema(Request $request): AbstractSchema;
 
     public static function schema($resource): ?AbstractSchema
     {

@@ -2,12 +2,17 @@
 
 namespace Infrastructure\Macros;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
+
 abstract class AbstractMacro
 {
     abstract protected function register(): void;
 
+    /**
+     * @throws BindingResolutionException
+     */
     final public static function bind(): void
     {
-        app(static::class)->register();
+        app()->make(static::class)->register();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Modules\Example\Http\Resources;
 
+use Illuminate\Http\Request;
 use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Http\Resources\JsonResource;
 use Modules\Example\Http\Schemas\ExampleSchema;
@@ -14,7 +15,7 @@ final class ExampleResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    public function toSchema($request): ExampleSchema
+    public function toSchema(Request $request): ExampleSchema
     {
         return new ExampleSchema(
             $this->resource->id,

@@ -2,6 +2,7 @@
 
 namespace Modules\AuthTrustedDevice\Http\Resources;
 
+use Illuminate\Http\Request;
 use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Eloquent\Models\UserTrustedDevice;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
@@ -14,7 +15,7 @@ final class AuthTrustedDeviceResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    public function toSchema($request): AuthTrustedDeviceSchema
+    public function toSchema(Request $request): AuthTrustedDeviceSchema
     {
         return new AuthTrustedDeviceSchema(
             $this->resource->id,

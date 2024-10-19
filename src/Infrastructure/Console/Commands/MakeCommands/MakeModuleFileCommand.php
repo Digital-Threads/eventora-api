@@ -129,8 +129,10 @@ class MakeModuleFileCommand extends GeneratorCommand
     protected function makeDirectory($path): string
     {
         if (!$this->files->isDirectory(dirname($path))) {
-            $this->files->makeDirectory(dirname($path), 0755, true, true);
+            $directoryName = $this->files->makeDirectory(dirname($path), 0755, true, true);
         }
+
+        return $path;
     }
 
     protected function getFileTypeOption()

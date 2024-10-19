@@ -2,6 +2,7 @@
 
 namespace Infrastructure\Http;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
 use Infrastructure\Http\Macros\ErrorMessageMacro;
 use Infrastructure\Http\Macros\IdMacro;
@@ -22,6 +23,9 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
  */
 final class ServiceProvider extends RouteServiceProvider
 {
+    /**
+     * @throws BindingResolutionException
+     */
     public function boot(): void
     {
         SchemaMacro::bind();
@@ -34,6 +38,7 @@ final class ServiceProvider extends RouteServiceProvider
         NotFoundMacro::bind();
         MessageMacro::bind();
         ErrorMessageMacro::bind();
+
         $this->configureRateLimiting();
     }
 

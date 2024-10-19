@@ -2,6 +2,7 @@
 
 namespace Modules\AuthGoogle2FA\Http\Resources;
 
+use Illuminate\Http\Request;
 use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Modules\AuthGoogle2FA\Dto\AuthGoogle2FACredentialsDto;
@@ -14,7 +15,7 @@ final class AuthGoogle2FACredentialsResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    public function toSchema($request): AuthGoogle2FACredentialsSchema
+    public function toSchema(Request $request): AuthGoogle2FACredentialsSchema
     {
         return new AuthGoogle2FACredentialsSchema(
             $this->resource->qr,

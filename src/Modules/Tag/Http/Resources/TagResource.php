@@ -2,19 +2,29 @@
 
 namespace Modules\Tag\Http\Resources;
 
+use Illuminate\Http\Request;
+use Infrastructure\Eloquent\Models\Tag;
 use Modules\Tag\Http\Schemas\TagSchema;
 use Infrastructure\Http\Resources\JsonResource;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 
 /**
  * @property Tag $resource
  */
 final class TagResource extends JsonResource
 {
-    public function toSchema($request): TagSchema
+    use ConvertsSchemaToArray;
+
+    /**
+     * @param  Request  $request
+     *
+     * @return TagSchema
+     */
+    public function toSchema(Request $request): TagSchema
     {
         return new TagSchema(
-            $this->id,
-            $this->name // предполагается, что у вас есть поле name в таблице tags
+            $this->resource->id,
+            $this->resource->name,
         );
     }
 }

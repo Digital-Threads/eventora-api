@@ -2,6 +2,7 @@
 
 namespace Modules\AuthProfile\Http\Resources;
 
+use Illuminate\Http\Request;
 use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Http\Resources\JsonResource;
 use Modules\AuthProfile\Http\Schemas\AuthProfileSchema;
@@ -14,7 +15,7 @@ final class AuthProfileResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    public function toSchema($request): AuthProfileSchema
+    public function toSchema(Request $request): AuthProfileSchema
     {
         return new AuthProfileSchema(
             $this->resource->id,

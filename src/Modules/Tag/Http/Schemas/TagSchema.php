@@ -12,9 +12,9 @@ final class TagSchema extends AbstractSchema
     public function __construct(
         /** @OA\Property() */
         public int $id,
+
         /** @OA\Property() */
         public string $name,
     ) {
-        //
     }
 }

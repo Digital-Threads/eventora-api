@@ -2,6 +2,7 @@
 
 namespace Modules\Role\Http\Resources;
 
+use Illuminate\Http\Request;
 use Modules\Role\Http\Schemas\RoleSchema;
 use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
@@ -13,7 +14,7 @@ final class RoleResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    public function toSchema($request): RoleSchema
+    public function toSchema(Request $request): RoleSchema
     {
         return new RoleSchema(
             $this->resource->id,

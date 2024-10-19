@@ -24,6 +24,7 @@ use Modules\AuthPassword\Mail\AuthPasswordResetLinkMail;
  * @property string|null $last_name
  * @property string|null $google_2fa_secret
  * @property string|null $google_2fa_recovery_code
+ * @property bool $google_2fa_enabled
  * @property Carbon|null $email_verified_at
  * @property Carbon|null $password_changed_at
  * @property Carbon|null $registered_at
@@ -137,5 +138,13 @@ final class User extends Authenticatable
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function socialProviders(): HasMany
+    {
+        return $this->hasMany(SocialProvider::class);
     }
 }

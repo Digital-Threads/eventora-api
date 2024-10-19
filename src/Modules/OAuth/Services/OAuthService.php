@@ -163,10 +163,10 @@ final class OAuthService
             ->first();
 
         if ($existingSocial) {
-            return User::find($existingSocial->user_id);
+            $user= User::find($existingSocial->user_id);
+            return new UserEntity($user->getAuthIdentifier());
         }
 
-        // Создание компании
         try {
             $companyDto = new CompanyCreateRequestDto(
                 $source->name,
@@ -175,13 +175,11 @@ final class OAuthService
 
             $company = $this->companyCommandService->create($companyDto);
 
-            // Создание пользователя
             $user = User::create([
                 'registered_at' => now(),
                 'company_id' => $company->id,
             ]);
 
-            // Создание записи в social_providers
             SocialProvider::create([
                 'user_id' => $user->id,
                 'provider_id' => $source->id,
@@ -224,12 +222,13 @@ final class OAuthService
     {
         $source = $this->facebook->request($request->token);
 
-        $existingSocial = SocialProvider::where('provider_id', $source->id)
+        $existingSocial = SocialProvider::with('user')->where('provider_id', $source->id)
             ->where('provider', SocialProviderEnum::FACEBOOK->value)
             ->first();
 
         if ($existingSocial) {
-            return User::find($existingSocial->user_id);
+            $user= User::find($existingSocial->user_id);
+            return new UserEntity($user->getAuthIdentifier());
         }
 
         // Создание компании

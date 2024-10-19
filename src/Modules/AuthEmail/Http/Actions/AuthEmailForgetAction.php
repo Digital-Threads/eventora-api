@@ -2,6 +2,7 @@
 
 namespace Modules\AuthEmail\Http\Actions;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Infrastructure\Auth\Checks\UserHasEmailCheck;
 use Modules\AuthEmail\Services\AuthEmailCommandService;
@@ -37,6 +38,7 @@ final class AuthEmailForgetAction
      *          ),
      *      ),
      * )
+     * @throws AuthorizationException
      */
     public function __invoke(AuthEmailForgetRequest $request, AuthEmailCommandService $service): JsonResponse
     {
@@ -45,8 +47,6 @@ final class AuthEmailForgetAction
 
         $service->forget($dto);
 
-        return response()->json([
-            'message' => trans('messages.auth_email.email_forgot')
-        ]);
+        return response()->message(trans('messages.auth_email.email_forgot'));
     }
 }
