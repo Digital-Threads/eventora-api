@@ -53,6 +53,8 @@ final class AuthEmailSendVerificationLinkAction
 
         $service->sendVerificationLink($dto);
 
-        return response()->message(trans('messages.auth_email.verification_link_sent'));
+        return response()->json([
+            'message' => trans('messages.auth_email.verification_link_sent')
+        ]);
     }
 }

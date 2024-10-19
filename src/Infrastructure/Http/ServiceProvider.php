@@ -3,10 +3,12 @@
 namespace Infrastructure\Http;
 
 use Illuminate\Http\Request;
+use Infrastructure\Http\Macros\ErrorMessageMacro;
 use Infrastructure\Http\Macros\IdMacro;
 use Illuminate\Cache\RateLimiting\Limit;
 use Infrastructure\Http\Macros\ErrorMacro;
 use Illuminate\Support\Facades\RateLimiter;
+use Infrastructure\Http\Macros\MessageMacro;
 use Infrastructure\Http\Macros\SchemaMacro;
 use Infrastructure\Http\Macros\ErrorBagMacro;
 use Infrastructure\Http\Macros\NotFoundMacro;
@@ -30,7 +32,8 @@ final class ServiceProvider extends RouteServiceProvider
         UnauthenticatedMacro::bind();
         ForbiddenMacro::bind();
         NotFoundMacro::bind();
-
+        MessageMacro::bind();
+        ErrorMessageMacro::bind();
         $this->configureRateLimiting();
     }
 

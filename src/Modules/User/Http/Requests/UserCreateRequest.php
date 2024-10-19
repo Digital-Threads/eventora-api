@@ -28,7 +28,8 @@ final class UserCreateRequest extends FormRequest
             $this->input('email'),
             $this->input('password'),
             $this->input('firstName'),
-            $this->input('lastName')
+            $this->input('lastName'),
+            $this->input('roleId'),
         );
     }
 }

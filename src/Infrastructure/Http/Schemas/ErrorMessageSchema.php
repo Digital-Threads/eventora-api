@@ -4,16 +4,16 @@ namespace Infrastructure\Http\Schemas;
 
 /**
  * @OA\Schema(
- *     schema="MessageSchema",
+ *     schema="ErrorMessageSchema",
  *     type="object"
  * )
  */
-final class MessageSchema extends AbstractSchema
+final class ErrorMessageSchema extends AbstractSchema
 {
     public function __construct(
         /** @OA\Property(
-         *     description="Response message",
-         *     example="Operation was successful"
+         *     description="Error message",
+         *     example="An error occurred"
          * )
          */
         public string $message

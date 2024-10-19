@@ -25,7 +25,8 @@ final class UserUpdateRequest extends FormRequest
         return new UserUpdateRequestDto(
             $this->input('firstName'),
             $this->input('lastName'),
-            $this->user()->id
+            $this->input('roleId'),
+
         );
     }
 }

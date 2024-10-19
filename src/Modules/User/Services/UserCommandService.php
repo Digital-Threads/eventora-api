@@ -12,9 +12,9 @@ final class UserCommandService
     /**
      *
      */
-    public function update(UserUpdateRequestDto $dto): void
+    public function update(int $userId, UserUpdateRequestDto $dto): void
     {
-        $user = User::findOrFail($dto->userId);
+        $user = User::findOrFail($userId);
 
         $user->update([
             'first_name' => $dto->firstName,
@@ -27,11 +27,12 @@ final class UserCommandService
      */
     public function create(UserCreateRequestDto $dto): void
     {
-        User::create([
+        User::query()->create([
             'email' => $dto->email,
             'password' => Hash::make($dto->password),
             'first_name' => $dto->firstName,
             'last_name' => $dto->lastName,
+            'role_id' => $dto->roleId,
         ]);
     }
 }

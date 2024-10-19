@@ -2,18 +2,19 @@
 
 namespace Infrastructure\Console\Commands\MakeCommands;
 
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Console\GeneratorCommand;
-use Symfony\Component\Console\Input\InputOption;
+use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+use InvalidArgumentException;
 
 class MakeModuleFileCommand extends GeneratorCommand
 {
-    protected $name = 'make:module-file';
+    protected $name        = 'make:module-file';
 
     protected $description = 'Create a new file in the specified module';
 
-    protected $type = 'ModuleFile';
+    protected $type        = 'ModuleFile';
 
     public function __construct(Filesystem $files)
     {
@@ -43,12 +44,12 @@ class MakeModuleFileCommand extends GeneratorCommand
     protected function getStub()
     {
         $typeMap = [
-            'action' => 'action',
-            'dto' => 'dto',
-            'request' => 'request',
+            'action'   => 'action',
+            'dto'      => 'dto',
+            'request'  => 'request',
             'resource' => 'resource',
-            'schema' => 'schema',
-            'service' => 'service',
+            'schema'   => 'schema',
+            'service'  => 'service',
         ];
 
         foreach ($typeMap as $option => $type) {
@@ -57,40 +58,40 @@ class MakeModuleFileCommand extends GeneratorCommand
             }
         }
 
-        throw new \InvalidArgumentException('You must specify one of the file types using the appropriate flag.');
+        throw new InvalidArgumentException('You must specify one of the file types using the appropriate flag.');
     }
 
     protected function getPath($name)
     {
         $module = $this->argument('module');
-        $type = $this->getFileTypeOption();
+        $type   = $this->getFileTypeOption();
 
         $path = 'src/Modules/';
-        $path .= str_replace('\\', '/', $module) . '/';
+        $path .= str_replace('\\', '/', $module).'/';
 
         $typeMap = [
-            'action' => 'Http/Actions/',
-            'dto' => 'Dto/',
-            'request' => 'Http/Requests/',
+            'action'   => 'Http/Actions/',
+            'dto'      => 'Dto/',
+            'request'  => 'Http/Requests/',
             'resource' => 'Http/Resources/',
-            'schema' => 'Http/Schemas/',
-            'service' => 'Services/',
+            'schema'   => 'Http/Schemas/',
+            'service'  => 'Services/',
         ];
 
         $path .= isset($typeMap[$type]) ? $typeMap[$type] : '';
 
-        $path .= class_basename($name) . '.php';
+        $path .= class_basename($name).'.php';
 
         return base_path($path);
     }
 
     protected function buildClass($name)
     {
-        $stub = $this->files->get($this->getStub());
+        $stub   = $this->files->get($this->getStub());
         $module = $this->argument('module');
 
         $namespace = 'Modules';
-        $namespace .= '\\' . str_replace('/', '\\', $module);
+        $namespace .= '\\'.str_replace('/', '\\', $module);
 
         $className = class_basename($name);
 
@@ -114,6 +115,7 @@ class MakeModuleFileCommand extends GeneratorCommand
         if ($this->alreadyExists($name)) {
             if (!$this->confirm("The file [{$this->getPath($name)}] already exists. Do you want to overwrite it?")) {
                 $this->info("Skipped: [{$this->getPath($name)}]");
+
                 return false;
             }
         }
@@ -124,7 +126,7 @@ class MakeModuleFileCommand extends GeneratorCommand
         $this->info('File created successfully.');
     }
 
-    protected function makeDirectory($path)
+    protected function makeDirectory($path): string
     {
         if (!$this->files->isDirectory(dirname($path))) {
             $this->files->makeDirectory(dirname($path), 0755, true, true);
@@ -141,7 +143,7 @@ class MakeModuleFileCommand extends GeneratorCommand
             }
         }
 
-        throw new \InvalidArgumentException('You must specify one of the file types using the appropriate flag.');
+        throw new InvalidArgumentException('You must specify one of the file types using the appropriate flag.');
     }
 
     public function getHelp(): string

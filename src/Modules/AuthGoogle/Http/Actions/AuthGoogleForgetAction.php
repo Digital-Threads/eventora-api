@@ -53,6 +53,8 @@ final class AuthGoogleForgetAction
 
         $service->forget($dto);
 
-        return response()->message(trans('messages.auth_google.google_forgot'));
+        return response()->json([
+            'message' => trans('messages.auth_google.google_forgot')
+        ]);
     }
 }

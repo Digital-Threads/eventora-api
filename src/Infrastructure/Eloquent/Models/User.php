@@ -2,37 +2,37 @@
 
 namespace Infrastructure\Eloquent\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Infrastructure\Utils\WebUrl;
 use Laravel\Passport\HasApiTokens;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\AuthPassword\Mail\AuthPasswordResetLinkMail;
 
 /**
- * @property int                                                   $id
- * @property string|null                                           $email
- * @property string|null                                           $email_verification_token
- * @property string|null                                           $password
- * @property string|null                                           $google_id
- * @property string|null                                           $facebook_id
- * @property string|null                                           $first_name
- * @property string|null                                           $last_name
- * @property string|null                                           $google_2fa_secret
- * @property string|null                                           $google_2fa_recovery_code
- * @property Carbon|null                                           $email_verified_at
- * @property Carbon|null                                           $password_changed_at
- * @property Carbon|null                                           $registered_at
- * @property int                                                   $role_id
- * @property int|null                                              $subscription_plan_id
- * @property int|null                                              $company_id
- * @property \Infrastructure\Eloquent\Models\Role                  $role
- * @property \Infrastructure\Eloquent\Models\SubscriptionPlan|null $subscriptionPlan
- * @property \Infrastructure\Eloquent\Models\Company|null          $company
+ * @property int $id
+ * @property string|null $email
+ * @property string|null $email_verification_token
+ * @property string|null $password
+ * @property string|null $google_id
+ * @property string|null $facebook_id
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property string|null $google_2fa_secret
+ * @property string|null $google_2fa_recovery_code
+ * @property Carbon|null $email_verified_at
+ * @property Carbon|null $password_changed_at
+ * @property Carbon|null $registered_at
+ * @property int $role_id
+ * @property int|null $subscription_plan_id
+ * @property int|null $company_id
+ * @property Role $role
+ * @property SubscriptionPlan|null $subscriptionPlan
+ * @property Company|null $company
  */
 final class User extends Authenticatable
 {
@@ -72,15 +72,15 @@ final class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at'   => 'datetime',
         'password_changed_at' => 'datetime',
-        'registered_at' => 'datetime',
+        'registered_at'       => 'datetime',
     ];
 
     /**
      * Отправка уведомления для восстановления пароля
      *
-     * @param string $token
+     * @param  string  $token
      */
     public function sendPasswordResetNotification($token): void
     {

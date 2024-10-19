@@ -46,6 +46,8 @@ final class AuthEmailUpdateAction
         $dto = $request->toDto();
         $service->update($dto);
 
-        return response()->message(trans('messages.auth_email.email_updated'));
+        return response()->json([
+            'message' => trans('messages.auth_email.email_updated')
+        ]);
     }
 }

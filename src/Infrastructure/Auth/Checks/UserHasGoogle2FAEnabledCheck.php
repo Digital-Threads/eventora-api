@@ -17,7 +17,7 @@ final class UserHasGoogle2FAEnabledCheck extends Check
     public function execute(): CheckResponse
     {
         return new CheckResponse(
-            !is_null($this->user->google_2fa_enabled),
+            $this->user->google_2fa_enabled,
             CheckFailure::create($this),
         );
     }

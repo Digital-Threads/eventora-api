@@ -45,6 +45,8 @@ final class AuthEmailForgetAction
 
         $service->forget($dto);
 
-        return response()->message(trans('messages.auth_email.email_forgot'));
+        return response()->json([
+            'message' => trans('messages.auth_email.email_forgot')
+        ]);
     }
 }
