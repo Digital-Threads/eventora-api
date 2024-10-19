@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Modules\Event\Checks\UserCanCreateEventCheck;
 use Modules\Event\Http\Requests\EventCreateRequest;
 use Modules\Event\Services\EventCommandService;
+use Modules\Event\Http\Resources\EventResource;
 
 final class EventCreateAction
 {
@@ -19,22 +20,11 @@ final class EventCreateAction
      *      tags={"Events"},
      *      description="Create a new event",
      *      security={
-     *          {"passport": {}},
+     *          {"passport": {}} ,
      *      },
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(
-     *              type="object",
-     *              @OA\Property(property="title", type="string"),
-     *              @OA\Property(property="description", type="string"),
-     *              @OA\Property(property="eventDate", type="string", format="date-time"),
-     *              @OA\Property(property="location", type="string", nullable=true),
-     *              @OA\Property(property="isPublic", type="boolean"),
-     *              @OA\Property(property="categoryId", type="integer", nullable=true),
-     *              @OA\Property(property="templateId", type="integer", nullable=true),
-     *              @OA\Property(property="companyId", type="integer", nullable=true),
-     *              @OA\Property(property="termsConditions", type="string", nullable=true),
-     *          ),
+     *          @OA\JsonContent(ref="#/components/schemas/EventSchema"),
      *      ),
      *      @OA\Response(
      *          response=201,
@@ -51,10 +41,11 @@ final class EventCreateAction
      */
     public function __invoke(EventCreateRequest $request, EventCommandService $service): JsonResponse
     {
-        $this->authorize(UserCanCreateEventCheck::class,auth()->user());
-        $dto   = $request->toDto();
+        $this->authorize(UserCanCreateEventCheck::class, auth()->user());
+
+        $dto = $request->toDto();
         $event = $service->create($dto);
 
-        return response()->json($event, 201);
+        return response()->json(new EventResource($event), 201);
     }
 }

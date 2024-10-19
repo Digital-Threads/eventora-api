@@ -14,6 +14,7 @@ final class EventQueryRequest extends FormRequest
             'isPublic' => ['nullable', 'boolean'],
             'perPage' => ['nullable', 'int', 'min:1', 'max:50'],
             'cursor' => ['nullable', 'string'],
+            'companyId' => ['nullable', 'integer', 'exists:companies,id'],
         ];
     }
 
@@ -23,7 +24,8 @@ final class EventQueryRequest extends FormRequest
             $this->query('categoryId'),
             $this->query('isPublic'),
             (int) $this->query('perPage', '30'),
-            $this->query('cursor')
+            $this->query('cursor'),
+            $this->query('companyId')
         );
     }
 }

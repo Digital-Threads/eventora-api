@@ -17,22 +17,13 @@ final class InvitationSchema extends AbstractSchema
         public int $eventId,
 
         /** @OA\Property() */
-        public ?int $userId,
-
-        /** @OA\Property() */
-        public string $recipientContact,
-
-        /** @OA\Property(enum={"email", "sms", "whatsapp", "telegram", "viber", "facebook"}) */
-        public string $channel,
+        public string $title,
 
         /** @OA\Property() */
         public ?string $message,
 
         /** @OA\Property() */
         public string $invitationLink,
-
-        /** @OA\Property(enum={"pending", "sent", "delivered", "failed"}) */
-        public string $status,
 
         /** @OA\Property() */
         public string $createdAt,

@@ -23,12 +23,12 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Глобальные миддлвары
-        $middleware->append(HandleCors::class);
-        $middleware->append(TrimStrings::class);
-        $middleware->append(TrustProxies::class);
-        $middleware->append(PreventRequestsDuringMaintenance::class);
-        $middleware->append(ConvertEmptyStringsToNull::class);
-        $middleware->append(BlockWhenInProduction::class);
+//        $middleware->append(HandleCors::class);
+//        $middleware->append(TrimStrings::class);
+//        $middleware->append(TrustProxies::class);
+//        $middleware->append(PreventRequestsDuringMaintenance::class);
+//        $middleware->append(ConvertEmptyStringsToNull::class);
+//        $middleware->append(BlockWhenInProduction::class);
 
         // Группы миддлваров
         $middleware->appendToGroup('api', [

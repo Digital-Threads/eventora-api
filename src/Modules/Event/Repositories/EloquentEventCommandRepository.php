@@ -4,12 +4,12 @@ namespace Modules\Event\Repositories;
 
 use Infrastructure\Eloquent\Models\Event;
 use Modules\Event\Repositories\Interfaces\EventCommandRepositoryInterface;
-use Modules\Event\Dto\EventCreateDto;
-use Modules\Event\Dto\EventUpdateDto;
+use Modules\Event\Dto\EventCreateRequestDto;
+use Modules\Event\Dto\EventUpdateRequestDto;
 
 class EloquentEventCommandRepository implements EventCommandRepositoryInterface
 {
-    public function create(EventCreateDto $dto): Event
+    public function create(EventCreateRequestDto $dto): Event
     {
         return Event::create([
             'title' => $dto->title,
@@ -22,10 +22,18 @@ class EloquentEventCommandRepository implements EventCommandRepositoryInterface
             'template_id' => $dto->templateId,
             'company_id' => $dto->companyId,
             'terms_conditions' => $dto->termsConditions,
+            'image_url' => $dto->imageUrl,
+            'max_participants' => $dto->maxParticipants,
+            'age_limit' => $dto->ageLimit,
+            'event_type' => $dto->eventType,
+            'streaming_link' => $dto->streamingLink,
+            'tags' => $dto->tags,
+            'registration_deadline' => $dto->registrationDeadline,
+            'qr_code' => $dto->qrCode,
         ]);
     }
 
-    public function update(EventUpdateDto $dto): Event
+    public function update(EventUpdateRequestDto $dto): Event
     {
         $event = Event::findOrFail($dto->id);
         $event->update([
@@ -38,6 +46,14 @@ class EloquentEventCommandRepository implements EventCommandRepositoryInterface
             'template_id' => $dto->templateId,
             'company_id' => $dto->companyId,
             'terms_conditions' => $dto->termsConditions,
+            'image_url' => $dto->imageUrl,
+            'max_participants' => $dto->maxParticipants,
+            'age_limit' => $dto->ageLimit,
+            'event_type' => $dto->eventType,
+            'streaming_link' => $dto->streamingLink,
+            'tags' => $dto->tags,
+            'registration_deadline' => $dto->registrationDeadline,
+            'qr_code' => $dto->qrCode,
         ]);
 
         return $event;

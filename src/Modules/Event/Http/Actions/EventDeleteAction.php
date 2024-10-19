@@ -19,7 +19,7 @@ final class EventDeleteAction
      *      tags={"Events"},
      *      description="Delete an existing event",
      *      security={
-     *          {"passport": {}},
+     *          {"passport": {}} ,
      *      },
      *      @OA\Parameter(
      *          name="id",
