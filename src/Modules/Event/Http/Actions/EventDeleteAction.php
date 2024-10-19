@@ -5,7 +5,7 @@ namespace Modules\Event\Http\Actions;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
-use Infrastructure\Auth\Checks\UserCanDeleteEventCheck;
+use Modules\Event\Checks\UserCanDeleteEventCheck;
 use Modules\Event\Http\Requests\EventDeleteRequest;
 use Modules\Event\Services\EventCommandService;
 

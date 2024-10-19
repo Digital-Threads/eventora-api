@@ -11,21 +11,30 @@ final class HealthCheckAction
      * @OA\Get(
      *      path="/healthCheck",
      *      tags={"HealthCheck"},
-     *      description="Check application health",
+     *      summary="Check application health",
+     *      description="Returns health status of the application",
      *      @OA\Response(
      *          response=200,
-     *          description="Successful",
+     *          description="Successful response",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/MessageSchema",
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string",
+     *                  example="Application is healthy"
+     *              )
      *          ),
      *      ),
      *      @OA\Response(
      *          response=500,
-     *          description="Unhealthy",
+     *          description="Unhealthy response",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              @OA\Property(
+     *                  property="error",
+     *                  type="string",
+     *                  example="Application is unhealthy"
+     *              )
      *          ),
      *      ),
      * )

@@ -4,7 +4,7 @@ namespace Modules\AuthGoogle2FA\Http\Resources;
 
 use Infrastructure\Http\Resources\JsonResource;
 use Modules\AuthGoogle2FA\Dto\AuthGoogle2FACredentialsDto;
-use Infrastructure\Http\Resources\Traits\ConvertsSchemaToArray;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Modules\AuthGoogle2FA\Http\Schemas\AuthGoogle2FACredentialsSchema;
 
 /**

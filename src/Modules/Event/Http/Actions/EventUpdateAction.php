@@ -4,8 +4,7 @@ namespace Modules\Event\Http\Actions;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
-use Infrastructure\Auth\Checks\UserCanCreateEventCheck;
-use Infrastructure\Auth\Checks\UserCanUpdateEventCheck;
+use Modules\Event\Checks\UserCanUpdateEventCheck;
 use Modules\Event\Services\EventCommandService;
 use Modules\Event\Http\Requests\EventUpdateRequest;
 

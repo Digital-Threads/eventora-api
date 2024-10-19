@@ -3,8 +3,9 @@
 namespace Infrastructure\Console\Commands\MakeCommands;
 
 use Illuminate\Support\Str;
+use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 
-class ActionMakeCommand extends BaseControllerMakeCommand
+class ActionMakeCommand extends BaseModelMakeCommand
 {
     protected function getPath($name)
     {
