@@ -1,4 +1,5 @@
 <?php
+
 namespace Modules\Tag\Dto;
 
 final class TagViewRequestDto

@@ -3,13 +3,13 @@
 namespace Modules\Invitation\InvitationDelivery\Jobs;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
+use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 use Modules\Invitation\InvitationDelivery\Strategies\InvitationChannelStrategyInterface;
-use Infrastructure\Eloquent\Models\InvitationDelivery;
 
 class InvitationDeliverySendJob implements ShouldQueue
 {
@@ -26,7 +26,6 @@ class InvitationDeliverySendJob implements ShouldQueue
 
     public function handle()
     {
-
         $recipientContact = $this->delivery->recipient_contact;
         $message = $this->delivery->invitation->message;
         $invitationLink = $this->delivery->url;

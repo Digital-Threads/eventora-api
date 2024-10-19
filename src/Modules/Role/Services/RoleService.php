@@ -2,8 +2,8 @@
 
 namespace Modules\Role\Services;
 
-use Modules\Role\Models\Role;
 use App\Models\User;
+use Modules\Role\Models\Role;
 
 class RoleService
 {

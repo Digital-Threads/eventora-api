@@ -2,11 +2,11 @@
 
 namespace Modules\Invitation\InvitationDelivery\Http\Actions;
 
-use Illuminate\Http\JsonResponse;
-use Modules\Invitation\InvitationDelivery\Http\Requests\InvitationDeliverySendRequest;
-use Modules\Invitation\InvitationDelivery\Services\InvitationDeliveryCommandService;
-use Modules\Invitation\InvitationDelivery\Services\InvitationDeliverySendService;
 use OpenApi\Annotations as OA;
+use Illuminate\Http\JsonResponse;
+use Modules\Invitation\InvitationDelivery\Services\InvitationDeliverySendService;
+use Modules\Invitation\InvitationDelivery\Services\InvitationDeliveryCommandService;
+use Modules\Invitation\InvitationDelivery\Http\Requests\InvitationDeliverySendRequest;
 
 final class InvitationDeliverySendAction
 {
@@ -42,8 +42,6 @@ final class InvitationDeliverySendAction
      *          @OA\JsonContent(ref="#/components/schemas/ErrorSchema"),
      *      )
      * )
-     * @param InvitationDeliverySendRequest $request
-     * @return JsonResponse
      */
     public function __invoke(InvitationDeliverySendRequest $request): JsonResponse
     {

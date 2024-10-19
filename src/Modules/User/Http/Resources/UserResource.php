@@ -3,8 +3,8 @@
 namespace Modules\User\Http\Resources;
 
 use Infrastructure\Eloquent\Models\User;
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\User\Http\Schemas\UserSchema;
+use Infrastructure\Http\Resources\JsonResource;
 
 /**
  * @property User $resource
@@ -12,9 +12,7 @@ use Modules\User\Http\Schemas\UserSchema;
 final class UserResource extends JsonResource
 {
     /**
-     * @param $request
      *
-     * @return UserSchema
      */
     public function toSchema($request): UserSchema
     {

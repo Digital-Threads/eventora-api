@@ -5,13 +5,6 @@ namespace Modules\Company\Dto;
 final class CompanyUpdateRequestDto
 {
     /**
-     * @param int         $id
-     * @param string|null $name
-     * @param string|null $slug
-     * @param string|null $description
-     * @param string|null $avatarUrl
-     * @param string|null $websiteUrl
-     * @param string|null $activityDescription
      */
     public function __construct(
         public readonly int $id,
@@ -21,5 +14,6 @@ final class CompanyUpdateRequestDto
         public readonly ?string $avatarUrl,
         public readonly ?string $websiteUrl,
         public readonly ?string $activityDescription
-    ) {}
+    ) {
+    }
 }

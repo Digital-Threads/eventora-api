@@ -2,7 +2,6 @@
 
 namespace Modules\Tag\Services;
 
-
 use Modules\Tag\Dto\TagCreateRequestDto;
 use Modules\Tag\Repositories\Interfaces\TagCommandRepositoryInterface;
 
@@ -18,5 +17,4 @@ final class TagCommandService
     {
         $this->tagRepository->create($dto);
     }
-
 }

@@ -2,13 +2,13 @@
 
 namespace Modules\Invitation\InvitationDelivery\Http\Actions;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\JsonResponse;
-use Modules\Invitation\InvitationDelivery\Checks\UserCanViewInvitationDeliveryCheck;
-use Modules\Invitation\InvitationDelivery\Http\Requests\InvitationDeliveryViewRequest;
 use Modules\Invitation\InvitationDelivery\Services\InvitationDeliveryQueryService;
+use Modules\Invitation\InvitationDelivery\Checks\UserCanViewInvitationDeliveryCheck;
 use Modules\Invitation\InvitationDelivery\Http\Resources\InvitationDeliveryResource;
+use Modules\Invitation\InvitationDelivery\Http\Requests\InvitationDeliveryViewRequest;
 
 final class InvitationDeliveryViewAction
 {

@@ -2,13 +2,13 @@
 
 namespace Modules\Invitation\Http\Actions;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\JsonResponse;
+use Modules\Invitation\Http\Resources\InvitationResource;
+use Modules\Invitation\Services\InvitationCommandService;
 use Modules\Invitation\Checks\UserCanUpdateInvitationCheck;
 use Modules\Invitation\Http\Requests\InvitationUpdateRequest;
-use Modules\Invitation\Services\InvitationCommandService;
-use Modules\Invitation\Http\Resources\InvitationResource;
 
 final class InvitationUpdateAction
 {
@@ -48,7 +48,7 @@ final class InvitationUpdateAction
     {
         $this->authorize(UserCanUpdateInvitationCheck::class, [auth()->user(), $request->route('id')]);
 
-        $dto        = $request->toDto();
+        $dto = $request->toDto();
         $invitation = $service->update($dto);
 
         return new JsonResponse(new InvitationResource($invitation), 200);

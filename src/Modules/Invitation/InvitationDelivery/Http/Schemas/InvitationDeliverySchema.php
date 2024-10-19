@@ -33,5 +33,6 @@ final class InvitationDeliverySchema extends AbstractSchema
 
         /** @OA\Property() */
         public string $updatedAt
-    ) {}
+    ) {
+    }
 }

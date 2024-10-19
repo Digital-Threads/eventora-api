@@ -2,11 +2,10 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\Event
@@ -65,18 +64,16 @@ class Event extends Model
      * @var string[]
      */
     protected $casts = [
-        'event_date'            => 'datetime',
-        'is_public'             => 'boolean',
-        'tags'                  => 'array',
+        'event_date' => 'datetime',
+        'is_public' => 'boolean',
+        'tags' => 'array',
         'registration_deadline' => 'datetime',
-        'created_at'            => 'datetime',
-        'updated_at'            => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**
      * Связь с организатором (пользователь).
-     *
-     * @return BelongsTo
      */
     public function organizer(): BelongsTo
     {
@@ -85,8 +82,6 @@ class Event extends Model
 
     /**
      * Связь с категорией мероприятия.
-     *
-     * @return BelongsTo
      */
     public function category(): BelongsTo
     {
@@ -95,8 +90,6 @@ class Event extends Model
 
     /**
      * Связь с шаблоном мероприятия.
-     *
-     * @return BelongsTo
      */
     public function template(): BelongsTo
     {
@@ -105,8 +98,6 @@ class Event extends Model
 
     /**
      * Связь с компанией.
-     *
-     * @return BelongsTo
      */
     public function company(): BelongsTo
     {

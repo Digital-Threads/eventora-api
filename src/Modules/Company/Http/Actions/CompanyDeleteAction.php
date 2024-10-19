@@ -2,13 +2,12 @@
 
 namespace Modules\Company\Http\Actions;
 
-
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Auth\Access\AuthorizationException;
+use Modules\Company\Services\CompanyCommandService;
 use Modules\Company\Checks\UserCanDeleteCompanyCheck;
 use Modules\Company\Http\Requests\CompanyDeleteRequest;
-use Modules\Company\Services\CompanyCommandService;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CompanyDeleteAction
 {

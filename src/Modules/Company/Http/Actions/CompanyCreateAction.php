@@ -2,13 +2,11 @@
 
 namespace Modules\Company\Http\Actions;
 
-
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\JsonResponse;
-use Modules\Company\Checks\UserCanCreateCompanyCheck;
-use Modules\Company\Http\Requests\CompanyCreateRequest;
 use Modules\Company\Http\Resources\CompanyResource;
 use Modules\Company\Services\CompanyCommandService;
+use Modules\Company\Checks\UserCanCreateCompanyCheck;
+use Modules\Company\Http\Requests\CompanyCreateRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CompanyCreateAction
 {
@@ -40,7 +38,7 @@ class CompanyCreateAction
     {
         $this->authorize(UserCanCreateCompanyCheck::class, auth()->user());
 
-        $dto     = $request->toDto();
+        $dto = $request->toDto();
         $company = $service->create($dto);
 
         return new CompanyResource($company);

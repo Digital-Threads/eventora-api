@@ -2,12 +2,12 @@
 
 namespace Modules\Event\Http\Actions;
 
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
-use Modules\Event\Checks\UserCanDeleteEventCheck;
-use Modules\Event\Http\Requests\EventDeleteRequest;
 use Modules\Event\Services\EventCommandService;
+use Modules\Event\Checks\UserCanDeleteEventCheck;
+use Illuminate\Auth\Access\AuthorizationException;
+use Modules\Event\Http\Requests\EventDeleteRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 final class EventDeleteAction
 {

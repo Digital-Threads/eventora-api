@@ -2,12 +2,12 @@
 
 namespace Modules\User\Http\Actions;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Infrastructure\Eloquent\Models\User;
-use Modules\User\Http\Requests\UserViewRequest;
-use Modules\User\Http\Resources\UserResource;
 use Modules\User\Services\UserQueryService;
+use Modules\User\Http\Resources\UserResource;
+use Modules\User\Http\Requests\UserViewRequest;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 /**
  * @OA\Get(
@@ -42,7 +42,7 @@ final class UserViewAction
     public function __invoke(UserViewRequest $request, UserQueryService $service, User $user): JsonResource
     {
         $dto = $request->toDto();
-        $me  = $service->view($dto);
+        $me = $service->view($dto);
 
         return new UserResource($me);
     }

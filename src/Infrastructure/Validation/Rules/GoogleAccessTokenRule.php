@@ -23,7 +23,6 @@ class GoogleAccessTokenRule implements Rule
      * Determine if the validation rule passes.
      *
      * @param string $attribute
-     * @param mixed  $value
      *
      * @return bool
      */
@@ -37,7 +36,7 @@ class GoogleAccessTokenRule implements Rule
             $userInfo = $oauth2->userinfo->get();
 
             return !empty($userInfo);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }

@@ -2,18 +2,18 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Company
  *
- * @property int $id
- * @property string $name
- * @property string $slug
+ * @property int         $id
+ * @property string      $name
+ * @property string      $slug
  * @property string|null $description
  * @property string|null $avatar_url
  * @property string|null $website_url
@@ -21,8 +21,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
- * @property-read Collection|User[] $users
- * @property-read Collection|Event[] $events
+ * @property Collection|User[]  $users
+ * @property Collection|Event[] $events
  */
 class Company extends Model
 {
@@ -39,8 +39,6 @@ class Company extends Model
 
     /**
      * Связь "один ко многим" с моделью User.
-     *
-     * @return HasMany
      */
     public function users(): HasMany
     {
@@ -49,8 +47,6 @@ class Company extends Model
 
     /**
      * Связь "один ко многим" с моделью Event.
-     *
-     * @return HasMany
      */
     public function events(): HasMany
     {

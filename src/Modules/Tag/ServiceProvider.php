@@ -2,12 +2,11 @@
 
 namespace Modules\Tag;
 
-
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Tag\Repositories\EloquentTagCommandRepository;
 use Modules\Tag\Repositories\EloquentTagQueryRepository;
-use Modules\Tag\Repositories\Interfaces\TagCommandRepositoryInterface;
+use Modules\Tag\Repositories\EloquentTagCommandRepository;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Modules\Tag\Repositories\Interfaces\TagQueryRepositoryInterface;
+use Modules\Tag\Repositories\Interfaces\TagCommandRepositoryInterface;
 
 class ServiceProvider extends BaseServiceProvider
 {

@@ -1,7 +1,8 @@
 <?php
- namespace Infrastructure\Http\Middlewares;
+
+namespace Infrastructure\Http\Middlewares;
+
 use Closure;
-use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Auth;
 
 class CheckRoleMiddleware

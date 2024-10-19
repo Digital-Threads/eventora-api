@@ -2,10 +2,9 @@
 
 namespace Modules\Company\Http\Actions;
 
-
-use Modules\Company\Http\Requests\CompanyViewRequest;
-use Modules\Company\Http\Resources\CompanyResource;
 use Modules\Company\Services\CompanyQueryService;
+use Modules\Company\Http\Resources\CompanyResource;
+use Modules\Company\Http\Requests\CompanyViewRequest;
 
 /**
  * @OA\Get(
@@ -41,7 +40,7 @@ class CompanyViewAction
 {
     public function __invoke(CompanyViewRequest $request, CompanyQueryService $service): CompanyResource
     {
-        $dto     = $request->toDto();
+        $dto = $request->toDto();
         $company = $service->view($dto);
 
         return new CompanyResource($company);

@@ -2,8 +2,8 @@
 
 namespace Modules\Tag\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Modules\Tag\Dto\TagCreateRequestDto;
+use Illuminate\Foundation\Http\FormRequest;
 
 final class TagCreateRequest extends FormRequest
 {

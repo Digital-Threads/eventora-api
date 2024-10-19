@@ -2,8 +2,8 @@
 
 namespace Modules\Tag\Http\Resources;
 
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\Tag\Http\Schemas\TagSchema;
+use Infrastructure\Http\Resources\JsonResource;
 
 /**
  * @property Tag $resource

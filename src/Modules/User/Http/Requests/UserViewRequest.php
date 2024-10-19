@@ -8,7 +8,6 @@ use Illuminate\Foundation\Http\FormRequest;
 final class UserViewRequest extends FormRequest
 {
     /**
-     * @return array
      */
     public function rules(): array
     {
@@ -16,7 +15,6 @@ final class UserViewRequest extends FormRequest
     }
 
     /**
-     * @return UserViewRequestDto
      */
     public function toDto(): UserViewRequestDto
     {

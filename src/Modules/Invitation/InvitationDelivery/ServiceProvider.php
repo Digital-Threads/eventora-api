@@ -3,12 +3,12 @@
 namespace Modules\Invitation\InvitationDelivery;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryCommandRepository;
-use Modules\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryQueryRepository;
-use Modules\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryCommandRepositoryInterface;
-use Modules\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryQueryRepositoryInterface;
 use Modules\Invitation\InvitationDelivery\Services\InvitationDeliverySendService;
 use Modules\Invitation\InvitationDelivery\Strategies\EmailInvitationChannelStrategy;
+use Modules\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryQueryRepository;
+use Modules\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryCommandRepository;
+use Modules\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryQueryRepositoryInterface;
+use Modules\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryCommandRepositoryInterface;
 
 final class ServiceProvider extends BaseServiceProvider
 {

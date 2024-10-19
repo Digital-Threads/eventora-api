@@ -2,11 +2,10 @@
 
 namespace Modules\OAuth\Enums;
 
-
 enum SocialProviderEnum: string
 {
     case FACEBOOK = 'facebook';
-    case GOOGLE   = 'google';
+    case GOOGLE = 'google';
 
     // Добавьте другие провайдеры по мере необходимости
 

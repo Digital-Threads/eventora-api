@@ -7,7 +7,7 @@ use Illuminate\Foundation\Application as BaseApplication;
 class Application extends BaseApplication
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function path($path = '')
     {

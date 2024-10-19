@@ -30,5 +30,6 @@ class CompanySchema extends AbstractSchema
 
         /** @OA\Property() */
         public ?string $activityDescription
-    ) {}
+    ) {
+    }
 }

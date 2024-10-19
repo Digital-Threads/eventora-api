@@ -2,11 +2,10 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 
 /**
@@ -36,14 +35,12 @@ class InvitationDelivery extends Model
         'retry_count',
     ];
 
-    protected $casts    = [
+    protected $casts = [
         'status' => InvitationDeliveryStatus::class,
     ];
 
     /**
      * Связь с основным приглашением.
-     *
-     * @return BelongsTo
      */
     public function invitation(): BelongsTo
     {

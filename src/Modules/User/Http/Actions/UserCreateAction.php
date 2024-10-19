@@ -3,8 +3,8 @@
 namespace Modules\User\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Modules\User\Http\Requests\UserCreateRequest;
 use Modules\User\Services\UserCommandService;
+use Modules\User\Http\Requests\UserCreateRequest;
 
 /**
  * @OA\Post(

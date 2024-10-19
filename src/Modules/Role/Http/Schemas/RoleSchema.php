@@ -15,5 +15,6 @@ final class RoleSchema extends AbstractSchema
 
         /** @OA\Property() */
         public string $name,
-    ) {}
+    ) {
+    }
 }

@@ -23,8 +23,6 @@ class CompanyViewRequest extends FormRequest
     /**
      * Определить, авторизован ли пользователь делать этот запрос.
      * Мы не выполняем авторизацию здесь.
-     *
-     * @return bool
      */
     public function authorize(): bool
     {
@@ -33,8 +31,6 @@ class CompanyViewRequest extends FormRequest
 
     /**
      * Получить правила валидации, применимые к запросу.
-     *
-     * @return array
      */
     public function rules(): array
     {
@@ -45,8 +41,6 @@ class CompanyViewRequest extends FormRequest
 
     /**
      * Преобразовать запрос в DTO для дальнейшей обработки.
-     *
-     * @return CompanyViewRequestDto
      */
     public function toDto(): CompanyViewRequestDto
     {

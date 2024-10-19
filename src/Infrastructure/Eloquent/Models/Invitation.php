@@ -2,18 +2,18 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Infrastructure\Eloquent\Models\Invitation
  *
- * @property int         $id
- * @property int         $event_id
- * @property int|null    $user_id
+ * @property int      $id
+ * @property int      $event_id
+ * @property int|null $user_id
  * @property string title
  * @property string|null $message
  * @property string      $invitation_link
@@ -34,8 +34,6 @@ class Invitation extends Model
 
     /**
      * Связь с доставками приглашений.
-     *
-     * @return HasMany
      */
     public function deliveries(): HasMany
     {
@@ -44,8 +42,6 @@ class Invitation extends Model
 
     /**
      * Связь с событием.
-     *
-     * @return BelongsTo
      */
     public function event(): BelongsTo
     {
@@ -54,8 +50,6 @@ class Invitation extends Model
 
     /**
      * Связь с пользователем.
-     *
-     * @return BelongsTo
      */
     public function user(): BelongsTo
     {

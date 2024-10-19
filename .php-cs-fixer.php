@@ -2,7 +2,7 @@
 <?php
 
 return (new \PhpCsFixer\Config('app'))
-    ->setUsingCache(false)
+    ->setUsingCache(true)
     ->setRules([
         '@PSR2' => true,
         'array_indentation' => true,
@@ -87,4 +87,8 @@ return (new \PhpCsFixer\Config('app'))
         'magic_method_casing' => true,
         'clean_namespace' => true,
         'combine_consecutive_issets' => true,
+        'multiline_whitespace_before_semicolons' => true,
+        'no_superfluous_phpdoc_tags' => true,
+        'align_multiline_comment' => ['comment_type' => 'phpdocs_like'],
+        'no_unneeded_curly_braces' => true
     ]);

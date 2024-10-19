@@ -2,7 +2,6 @@
 
 namespace Modules\Invitation\InvitationDelivery\Strategies;
 
-
 use Exception;
 use Illuminate\Support\Facades\Mail;
 use Modules\Invitation\InvitationDelivery\Mail\InvitationMail;
@@ -15,7 +14,7 @@ class EmailInvitationChannelStrategy implements InvitationChannelStrategyInterfa
             Mail::to($recipientContact)->send(new InvitationMail($message, $invitationLink));
 
             return true;
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }

@@ -2,17 +2,17 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\CompanyUser
  *
- * @property int $id
- * @property int $company_id
- * @property int $user_id
- * @property string $role
+ * @property int         $id
+ * @property int         $company_id
+ * @property int         $user_id
+ * @property string      $role
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
@@ -34,7 +34,7 @@ class CompanyUser extends Model
      */
     protected $casts = [
         'company_id' => 'integer',
-        'user_id'    => 'integer',
+        'user_id' => 'integer',
     ];
 
     /**

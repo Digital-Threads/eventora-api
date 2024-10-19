@@ -14,12 +14,11 @@ final class UserUpdateRequest extends FormRequest
     {
         return [
             'firstName' => 'nullable|string|max:255',
-            'lastName'  => 'nullable|string|max:255',
+            'lastName' => 'nullable|string|max:255',
         ];
     }
 
     /**
-     * @return UserUpdateRequestDto
      */
     public function toDto(): UserUpdateRequestDto
     {

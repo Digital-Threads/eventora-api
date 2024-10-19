@@ -2,10 +2,10 @@
 
 namespace Modules\Event\Http\Actions;
 
-use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Event\Http\Requests\EventViewRequest;
 use Modules\Event\Services\EventQueryService;
 use Modules\Event\Http\Resources\EventResource;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Event\Http\Requests\EventViewRequest;
 
 final class EventViewAction
 {

@@ -2,15 +2,14 @@
 
 namespace Modules\Company\Http\Actions;
 
-
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Modules\Company\Checks\UserCanUpdateCompanyCheck;
 use Modules\Company\Dto\CompanyViewRequestDto;
-use Modules\Company\Http\Requests\CompanyUpdateRequest;
+use Modules\Company\Services\CompanyQueryService;
+use Illuminate\Auth\Access\AuthorizationException;
 use Modules\Company\Http\Resources\CompanyResource;
 use Modules\Company\Services\CompanyCommandService;
-use Modules\Company\Services\CompanyQueryService;
+use Modules\Company\Checks\UserCanUpdateCompanyCheck;
+use Modules\Company\Http\Requests\CompanyUpdateRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 final class CompanyUpdateAction
 {
@@ -42,16 +41,16 @@ final class CompanyUpdateAction
      * @throws AuthorizationException
      */
     public function __invoke(
-        CompanyUpdateRequest  $request,
+        CompanyUpdateRequest $request,
         CompanyCommandService $commandService,
-        CompanyQueryService   $queryService,
-                              $id
+        CompanyQueryService $queryService,
+        $id
     ): CompanyResource {
         $company = $queryService->view(new CompanyViewRequestDto($id));
 
         $this->authorize(UserCanUpdateCompanyCheck::class, $company);
 
-        $dto            = $request->toDto();
+        $dto = $request->toDto();
         $updatedCompany = $commandService->update($company->id, $dto);
 
         return new CompanyResource($updatedCompany);

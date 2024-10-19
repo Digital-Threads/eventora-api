@@ -5,7 +5,6 @@ namespace Modules\Event\Http\Requests;
 use Modules\Event\Dto\EventViewRequestDto;
 use Illuminate\Foundation\Http\FormRequest;
 
-
 final class EventViewRequest extends FormRequest
 {
     /**
@@ -19,7 +18,6 @@ final class EventViewRequest extends FormRequest
     }
 
     /**
-     * @return EventViewRequestDto
      */
     public function toDto(): EventViewRequestDto
     {

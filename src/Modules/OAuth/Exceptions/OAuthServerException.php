@@ -2,7 +2,6 @@
 
 namespace Modules\OAuth\Exceptions;
 
-
 use League\OAuth2\Server\Exception\OAuthServerException as Exception;
 
 final class OAuthServerException extends Exception

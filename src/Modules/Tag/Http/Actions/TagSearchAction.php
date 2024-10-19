@@ -2,10 +2,10 @@
 
 namespace Modules\Tag\Http\Actions;
 
-use Infrastructure\Http\Resources\AnonymousResourceCollection;
-use Modules\Tag\Http\Requests\TagSearchRequest;
-use Modules\Tag\Http\Resources\TagResource;
 use Modules\Tag\Services\TagQueryService;
+use Modules\Tag\Http\Resources\TagResource;
+use Modules\Tag\Http\Requests\TagSearchRequest;
+use Infrastructure\Http\Resources\AnonymousResourceCollection;
 
 /**
  * @OA\Get(
@@ -46,7 +46,7 @@ final class TagSearchAction
 {
     public function __invoke(TagSearchRequest $request, TagQueryService $service): AnonymousResourceCollection
     {
-        $dto  = $request->toDto();
+        $dto = $request->toDto();
         $tags = $service->search($dto);
 
         return TagResource::collection($tags);

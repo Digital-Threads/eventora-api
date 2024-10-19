@@ -72,5 +72,6 @@ final class EventSchema extends AbstractSchema
 
         /** @OA\Property() */
         public ?string $qrCode
-    ) {}
+    ) {
+    }
 }

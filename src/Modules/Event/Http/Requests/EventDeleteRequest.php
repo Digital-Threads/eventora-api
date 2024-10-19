@@ -2,13 +2,11 @@
 
 namespace Modules\Event\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Event\Dto\EventDeleteRequestDto;
 
 final class EventDeleteRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [

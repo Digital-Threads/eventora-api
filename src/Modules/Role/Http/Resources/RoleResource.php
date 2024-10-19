@@ -2,8 +2,8 @@
 
 namespace Modules\Role\Http\Resources;
 
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\Role\Http\Schemas\RoleSchema;
+use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 
 /**

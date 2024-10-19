@@ -3,8 +3,8 @@
 namespace Modules\Tag\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Modules\Tag\Http\Requests\TagCreateRequest;
 use Modules\Tag\Services\TagCommandService;
+use Modules\Tag\Http\Requests\TagCreateRequest;
 
 /**
  * @OA\Post(

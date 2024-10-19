@@ -2,13 +2,13 @@
 
 namespace Modules\Event\Http\Actions;
 
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
-use Modules\Event\Checks\UserCanCreateEventCheck;
-use Modules\Event\Http\Requests\EventCreateRequest;
-use Modules\Event\Services\EventCommandService;
 use Modules\Event\Http\Resources\EventResource;
+use Modules\Event\Services\EventCommandService;
+use Modules\Event\Checks\UserCanCreateEventCheck;
+use Illuminate\Auth\Access\AuthorizationException;
+use Modules\Event\Http\Requests\EventCreateRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 final class EventCreateAction
 {

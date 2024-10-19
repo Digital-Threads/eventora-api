@@ -3,8 +3,8 @@
 namespace Modules\Invitation\Repositories\Interfaces;
 
 use Infrastructure\Eloquent\Models\Invitation;
-use Modules\Invitation\Dto\InvitationQueryRequestDto;
 use Modules\Invitation\Dto\InvitationViewRequestDto;
+use Modules\Invitation\Dto\InvitationQueryRequestDto;
 
 interface InvitationQueryRepositoryInterface
 {

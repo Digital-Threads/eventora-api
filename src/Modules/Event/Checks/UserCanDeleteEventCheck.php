@@ -2,10 +2,10 @@
 
 namespace Modules\Event\Checks;
 
+use App\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
-use App\Models\User;
 use Infrastructure\Eloquent\Models\Event;
 
 final class UserCanDeleteEventCheck extends Check
@@ -17,7 +17,7 @@ final class UserCanDeleteEventCheck extends Check
 
     public function execute(): CheckResponse
     {
-        $canDelete  = $this->user->id === $this->event->organizer_id;
+        $canDelete = $this->user->id === $this->event->organizer_id;
 
 
         return new CheckResponse(

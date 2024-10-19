@@ -2,7 +2,6 @@
 
 namespace Modules\Company\Services;
 
-
 use Infrastructure\Eloquent\Models\Company;
 use Modules\Company\Dto\CompanyCreateRequestDto;
 use Modules\Company\Dto\CompanyDeleteRequestDto;
@@ -12,12 +11,10 @@ use Modules\Company\Repositories\Interfaces\CompanyCommandRepositoryInterface;
 class CompanyCommandService
 {
     /**
-     * @var CompanyCommandRepositoryInterface
      */
     protected CompanyCommandRepositoryInterface $companyCommandRepository;
 
     /**
-     * @param CompanyCommandRepositoryInterface $companyCommandRepository
      */
     public function __construct(CompanyCommandRepositoryInterface $companyCommandRepository)
     {
@@ -25,9 +22,7 @@ class CompanyCommandService
     }
 
     /**
-     * @param CompanyCreateRequestDto $dto
      *
-     * @return Company
      */
     public function create(CompanyCreateRequestDto $dto): Company
     {
@@ -35,10 +30,7 @@ class CompanyCommandService
     }
 
     /**
-     * @param int                     $id
-     * @param CompanyUpdateRequestDto $dto
      *
-     * @return Company
      */
     public function update(int $id, CompanyUpdateRequestDto $dto): Company
     {
@@ -46,9 +38,7 @@ class CompanyCommandService
     }
 
     /**
-     * @param CompanyDeleteRequestDto $dto
      *
-     * @return void
      */
     public function delete(CompanyDeleteRequestDto $dto): void
     {

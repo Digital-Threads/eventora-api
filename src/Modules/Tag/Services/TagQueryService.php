@@ -2,11 +2,10 @@
 
 namespace Modules\Tag\Services;
 
-
-use Illuminate\Database\Eloquent\Collection;
+use Modules\Tag\Dto\TagViewRequestDto;
 use Infrastructure\Eloquent\Models\Tag;
 use Modules\Tag\Dto\TagSearchRequestDto;
-use Modules\Tag\Dto\TagViewRequestDto;
+use Illuminate\Database\Eloquent\Collection;
 use Modules\Tag\Repositories\Interfaces\TagQueryRepositoryInterface;
 
 final class TagQueryService
@@ -31,5 +30,4 @@ final class TagQueryService
     {
         return $this->tagRepository->find($dto->id);
     }
-
 }

@@ -2,11 +2,10 @@
 
 namespace Modules\Invitation\Http\Actions;
 
-
 use Illuminate\Http\JsonResponse;
-use Modules\Invitation\Http\Requests\InvitationQueryRequest;
-use Modules\Invitation\Http\Resources\InvitationResource;
 use Modules\Invitation\Services\InvitationQueryService;
+use Modules\Invitation\Http\Resources\InvitationResource;
+use Modules\Invitation\Http\Requests\InvitationQueryRequest;
 
 final class InvitationQueryAction
 {
@@ -37,7 +36,7 @@ final class InvitationQueryAction
      */
     public function __invoke(InvitationQueryRequest $request, InvitationQueryService $service): JsonResponse
     {
-        $dto         = $request->toDto();
+        $dto = $request->toDto();
         $invitations = $service->query($dto);
 
         return response()->json(InvitationResource::collection($invitations), 200);

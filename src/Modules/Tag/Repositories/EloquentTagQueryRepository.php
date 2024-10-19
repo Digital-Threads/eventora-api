@@ -2,9 +2,8 @@
 
 namespace Modules\Tag\Repositories;
 
-
-use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\Tag;
+use Illuminate\Database\Eloquent\Collection;
 use Modules\Tag\Repositories\Interfaces\TagQueryRepositoryInterface;
 
 class EloquentTagQueryRepository implements TagQueryRepositoryInterface
@@ -23,5 +22,4 @@ class EloquentTagQueryRepository implements TagQueryRepositoryInterface
     {
         return Tag::where('name', 'like', "%{$query}%")->get();
     }
-
 }

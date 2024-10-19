@@ -2,11 +2,10 @@
 
 namespace Modules\Invitation\Http\Resources;
 
-
 use Infrastructure\Eloquent\Models\Invitation;
-use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Infrastructure\Http\Resources\JsonResource;
 use Modules\Invitation\Http\Schemas\InvitationSchema;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 
 /**
  * @property Invitation $resource

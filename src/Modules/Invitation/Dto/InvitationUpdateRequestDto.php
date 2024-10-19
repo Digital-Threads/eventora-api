@@ -10,5 +10,6 @@ final class InvitationUpdateRequestDto
         public readonly ?string $title, // Заголовок приглашения
         public readonly ?string $message, // Сообщение приглашения
         public readonly ?string $invitationLink // Ссылка на приглашение (если нужно обновить)
-    ) {}
+    ) {
+    }
 }

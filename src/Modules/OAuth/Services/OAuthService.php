@@ -2,57 +2,50 @@
 
 namespace Modules\OAuth\Services;
 
-
 use DB;
-use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Hash;
-use Infrastructure\Eloquent\Models\Role;
-use Infrastructure\Eloquent\Models\SocialProvider;
-use Infrastructure\Eloquent\Models\User;
-use Infrastructure\Eloquent\Models\UserTrustedDevice;
-use Infrastructure\Google2FA\Google2FAService;
-use Infrastructure\Socialite\Facebook\FacebookUserProvider;
-use Infrastructure\Socialite\Google\GoogleUserProvider;
-use Laravel\Passport\Bridge\User as UserEntity;
-use League\OAuth2\Server\Entities\UserEntityInterface;
-use Modules\Company\Dto\CompanyCreateRequestDto;
-use Modules\Company\Services\CompanyCommandService;
-use Modules\OAuth\Dto\OAuthFacebookDto;
-use Modules\OAuth\Dto\OAuthFacebookSignupDto;
-use Modules\OAuth\Dto\OAuthGoogleDto;
-use Modules\OAuth\Dto\OAuthGoogleSignupDto;
-use Modules\OAuth\Dto\OAuthPasswordDto;
-use Modules\OAuth\Dto\OAuthPasswordSignupDto;
-use Modules\OAuth\Dto\OAuthVerifyOtpDto;
-use Modules\OAuth\Enums\SocialProviderEnum;
-use Modules\OAuth\Exceptions\InvalidOtpException;
-use Modules\OAuth\Exceptions\InvalidOtpRecoveryCodeException;
-use Modules\OAuth\Exceptions\OAuthServerException;
 use Str;
+use Exception;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Event;
+use Modules\OAuth\Dto\OAuthGoogleDto;
+use Modules\OAuth\Dto\OAuthFacebookDto;
+use Modules\OAuth\Dto\OAuthPasswordDto;
+use Infrastructure\Eloquent\Models\Role;
+use Infrastructure\Eloquent\Models\User;
+use Modules\OAuth\Dto\OAuthVerifyOtpDto;
+use Modules\OAuth\Dto\OAuthGoogleSignupDto;
+use Modules\OAuth\Enums\SocialProviderEnum;
+use Modules\OAuth\Dto\OAuthFacebookSignupDto;
+use Modules\OAuth\Dto\OAuthPasswordSignupDto;
+use Infrastructure\Google2FA\Google2FAService;
+use Laravel\Passport\Bridge\User as UserEntity;
+use Modules\Company\Dto\CompanyCreateRequestDto;
+use Modules\OAuth\Exceptions\InvalidOtpException;
+use Infrastructure\Eloquent\Models\SocialProvider;
+use Modules\OAuth\Exceptions\OAuthServerException;
+use Modules\Company\Services\CompanyCommandService;
+use Infrastructure\Eloquent\Models\UserTrustedDevice;
+use League\OAuth2\Server\Entities\UserEntityInterface;
+use Infrastructure\Socialite\Google\GoogleUserProvider;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Infrastructure\Socialite\Facebook\FacebookUserProvider;
+use Modules\OAuth\Exceptions\InvalidOtpRecoveryCodeException;
 
 final class OAuthService
 {
     /**
-     * @param GoogleUserProvider    $google
-     * @param FacebookUserProvider  $facebook
-     * @param Google2FAService      $tfa
-     * @param CompanyCommandService $companyCommandService
      */
     public function __construct(
-        private readonly GoogleUserProvider    $google,
-        private readonly FacebookUserProvider  $facebook,
-        private readonly Google2FAService      $tfa,
+        private readonly GoogleUserProvider $google,
+        private readonly FacebookUserProvider $facebook,
+        private readonly Google2FAService $tfa,
         private readonly CompanyCommandService $companyCommandService,
     ) {
         //
     }
 
     /**
-     * @param OAuthPasswordDto $request
      *
-     * @return UserEntityInterface|null
      */
     public function password(OAuthPasswordDto $request): ?UserEntityInterface
     {
@@ -65,9 +58,7 @@ final class OAuthService
     }
 
     /**
-     * @param OAuthVerifyOtpDto $request
      *
-     * @return void
      */
     public function verifyOtp(OAuthVerifyOtpDto $request): void
     {
@@ -95,8 +86,8 @@ final class OAuthService
         if ($request->trusted) {
             Event::dispatch('auth_trusted_device.create', [
                 [
-                    'userId'    => $user->id,
-                    'ip'        => $request->ip,
+                    'userId' => $user->id,
+                    'ip' => $request->ip,
                     'userAgent' => $request->userAgent,
                 ],
             ]);
@@ -104,9 +95,6 @@ final class OAuthService
     }
 
     /**
-     * @param OAuthPasswordSignupDto $request
-     *
-     * @return UserEntityInterface
      * @throws OAuthServerException
      */
     public function passwordSignup(OAuthPasswordSignupDto $request): UserEntityInterface
@@ -123,28 +111,26 @@ final class OAuthService
                 // Создание пользователя
 
                 $user = User::create([
-                    'email'         => $request->username,
-                    'password'      => Hash::make($request->password),
-                    'first_name'    => $request->firstName,
-                    'last_name'     => $request->lastName,
+                    'email' => $request->username,
+                    'password' => Hash::make($request->password),
+                    'first_name' => $request->firstName,
+                    'last_name' => $request->lastName,
                     'registered_at' => now(),
-                    'company_id'    => $company->id,
-                    'role_id'       => Role::getDefaultRole()->id,
+                    'company_id' => $company->id,
+                    'role_id' => Role::getDefaultRole()->id,
                 ]);
 
                 Event::dispatch('oauth.password_signed_up', [$user->id]);
 
                 return new UserEntity($user->getAuthIdentifier());
             });
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             throw  OAuthServerException::invalidSignupCredentials();
         }
     }
 
     /**
-     * @param OAuthGoogleDto $request
      *
-     * @return UserEntityInterface|null
      */
     public function google(OAuthGoogleDto $request): ?UserEntityInterface
     {
@@ -159,15 +145,12 @@ final class OAuthService
                 ->firstOrFail();
 
             return new UserEntity($user->getAuthIdentifier());
-        } catch(ModelNotFoundException $e) {
+        } catch (ModelNotFoundException $e) {
             return null;
         }
     }
 
     /**
-     * @param OAuthGoogleSignupDto $request
-     *
-     * @return UserEntityInterface|null
      * @throws OAuthServerException
      */
     public function googleSignup(OAuthGoogleSignupDto $request): ?UserEntityInterface
@@ -195,28 +178,26 @@ final class OAuthService
             // Создание пользователя
             $user = User::create([
                 'registered_at' => now(),
-                'company_id'    => $company->id,
+                'company_id' => $company->id,
             ]);
 
             // Создание записи в social_providers
             SocialProvider::create([
-                'user_id'     => $user->id,
+                'user_id' => $user->id,
                 'provider_id' => $source->id,
-                'provider'    => SocialProviderEnum::GOOGLE->value,
+                'provider' => SocialProviderEnum::GOOGLE->value,
             ]);
 
             Event::dispatch('oauth.google_signed_up', [$user->id]);
 
             return new UserEntity($user->getAuthIdentifier());
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             throw OAuthServerException::googleSignupFailed();
         }
     }
 
     /**
-     * @param OAuthFacebookDto $request
      *
-     * @return UserEntityInterface|null
      */
     public function facebook(OAuthFacebookDto $request): ?UserEntityInterface
     {
@@ -231,15 +212,12 @@ final class OAuthService
                 ->firstOrFail();
 
             return new UserEntity($user->getAuthIdentifier());
-        } catch(ModelNotFoundException $e) {
+        } catch (ModelNotFoundException $e) {
             return null;
         }
     }
 
     /**
-     * @param OAuthFacebookSignupDto $request
-     *
-     * @return UserEntityInterface|null
      * @throws OAuthServerException
      */
     public function facebookSignup(OAuthFacebookSignupDto $request): ?UserEntityInterface
@@ -265,19 +243,19 @@ final class OAuthService
 
             $user = User::create([
                 'registered_at' => now(),
-                'company_id'    => $company->id,
+                'company_id' => $company->id,
             ]);
 
             SocialProvider::create([
-                'user_id'     => $user->id,
+                'user_id' => $user->id,
                 'provider_id' => $source->id,
-                'provider'    => SocialProviderEnum::FACEBOOK->value,
+                'provider' => SocialProviderEnum::FACEBOOK->value,
             ]);
 
             Event::dispatch('oauth.facebook_signed_up', [$user->id]);
 
             return new UserEntity($user->getAuthIdentifier());
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             throw OAuthServerException::facebookSignupFailed();
         }
     }

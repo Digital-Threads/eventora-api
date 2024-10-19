@@ -2,15 +2,13 @@
 
 namespace Modules\User\Services;
 
-use Modules\User\Dto\UserViewRequestDto;
 use Infrastructure\Eloquent\Models\User;
+use Modules\User\Dto\UserViewRequestDto;
 
 final class UserQueryService
 {
     /**
-     * @param  UserViewRequestDto  $dto
      *
-     * @return User
      */
     public function view(UserViewRequestDto $dto): User
     {

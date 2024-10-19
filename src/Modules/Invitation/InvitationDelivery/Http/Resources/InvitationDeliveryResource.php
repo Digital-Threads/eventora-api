@@ -2,9 +2,9 @@
 
 namespace Modules\Invitation\InvitationDelivery\Http\Resources;
 
+use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\Invitation\InvitationDelivery\Http\Schemas\InvitationDeliverySchema;
 
 /**
@@ -15,9 +15,7 @@ final class InvitationDeliveryResource extends JsonResource
     use ConvertsSchemaToArray;
 
     /**
-     * @param $request
      *
-     * @return InvitationDeliverySchema
      */
     public function toSchema($request): InvitationDeliverySchema
     {

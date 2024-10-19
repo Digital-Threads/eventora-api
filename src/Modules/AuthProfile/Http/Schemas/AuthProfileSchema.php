@@ -3,7 +3,6 @@
 namespace Modules\AuthProfile\Http\Schemas;
 
 use Infrastructure\Http\Schemas\AbstractSchema;
-use Modules\Frontend\Company\Http\Schemas\CompanySchema;
 
 /**
  * @OA\Schema(schema="AuthProfileSchema", type="object")

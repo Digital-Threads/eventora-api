@@ -3,10 +3,10 @@
 namespace Modules\Company;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Company\Repositories\EloquentCompanyCommandRepository;
 use Modules\Company\Repositories\EloquentCompanyQueryRepository;
-use Modules\Company\Repositories\Interfaces\CompanyCommandRepositoryInterface;
+use Modules\Company\Repositories\EloquentCompanyCommandRepository;
 use Modules\Company\Repositories\Interfaces\CompanyQueryRepositoryInterface;
+use Modules\Company\Repositories\Interfaces\CompanyCommandRepositoryInterface;
 
 class ServiceProvider extends BaseServiceProvider
 {

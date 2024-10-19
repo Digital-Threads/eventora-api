@@ -3,9 +3,9 @@
 namespace Modules\Role\Http\Actions;
 
 use Modules\Role\Services\RoleService;
-use Modules\Role\Http\Requests\AssignRoleRequest;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Role\Http\Resources\RoleResource;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Role\Http\Requests\AssignRoleRequest;
 
 /**
  * @OA\Post(

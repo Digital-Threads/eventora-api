@@ -2,15 +2,12 @@
 
 namespace Modules\Invitation\InvitationDelivery\Services;
 
-
 use Modules\Invitation\InvitationDelivery\Jobs\InvitationDeliverySendJob;
-use Modules\Invitation\InvitationDelivery\Strategies\EmailInvitationChannelStrategy;
 
 class InvitationDeliverySendService
 {
-    public function __construct(protected  array $channels)
+    public function __construct(protected array $channels)
     {
-
     }
 
     public function sendInvitations(array $deliveries): void

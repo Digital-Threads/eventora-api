@@ -2,7 +2,6 @@
 
 namespace Modules\Event\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Event\Dto\EventUpdateRequestDto;
 
@@ -10,34 +9,32 @@ use Modules\Event\Dto\EventUpdateRequestDto;
 
 final class EventUpdateRequest extends FormRequest
 {
-
     /**
      * @return array[]
      */
     public function rules(): array
     {
         return [
-            'title'                 => 'required|string|max:255',
-            'description'           => 'nullable|string',
-            'event_date'            => 'required|date',
-            'location'              => 'nullable|string|max:255',
-            'is_public'             => 'boolean',
-            'category_id'           => 'nullable|exists:event_categories,id',
-            'template_id'           => 'nullable|exists:event_templates,id',
-            'terms_conditions'      => 'nullable|string',
-            'image_url'             => 'nullable|string',
-            'max_participants'      => 'nullable|integer',
-            'age_limit'             => 'nullable|integer',
-            'event_type'            => 'nullable|string|in:online,offline',
-            'streaming_link'        => 'nullable|string',
-            'tags'                  => 'nullable|array',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'event_date' => 'required|date',
+            'location' => 'nullable|string|max:255',
+            'is_public' => 'boolean',
+            'category_id' => 'nullable|exists:event_categories,id',
+            'template_id' => 'nullable|exists:event_templates,id',
+            'terms_conditions' => 'nullable|string',
+            'image_url' => 'nullable|string',
+            'max_participants' => 'nullable|integer',
+            'age_limit' => 'nullable|integer',
+            'event_type' => 'nullable|string|in:online,offline',
+            'streaming_link' => 'nullable|string',
+            'tags' => 'nullable|array',
             'registration_deadline' => 'nullable|date',
-            'qr_code'               => 'nullable|string',
+            'qr_code' => 'nullable|string',
         ];
     }
 
     /**
-     * @return EventUpdateRequestDto
      */
     public function toDto(): EventUpdateRequestDto
     {

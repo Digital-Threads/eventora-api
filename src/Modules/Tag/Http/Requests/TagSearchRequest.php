@@ -2,9 +2,8 @@
 
 namespace Modules\Tag\Http\Requests;
 
-
-use Illuminate\Foundation\Http\FormRequest;
 use Modules\Tag\Dto\TagSearchRequestDto;
+use Illuminate\Foundation\Http\FormRequest;
 
 final class TagSearchRequest extends FormRequest
 {

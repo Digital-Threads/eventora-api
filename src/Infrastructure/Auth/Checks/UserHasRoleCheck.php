@@ -21,5 +21,4 @@ final class UserHasRoleCheck extends Check
             CheckFailure::create($this),
         );
     }
-
 }

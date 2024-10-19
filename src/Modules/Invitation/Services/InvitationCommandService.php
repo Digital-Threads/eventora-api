@@ -11,7 +11,8 @@ final class InvitationCommandService
 {
     public function __construct(
         private readonly InvitationCommandRepositoryInterface $invitationCommandRepository
-    ) {}
+    ) {
+    }
 
     public function create(InvitationCreateRequestDto $dto): Invitation
     {
@@ -23,4 +24,3 @@ final class InvitationCommandService
         return $this->invitationCommandRepository->update($dto);
     }
 }
-

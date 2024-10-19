@@ -2,29 +2,28 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Role
  *
- * @property int                    $id
- * @property string                 $name
- * @property string|null            $description
- * @property Carbon|null            $created_at
- * @property Carbon|null            $updated_at
+ * @property int         $id
+ * @property string      $name
+ * @property string|null $description
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  *
- * @property-read Collection|User[] $users
+ * @property Collection|User[] $users
  */
 class Role extends Model
 {
     use HasFactory;
 
-    const string USER  = 'user';
+    const string USER = 'user';
     const string ADMIN = 'admin';
 
     /**
@@ -45,8 +44,6 @@ class Role extends Model
 
     /**
      * Связь "один ко многим" с моделью User.
-     *
-     * @return HasMany
      */
     public function users(): HasMany
     {

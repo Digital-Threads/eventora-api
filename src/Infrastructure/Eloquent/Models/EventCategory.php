@@ -2,16 +2,16 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\EventCategory
  *
- * @property int $id
- * @property string $name
- * @property string $slug
+ * @property int         $id
+ * @property string      $name
+ * @property string      $slug
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */

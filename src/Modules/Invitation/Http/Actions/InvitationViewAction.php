@@ -2,16 +2,13 @@
 
 namespace Modules\Invitation\Http\Actions;
 
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
-use Modules\Invitation\Http\Requests\InvitationViewRequest;
 use Modules\Invitation\Services\InvitationQueryService;
 use Modules\Invitation\Http\Resources\InvitationResource;
+use Modules\Invitation\Http\Requests\InvitationViewRequest;
 
 final class InvitationViewAction
 {
-
     /**
      * @OA\Get(
      *      path="/invitations/{id}",
@@ -39,7 +36,6 @@ final class InvitationViewAction
      */
     public function __invoke(InvitationViewRequest $request, InvitationQueryService $service): JsonResponse
     {
-
         $dto = $request->toDto();
         $invitation = $service->view($dto);
 

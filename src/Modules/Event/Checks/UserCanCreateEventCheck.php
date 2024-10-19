@@ -2,11 +2,10 @@
 
 namespace Modules\Event\Checks;
 
+use App\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
-use App\Models\User;
-use Infrastructure\Eloquent\Models\Event;
 
 final class UserCanCreateEventCheck extends Check
 {

@@ -2,8 +2,8 @@
 
 namespace Modules\Event\Http\Requests;
 
-use Modules\Event\Dto\EventQueryRequestDto;
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\Event\Dto\EventQueryRequestDto;
 
 final class EventQueryRequest extends FormRequest
 {

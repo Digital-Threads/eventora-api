@@ -9,8 +9,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 trait ConvertsSchemaToArray
 {
     /**
-     * @param  Request        $request
-     * @return AbstractSchema
+     * @param Request $request
      */
     abstract public function toSchema($request): AbstractSchema;
 
@@ -25,8 +24,6 @@ trait ConvertsSchemaToArray
     }
 
     /**
-     * @param  mixed                       $resource
-     * @return AnonymousResourceCollection
      */
     public static function collection($resource): AnonymousResourceCollection
     {
@@ -34,8 +31,7 @@ trait ConvertsSchemaToArray
     }
 
     /**
-     * @param  Request $request
-     * @return array
+     * @param Request $request
      */
     final public function toArray($request): array
     {

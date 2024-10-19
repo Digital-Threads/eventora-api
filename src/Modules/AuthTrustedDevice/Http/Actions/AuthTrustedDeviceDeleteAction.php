@@ -66,6 +66,6 @@ final class AuthTrustedDeviceDeleteAction
 
         $service->delete($dto);
 
-        return response()->json(['message'=>(trans('messages.auth_trusted_device.deleted'))]);
+        return response()->json(['message' => (trans('messages.auth_trusted_device.deleted'))]);
     }
 }

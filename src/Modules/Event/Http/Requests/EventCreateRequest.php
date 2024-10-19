@@ -2,8 +2,6 @@
 
 namespace Modules\Event\Http\Requests;
 
-
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Event\Dto\EventCreateRequestDto;
 
@@ -11,35 +9,33 @@ use Modules\Event\Dto\EventCreateRequestDto;
 
 final class EventCreateRequest extends FormRequest
 {
-
     /**
      * @return string[]
      */
     public function rules(): array
     {
         return [
-            'title'                => 'required|string',
-            'description'          => 'nullable|string',
-            'eventDate'            => 'required|date',
-            'location'             => 'nullable|string',
-            'isPublic'             => 'required|boolean',
-            'categoryId'           => 'nullable|integer|exists:event_categories,id',
-            'templateId'           => 'nullable|integer|exists:event_templates,id',
-            'companyId'            => 'nullable|integer|exists:companies,id',
-            'termsConditions'      => 'nullable|string',
-            'imageUrl'             => 'nullable|string',
-            'maxParticipants'      => 'nullable|integer',
-            'ageLimit'             => 'nullable|integer',
-            'eventType'            => 'nullable|string|in:online,offline',
-            'streamingLink'        => 'nullable|string',
-            'tags'                 => 'nullable|array',
+            'title' => 'required|string',
+            'description' => 'nullable|string',
+            'eventDate' => 'required|date',
+            'location' => 'nullable|string',
+            'isPublic' => 'required|boolean',
+            'categoryId' => 'nullable|integer|exists:event_categories,id',
+            'templateId' => 'nullable|integer|exists:event_templates,id',
+            'companyId' => 'nullable|integer|exists:companies,id',
+            'termsConditions' => 'nullable|string',
+            'imageUrl' => 'nullable|string',
+            'maxParticipants' => 'nullable|integer',
+            'ageLimit' => 'nullable|integer',
+            'eventType' => 'nullable|string|in:online,offline',
+            'streamingLink' => 'nullable|string',
+            'tags' => 'nullable|array',
             'registrationDeadline' => 'nullable|date',
-            'qrCode'               => 'nullable|string',
+            'qrCode' => 'nullable|string',
         ];
     }
 
     /**
-     * @return EventCreateRequestDto
      */
     public function toDto(): EventCreateRequestDto
     {

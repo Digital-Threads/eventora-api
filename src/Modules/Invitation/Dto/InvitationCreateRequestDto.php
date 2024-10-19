@@ -9,5 +9,6 @@ final class InvitationCreateRequestDto
         public readonly string $title, // Заголовок приглашения
         public readonly string $message, // Сообщение приглашения
         public readonly string $invitationLink // Ссылка на приглашение (генерируется для шаблона)
-    ) {}
+    ) {
+    }
 }

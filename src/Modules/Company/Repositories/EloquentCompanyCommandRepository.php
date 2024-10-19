@@ -2,10 +2,10 @@
 
 namespace Modules\Company\Repositories;
 
-use Modules\Company\Dto\CompanyCreateRequestDto;
-use Modules\Company\Dto\CompanyUpdateRequestDto;
-use Modules\Company\Dto\CompanyDeleteRequestDto;
 use Infrastructure\Eloquent\Models\Company;
+use Modules\Company\Dto\CompanyCreateRequestDto;
+use Modules\Company\Dto\CompanyDeleteRequestDto;
+use Modules\Company\Dto\CompanyUpdateRequestDto;
 use Modules\Company\Repositories\Interfaces\CompanyCommandRepositoryInterface;
 
 class EloquentCompanyCommandRepository implements CompanyCommandRepositoryInterface

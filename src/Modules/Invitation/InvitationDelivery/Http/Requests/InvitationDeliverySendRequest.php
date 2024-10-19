@@ -38,7 +38,6 @@ use Modules\Invitation\InvitationDelivery\Dto\InvitationDeliverySendRequestDto;
  *     )
  * )
  */
-
 final class InvitationDeliverySendRequest extends FormRequest
 {
     public function rules(): array

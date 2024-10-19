@@ -2,18 +2,18 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Infrastructure\Eloquent\Models\Attendee
  *
- * @property int $id
- * @property int $event_id
- * @property int $user_id
- * @property bool $checked_in
+ * @property int         $id
+ * @property int         $event_id
+ * @property int         $user_id
+ * @property bool        $checked_in
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
@@ -41,8 +41,6 @@ class Attendee extends Model
 
     /**
      * Связь с событием.
-     *
-     * @return BelongsTo
      */
     public function event(): BelongsTo
     {
@@ -51,8 +49,6 @@ class Attendee extends Model
 
     /**
      * Связь с пользователем.
-     *
-     * @return BelongsTo
      */
     public function user(): BelongsTo
     {

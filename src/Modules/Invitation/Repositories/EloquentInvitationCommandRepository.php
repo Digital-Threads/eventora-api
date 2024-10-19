@@ -3,19 +3,19 @@
 namespace Modules\Invitation\Repositories;
 
 use Infrastructure\Eloquent\Models\Invitation;
-use Modules\Invitation\Repositories\Interfaces\InvitationCommandRepositoryInterface;
 use Modules\Invitation\Dto\InvitationCreateRequestDto;
 use Modules\Invitation\Dto\InvitationUpdateRequestDto;
+use Modules\Invitation\Repositories\Interfaces\InvitationCommandRepositoryInterface;
 
 class EloquentInvitationCommandRepository implements InvitationCommandRepositoryInterface
 {
     public function create(InvitationCreateRequestDto $dto): Invitation
     {
         return Invitation::create([
-            'event_id'          => $dto->eventId,
-            'title'             => $dto->title,
-            'message'       => $dto->message,
-            'invitation_link'   => $dto->invitationLink,
+            'event_id' => $dto->eventId,
+            'title' => $dto->title,
+            'message' => $dto->message,
+            'invitation_link' => $dto->invitationLink,
         ]);
     }
 
@@ -23,9 +23,9 @@ class EloquentInvitationCommandRepository implements InvitationCommandRepository
     {
         $invitation = Invitation::findOrFail($dto->id);
         $invitation->update([
-            'title'             => $dto->title,
-            'message'       => $dto->message,
-            'invitation_link'   => $dto->invitationLink,
+            'title' => $dto->title,
+            'message' => $dto->message,
+            'invitation_link' => $dto->invitationLink,
         ]);
 
         return $invitation;

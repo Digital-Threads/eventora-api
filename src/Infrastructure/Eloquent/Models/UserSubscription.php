@@ -2,24 +2,24 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\UserSubscription
  *
- * @property int $id
- * @property int $user_id
- * @property int $subscription_plan_id
- * @property Carbon $started_at
- * @property Carbon $ends_at
- * @property bool $is_active
+ * @property int         $id
+ * @property int         $user_id
+ * @property int         $subscription_plan_id
+ * @property Carbon      $started_at
+ * @property Carbon      $ends_at
+ * @property bool        $is_active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
- * @property-read User $user
- * @property-read SubscriptionPlan $subscriptionPlan
+ * @property User             $user
+ * @property SubscriptionPlan $subscriptionPlan
  */
 class UserSubscription extends Model
 {
@@ -41,8 +41,8 @@ class UserSubscription extends Model
      */
     protected $casts = [
         'started_at' => 'datetime',
-        'ends_at'    => 'datetime',
-        'is_active'  => 'boolean',
+        'ends_at' => 'datetime',
+        'is_active' => 'boolean',
     ];
 
     /**

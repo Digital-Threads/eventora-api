@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Invitation\Http\Actions\InvitationViewAction;
+use Modules\Invitation\Http\Actions\InvitationQueryAction;
 use Modules\Invitation\Http\Actions\InvitationCreateAction;
 use Modules\Invitation\Http\Actions\InvitationUpdateAction;
-use Modules\Invitation\Http\Actions\InvitationQueryAction;
-use Modules\Invitation\Http\Actions\InvitationViewAction;
 
 Route::prefix('invitations')->middleware(['api'])->group(function () {
     Route::post('/', InvitationCreateAction::class)->name('invitations.create');

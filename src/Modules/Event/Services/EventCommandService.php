@@ -11,14 +11,13 @@ use Modules\Event\Repositories\Interfaces\EventCommandRepositoryInterface;
 final class EventCommandService
 {
     /**
-     * @param  EventCommandRepositoryInterface  $eventCommandRepository
      */
-    public function __construct(private EventCommandRepositoryInterface $eventCommandRepository) {}
+    public function __construct(private EventCommandRepositoryInterface $eventCommandRepository)
+    {
+    }
 
     /**
-     * @param  EventCreateRequestDto  $dto
      *
-     * @return Event
      */
     public function create(EventCreateRequestDto $dto): Event
     {
@@ -26,9 +25,7 @@ final class EventCommandService
     }
 
     /**
-     * @param EventUpdateRequestDto $dto
      *
-     * @return Event
      */
     public function update(EventUpdateRequestDto $dto): Event
     {
@@ -36,9 +33,7 @@ final class EventCommandService
     }
 
     /**
-     * @param EventDeleteRequestDto $dto
      *
-     * @return void
      */
     public function delete(EventDeleteRequestDto $dto): void
     {

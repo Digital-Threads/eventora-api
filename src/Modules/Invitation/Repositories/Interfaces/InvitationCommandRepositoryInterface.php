@@ -2,7 +2,6 @@
 
 namespace Modules\Invitation\Repositories\Interfaces;
 
-
 use Infrastructure\Eloquent\Models\Invitation;
 use Modules\Invitation\Dto\InvitationCreateRequestDto;
 use Modules\Invitation\Dto\InvitationUpdateRequestDto;

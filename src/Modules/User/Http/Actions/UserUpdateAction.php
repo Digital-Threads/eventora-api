@@ -4,9 +4,9 @@ namespace Modules\User\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
 use Infrastructure\Eloquent\Models\User;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\User\Services\UserCommandService;
 use Modules\User\Http\Requests\UserUpdateRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 /**
  * @OA\Put(

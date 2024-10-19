@@ -3,9 +3,9 @@
 namespace Modules\Event\Http\Resources;
 
 use Infrastructure\Eloquent\Models\Event;
-use Infrastructure\Http\Resources\ConvertsSchemaToArray;
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\Event\Http\Schemas\EventSchema;
+use Infrastructure\Http\Resources\JsonResource;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 
 /**
  * @property Event $resource
@@ -15,9 +15,7 @@ final class EventResource extends JsonResource
     use ConvertsSchemaToArray;
 
     /**
-     * @param $request
      *
-     * @return EventSchema
      */
     public function toSchema($request): EventSchema
     {

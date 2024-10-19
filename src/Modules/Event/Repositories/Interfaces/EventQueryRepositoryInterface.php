@@ -2,10 +2,10 @@
 
 namespace Modules\Event\Repositories\Interfaces;
 
-use Illuminate\Contracts\Pagination\CursorPaginator;
-use Modules\Event\Dto\EventQueryRequestDto;
-use Modules\Event\Dto\EventViewRequestDto;
 use Infrastructure\Eloquent\Models\Event;
+use Modules\Event\Dto\EventViewRequestDto;
+use Modules\Event\Dto\EventQueryRequestDto;
+use Illuminate\Contracts\Pagination\CursorPaginator;
 
 interface EventQueryRepositoryInterface
 {

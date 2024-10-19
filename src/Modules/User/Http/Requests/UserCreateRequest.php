@@ -21,7 +21,6 @@ final class UserCreateRequest extends FormRequest
     }
 
     /**
-     * @return UserCreateRequestDto
      */
     public function toDto(): UserCreateRequestDto
     {

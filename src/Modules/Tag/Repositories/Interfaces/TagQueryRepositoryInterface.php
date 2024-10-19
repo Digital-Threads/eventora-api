@@ -2,9 +2,8 @@
 
 namespace Modules\Tag\Repositories\Interfaces;
 
-
-use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\Tag;
+use Illuminate\Database\Eloquent\Collection;
 
 interface TagQueryRepositoryInterface
 {
