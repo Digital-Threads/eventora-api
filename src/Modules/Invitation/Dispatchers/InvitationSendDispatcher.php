@@ -2,7 +2,7 @@
 
 namespace Modules\Invitation\Dispatchers;
 
-use Modules\Invitation\Strategies\EmailInvitationChannelStrategy;
+use Modules\Invitation\InvitationDelivery\Strategies\EmailInvitationChannelStrategy;
 
 class InvitationSendDispatcher
 {

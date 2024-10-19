@@ -2,23 +2,22 @@
 
 namespace Modules\Invitation\InvitationDelivery\Checks;
 
-use App\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
-use Infrastructure\Eloquent\Models\InvitationDelivery;
+use Infrastructure\Eloquent\Models\User;
 
 final class UserCanViewInvitationDeliveryCheck extends Check
 {
-    public function __construct(private readonly User $user, private readonly InvitationDelivery $invitationDelivery)
+    public function __construct(private readonly User $user)
     {
         //
     }
 
+    //TODO Need to ste check  correctly
     public function execute(): CheckResponse
     {
-        // Логика проверки, может ли пользователь просматривать доставленные приглашения
-        $canView = $this->user->can('view-invitation-delivery') || $this->user->id === $this->invitationDelivery->recipient_contact;
+        $canView = $this->user->can('view-invitation-delivery');
 
         return new CheckResponse(
             $canView,

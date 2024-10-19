@@ -2,17 +2,16 @@
 
 namespace Modules\Role\Services;
 
-use App\Models\User;
-use Modules\Role\Models\Role;
+
+use Infrastructure\Eloquent\Models\Role;
+use Infrastructure\Eloquent\Models\User;
 
 class RoleService
 {
-    public function assignRole(int $userId, int $roleId): Role
+    public function assignRole(int $userId, int $roleId): User
     {
         $user = User::findOrFail($userId);
-        $role = Role::findOrFail($roleId);
-        $user->roles()->syncWithoutDetaching([$roleId]);
-
-        return $role;
+        $user->role_id = $roleId;
+        return $user;
     }
 }

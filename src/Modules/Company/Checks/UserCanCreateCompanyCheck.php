@@ -2,7 +2,7 @@
 
 namespace Modules\Company\Checks;
 
-use App\Models\User;
+use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;

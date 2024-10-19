@@ -3,6 +3,7 @@
 namespace Modules\Role\Http\Resources;
 
 use Illuminate\Http\Request;
+use Infrastructure\Eloquent\Models\Role;
 use Modules\Role\Http\Schemas\RoleSchema;
 use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;

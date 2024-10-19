@@ -2,11 +2,11 @@
 
 namespace Modules\Role\Dto;
 
-final class AssignRoleDto
+final readonly class AssignRoleDto
 {
     public function __construct(
-        public readonly int $userId,
-        public readonly int $roleId
+        public int $userId,
+        public int $roleId
     ) {
     }
 }

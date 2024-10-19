@@ -2,21 +2,21 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 
 /**
  * Infrastructure\Eloquent\Models\Invitation
  *
- * @property int      $id
- * @property int      $event_id
+ * @property int $id
+ * @property int $event_id
  * @property int|null $user_id
- * @property string title
+ * @property string $title
  * @property string|null $message
- * @property string      $invitation_link
+ * @property string $invitation_link
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */

@@ -44,7 +44,7 @@ final class EventDeleteAction
     {
         $this->authorize(UserCanDeleteEventCheck::class, auth()->user());
         $dto = $request->toDto();
-        $service->delete($dto->id);
+        $service->delete($dto);
 
         return response()->json(null, 204);
     }
