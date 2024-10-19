@@ -37,7 +37,7 @@ use Modules\User\Http\Requests\UserUpdateRequest;
  *          description="Unauthenticated",
  *          @OA\JsonContent(
  *              type="object",
- *              ref="#/components/schemas/ErrorMessageSchema",
+ *              ref="#/components/schemas/ErrorSchema",
  *          ),
  *      ),
  * )

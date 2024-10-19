@@ -34,7 +34,7 @@ final class AuthGoogle2FAIssueAction
      *          description="Google 2fa is already issued!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -42,7 +42,7 @@ final class AuthGoogle2FAIssueAction
      *          description="Unauthenticated!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

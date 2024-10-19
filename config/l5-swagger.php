@@ -42,6 +42,7 @@ return [
                 */
                 'annotations' => [
                     base_path('src'),
+
                 ],
             ],
         ],

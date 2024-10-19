@@ -2,7 +2,6 @@
 
 namespace Modules\Invitation\InvitationDelivery\Repositories;
 
-
 use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Modules\Invitation\InvitationDelivery\Dto\InvitationDeliveryCreateDto;
 use Modules\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryCommandRepositoryInterface;

@@ -46,7 +46,7 @@ final class AuthTrustedDeviceDeleteAction
      *          description="Forbidden",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -54,7 +54,7 @@ final class AuthTrustedDeviceDeleteAction
      *          description="Unauthenticated",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

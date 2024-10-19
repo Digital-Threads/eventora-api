@@ -33,7 +33,6 @@ return [
     Infrastructure\View\ServiceProvider::class,
     Infrastructure\Faker\ServiceProvider::class,
     Infrastructure\Http\ServiceProvider::class,
-    Infrastructure\HealthCheck\ServiceProvider::class,
     Infrastructure\Google2FA\ServiceProvider::class,
     /*
      * Module Service Providers...

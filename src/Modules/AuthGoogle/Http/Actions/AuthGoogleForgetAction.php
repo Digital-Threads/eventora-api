@@ -33,7 +33,7 @@ final class AuthGoogleForgetAction
      *          description="Google account is not linked!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -41,7 +41,7 @@ final class AuthGoogleForgetAction
      *          description="Unauthenticated!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

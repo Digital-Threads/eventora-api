@@ -5,6 +5,19 @@ namespace Modules\Company\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Company\Dto\CompanyViewRequestDto;
 
+/**
+ * @OA\Schema(
+ *     schema="CompanyViewRequest",
+ *     type="object",
+ *     required={"id"},
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         example=1,
+ *         description="ID of the company to view"
+ *     )
+ * )
+ */
 class CompanyViewRequest extends FormRequest
 {
     /**

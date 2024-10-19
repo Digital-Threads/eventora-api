@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Tag\Providers;
+namespace Modules\Tag;
 
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;

@@ -38,7 +38,7 @@ final class AuthPasswordSendResetLinkAction
      *          description="Failed to send password reset link",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

@@ -59,7 +59,12 @@ final class EventSchema extends AbstractSchema
         /** @OA\Property() */
         public ?string $streamingLink,
 
-        /** @OA\Property() */
+        /**
+         * @OA\Property(
+         *     type="array",
+         *     @OA\Items(ref="#/components/schemas/TagSchema")
+         * )
+         */
         public ?array $tags,
 
         /** @OA\Property() */

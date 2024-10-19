@@ -33,7 +33,7 @@ final class AuthEmailSendVerificationLinkAction
      *          description="Unexpected error or user email is already verified!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -41,7 +41,7 @@ final class AuthEmailSendVerificationLinkAction
      *          description="Unauthenticated!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

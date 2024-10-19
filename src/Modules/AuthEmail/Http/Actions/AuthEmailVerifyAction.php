@@ -35,7 +35,7 @@ final class AuthEmailVerifyAction
      *          description="Failed email verification",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -43,7 +43,7 @@ final class AuthEmailVerifyAction
      *          description="Too many attempts",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

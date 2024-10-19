@@ -39,7 +39,7 @@ final class AuthPasswordResetAction
      *          description="Failed reset password",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

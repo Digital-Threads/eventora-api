@@ -41,7 +41,7 @@ final class AuthGoogle2FAEnableAction
      *          description="Google 2fa is missing or already enabled!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -49,7 +49,7 @@ final class AuthGoogle2FAEnableAction
      *          description="Unauthenticated!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

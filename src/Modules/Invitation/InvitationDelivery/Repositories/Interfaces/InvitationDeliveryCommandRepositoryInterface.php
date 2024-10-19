@@ -10,6 +10,6 @@ interface InvitationDeliveryCommandRepositoryInterface
 {
     public function create(InvitationDeliveryCreateDto $dto): InvitationDelivery;
 
-    public function createMultiple(array $deliveriesData): void;
+    public function createMultiple(array $deliveriesData): array;
 
 }

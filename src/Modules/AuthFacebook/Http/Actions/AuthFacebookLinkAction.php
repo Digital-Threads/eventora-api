@@ -40,7 +40,7 @@ final class AuthFacebookLinkAction
      *          description="Facebook account is already linked to another account!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -48,7 +48,7 @@ final class AuthFacebookLinkAction
      *          description="Unauthenticated!",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )

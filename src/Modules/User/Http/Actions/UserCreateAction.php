@@ -37,7 +37,7 @@ use Modules\User\Services\UserCommandService;
  *          description="Unauthenticated",
  *          @OA\JsonContent(
  *              type="object",
- *              ref="#/components/schemas/ErrorMessageSchema",
+ *              ref="#/components/schemas/ErrorSchema",
  *          ),
  *      ),
  * )

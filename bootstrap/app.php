@@ -29,7 +29,6 @@ return Application::configure(basePath: dirname(__DIR__))
 //        $middleware->append(PreventRequestsDuringMaintenance::class);
 //        $middleware->append(ConvertEmptyStringsToNull::class);
 //        $middleware->append(BlockWhenInProduction::class);
-
         // Группы миддлваров
         $middleware->appendToGroup('api', [
             'throttle:api',

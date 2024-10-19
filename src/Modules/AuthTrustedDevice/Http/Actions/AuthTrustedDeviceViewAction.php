@@ -40,7 +40,7 @@ final class AuthTrustedDeviceViewAction
      *          description="Forbidden",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      *      @OA\Response(
@@ -48,7 +48,7 @@ final class AuthTrustedDeviceViewAction
      *          description="Unauthenticated",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/ErrorMessageSchema",
+     *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )
