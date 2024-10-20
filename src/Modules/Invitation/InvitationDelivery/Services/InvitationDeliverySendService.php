@@ -2,7 +2,6 @@
 
 namespace Modules\Invitation\InvitationDelivery\Services;
 
-use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Modules\Invitation\InvitationDelivery\Jobs\InvitationDeliverySendJob;
 

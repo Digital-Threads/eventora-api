@@ -2,10 +2,10 @@
 
 namespace Modules\Company\Checks;
 
-use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
+use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Eloquent\Models\Company;
 
 class UserCanDeleteCompanyCheck extends Check
@@ -17,7 +17,7 @@ class UserCanDeleteCompanyCheck extends Check
 
     public function execute(): CheckResponse
     {
-        $canDeleteCompany = $this->user->id === $this->company->admin_id || $this->user->role === 'admin';
+        $canDeleteCompany = $this->user->company_id === $this->company->id || $this->user->isAdmin();
 
         $companiesCount = Company::count();
         if ($companiesCount <= 1) {

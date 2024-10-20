@@ -16,9 +16,7 @@ final class TagResource extends JsonResource
     use ConvertsSchemaToArray;
 
     /**
-     * @param  Request  $request
      *
-     * @return TagSchema
      */
     public function toSchema(Request $request): TagSchema
     {

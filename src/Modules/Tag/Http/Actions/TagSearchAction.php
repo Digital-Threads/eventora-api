@@ -2,11 +2,10 @@
 
 namespace Modules\Tag\Http\Actions;
 
-use Infrastructure\Http\Resources\AnonymousResourceCollection;
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\Tag\Services\TagQueryService;
 use Modules\Tag\Http\Resources\TagResource;
 use Modules\Tag\Http\Requests\TagSearchRequest;
+use Infrastructure\Http\Resources\AnonymousResourceCollection;
 
 final class TagSearchAction
 {

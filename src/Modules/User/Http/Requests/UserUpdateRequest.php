@@ -26,7 +26,6 @@ final class UserUpdateRequest extends FormRequest
             $this->input('firstName'),
             $this->input('lastName'),
             $this->input('roleId'),
-
         );
     }
 }

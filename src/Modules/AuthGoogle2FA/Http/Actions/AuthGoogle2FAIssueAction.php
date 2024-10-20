@@ -50,7 +50,7 @@ final class AuthGoogle2FAIssueAction
     public function __invoke(AuthGoogle2FAIssueRequest $request, AuthGoogle2FACommandService $service): JsonResource
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasGoogle2FAEnabledCheck(\Auth::user()));
+        $this->authorize(new UserHasGoogle2FAEnabledCheck($request->user()));
 
         $credentials = $service->issue($dto);
 

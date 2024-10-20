@@ -37,7 +37,7 @@ class Event extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'title',
@@ -61,7 +61,7 @@ class Event extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'event_date' => 'datetime',

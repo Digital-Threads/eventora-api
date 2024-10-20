@@ -57,7 +57,7 @@ final class AuthGoogle2FAEnableAction
     public function __invoke(AuthGoogle2FAEnableRequest $request, AuthGoogle2FACommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasGoogle2FACheck(\Auth::user()));
+        $this->authorize(new UserHasGoogle2FACheck($request->user()));
 
         $service->enable($dto);
 

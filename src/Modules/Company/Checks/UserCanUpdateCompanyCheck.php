@@ -2,10 +2,10 @@
 
 namespace Modules\Company\Checks;
 
-use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
+use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Eloquent\Models\Company;
 
 class UserCanUpdateCompanyCheck extends Check
@@ -18,7 +18,7 @@ class UserCanUpdateCompanyCheck extends Check
     public function execute(): CheckResponse
     {
         // Проверяем, является ли пользователь администратором компании или системным администратором.
-        $canUpdateCompany = $this->user->id === $this->company->admin_id || $this->user->role === 'admin';
+        $canUpdateCompany = $this->user->company_id === $this->company->id || $this->user->isAdmin();
 
         return new CheckResponse(
             $canUpdateCompany,

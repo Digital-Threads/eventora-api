@@ -25,7 +25,7 @@ class Ticket extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'event_id',
@@ -37,7 +37,7 @@ class Ticket extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'price' => 'decimal:2',

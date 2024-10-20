@@ -2,13 +2,12 @@
 
 namespace Modules\User\Http\Actions;
 
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Infrastructure\Eloquent\Models\User;
 use Modules\User\Services\UserCommandService;
 use Modules\User\Http\Requests\UserUpdateRequest;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 
 final class UserUpdateAction
 {
@@ -54,7 +53,7 @@ final class UserUpdateAction
         $dto = $request->toDto();
         $this->authorize($user->id === $request->user()->id);
 
-        $service->update($user->id,$dto);
+        $service->update($user->id, $dto);
 
         return response()->json([
             'message' => trans('messages.user.profile_updated'),

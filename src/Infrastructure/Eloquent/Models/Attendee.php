@@ -22,7 +22,7 @@ class Attendee extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'event_id',
@@ -31,7 +31,7 @@ class Attendee extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'checked_in' => 'boolean',

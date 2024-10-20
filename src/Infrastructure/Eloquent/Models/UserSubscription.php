@@ -4,6 +4,7 @@ namespace Infrastructure\Eloquent\Models;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
@@ -25,9 +26,6 @@ class UserSubscription extends Model
 {
     use HasFactory;
 
-    /**
-     * @var string[]
-     */
     protected $fillable = [
         'user_id',
         'subscription_plan_id',
@@ -36,9 +34,6 @@ class UserSubscription extends Model
         'is_active',
     ];
 
-    /**
-     * @var string[]
-     */
     protected $casts = [
         'started_at' => 'datetime',
         'ends_at' => 'datetime',
@@ -48,7 +43,7 @@ class UserSubscription extends Model
     /**
      * Связь с моделью пользователя.
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -56,7 +51,7 @@ class UserSubscription extends Model
     /**
      * Связь с моделью плана подписки.
      */
-    public function subscriptionPlan()
+    public function subscriptionPlan(): BelongsTo
     {
         return $this->belongsTo(SubscriptionPlan::class);
     }

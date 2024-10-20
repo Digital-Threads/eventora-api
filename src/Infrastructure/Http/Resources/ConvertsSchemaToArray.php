@@ -8,7 +8,6 @@ use Infrastructure\Http\Schemas\AbstractSchema;
 trait ConvertsSchemaToArray
 {
     /**
-     * @param  Request  $request
      */
     abstract public function toSchema(Request $request): AbstractSchema;
 

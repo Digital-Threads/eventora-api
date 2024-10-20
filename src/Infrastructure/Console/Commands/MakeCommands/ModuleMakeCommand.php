@@ -20,14 +20,14 @@ class ModuleMakeCommand extends GeneratorCommand
         parent::__construct($files);
     }
 
-    protected function getArguments()
+    protected function getArguments(): array
     {
         return [
             ['name', InputArgument::REQUIRED, 'The name of the module'],
         ];
     }
 
-    protected function getOptions()
+    protected function getOptions(): array
     {
         return [
             ['directory', 'd', InputOption::VALUE_OPTIONAL, 'The directory to create the module in', ''],
@@ -36,11 +36,10 @@ class ModuleMakeCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        // We won't use a stub for the whole module, so just return null
-        return null;
+        return '';
     }
 
-    protected function getPath($name)
+    protected function getPath($name): string
     {
         $directory = $this->option('directory');
         $path = 'src/Modules/';
@@ -52,7 +51,7 @@ class ModuleMakeCommand extends GeneratorCommand
         return base_path($path);
     }
 
-    public function handle()
+    public function handle(): bool|null
     {
         $moduleName = $this->argument('name');
         $directory = $this->option('directory');
@@ -63,9 +62,11 @@ class ModuleMakeCommand extends GeneratorCommand
         $this->registerServiceProvider($moduleName, $directory);
 
         $this->info("Module $moduleName created successfully.");
+
+        return null;
     }
 
-    protected function createDirectoryStructure($modulePath)
+    protected function createDirectoryStructure($modulePath): void
     {
         $directories = [
             'Dto',
@@ -84,7 +85,7 @@ class ModuleMakeCommand extends GeneratorCommand
         $this->files->makeDirectory("$modulePath/Http", 0755, true, true);
     }
 
-    protected function createFiles($modulePath, $moduleName, $directory)
+    protected function createFiles($modulePath, $moduleName, $directory): void
     {
         $files = [
             "Dto/{$moduleName}QueryRequestDto.php" => 'module.dto.stub',
@@ -114,7 +115,7 @@ class ModuleMakeCommand extends GeneratorCommand
     }
 
 
-    protected function buildFileContent($stub, $moduleName, $directory)
+    protected function buildFileContent($stub, $moduleName, $directory): array|string
     {
         $stubPath = base_path("stubs/$stub");
         $stubContent = $this->files->get($stubPath);
@@ -132,7 +133,7 @@ class ModuleMakeCommand extends GeneratorCommand
         );
     }
 
-    protected function registerServiceProvider($moduleName, $directory)
+    protected function registerServiceProvider($moduleName, $directory): void
     {
         $appConfigPath = base_path('config/app.php');
         $configContents = $this->files->get($appConfigPath);

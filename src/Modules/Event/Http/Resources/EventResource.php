@@ -16,9 +16,7 @@ final class EventResource extends JsonResource
     use ConvertsSchemaToArray;
 
     /**
-     * @param  Request  $request
      *
-     * @return EventSchema
      */
     public function toSchema(Request $request): EventSchema
     {

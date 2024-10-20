@@ -56,7 +56,7 @@ final class AuthGoogleLinkAction
     public function __invoke(AuthGoogleLinkRequest $request, AuthGoogleCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasGoogleCheck(\Auth::user()));
+        $this->authorize(new UserHasGoogleCheck($request->user()));
 
         $service->link($dto);
 

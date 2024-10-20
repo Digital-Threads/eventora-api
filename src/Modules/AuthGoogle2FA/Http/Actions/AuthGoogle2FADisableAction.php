@@ -49,7 +49,7 @@ final class AuthGoogle2FADisableAction
     public function __invoke(AuthGoogle2FADisableRequest $request, AuthGoogle2FACommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasGoogle2FAEnabledCheck(\Auth::user()));
+        $this->authorize(new UserHasGoogle2FAEnabledCheck($request->user()));
 
         $service->disable($dto);
 

@@ -21,7 +21,7 @@ class CompanyUser extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'company_id',
@@ -30,7 +30,7 @@ class CompanyUser extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'company_id' => 'integer',

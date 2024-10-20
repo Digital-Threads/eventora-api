@@ -2,7 +2,6 @@
 
 namespace Modules\Invitation\InvitationDelivery\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Modules\Invitation\InvitationDelivery\Dto\InvitationDeliveryCreateDto;
@@ -15,12 +14,12 @@ class EloquentInvitationDeliveryCommandRepository implements InvitationDeliveryC
     public function create(InvitationDeliveryCreateDto $dto): InvitationDelivery
     {
         return InvitationDelivery::create([
-            'invitation_id'     => $dto->invitationId,
+            'invitation_id' => $dto->invitationId,
             'recipient_contact' => $dto->recipientContact,
-            'channel'           => $dto->channel,
-            'url'               => $dto->url,
-            'status'            => $dto->status,
-            'retry_count'       => $dto->retryCount,
+            'channel' => $dto->channel,
+            'url' => $dto->url,
+            'status' => $dto->status,
+            'retry_count' => $dto->retryCount,
         ]);
     }
 

@@ -2,19 +2,19 @@
 
 namespace Infrastructure\Console\Commands\MakeCommands;
 
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use InvalidArgumentException;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Console\GeneratorCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
 class MakeModuleFileCommand extends GeneratorCommand
 {
-    protected $name        = 'make:module-file';
+    protected $name = 'make:module-file';
 
     protected $description = 'Create a new file in the specified module';
 
-    protected $type        = 'ModuleFile';
+    protected $type = 'ModuleFile';
 
     public function __construct(Filesystem $files)
     {
@@ -44,12 +44,12 @@ class MakeModuleFileCommand extends GeneratorCommand
     protected function getStub()
     {
         $typeMap = [
-            'action'   => 'action',
-            'dto'      => 'dto',
-            'request'  => 'request',
+            'action' => 'action',
+            'dto' => 'dto',
+            'request' => 'request',
             'resource' => 'resource',
-            'schema'   => 'schema',
-            'service'  => 'service',
+            'schema' => 'schema',
+            'service' => 'service',
         ];
 
         foreach ($typeMap as $option => $type) {
@@ -64,34 +64,34 @@ class MakeModuleFileCommand extends GeneratorCommand
     protected function getPath($name)
     {
         $module = $this->argument('module');
-        $type   = $this->getFileTypeOption();
+        $type = $this->getFileTypeOption();
 
         $path = 'src/Modules/';
-        $path .= str_replace('\\', '/', $module).'/';
+        $path .= str_replace('\\', '/', $module) . '/';
 
         $typeMap = [
-            'action'   => 'Http/Actions/',
-            'dto'      => 'Dto/',
-            'request'  => 'Http/Requests/',
+            'action' => 'Http/Actions/',
+            'dto' => 'Dto/',
+            'request' => 'Http/Requests/',
             'resource' => 'Http/Resources/',
-            'schema'   => 'Http/Schemas/',
-            'service'  => 'Services/',
+            'schema' => 'Http/Schemas/',
+            'service' => 'Services/',
         ];
 
         $path .= isset($typeMap[$type]) ? $typeMap[$type] : '';
 
-        $path .= class_basename($name).'.php';
+        $path .= class_basename($name) . '.php';
 
         return base_path($path);
     }
 
     protected function buildClass($name)
     {
-        $stub   = $this->files->get($this->getStub());
+        $stub = $this->files->get($this->getStub());
         $module = $this->argument('module');
 
         $namespace = 'Modules';
-        $namespace .= '\\'.str_replace('/', '\\', $module);
+        $namespace .= '\\' . str_replace('/', '\\', $module);
 
         $className = class_basename($name);
 

@@ -2,7 +2,6 @@
 
 namespace Modules\Invitation\InvitationDelivery\Services;
 
-use Illuminate\Database\Eloquent\Collection;
 use Modules\Invitation\InvitationDelivery\Generators\ShortLinkGenerator;
 use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 use Modules\Invitation\InvitationDelivery\Dto\InvitationDeliverySendRequestDto;
@@ -22,7 +21,7 @@ final class InvitationDeliveryCommandService
     ) {
     }
 
-    public function createMultiple(InvitationDeliverySendRequestDto $dto):array
+    public function createMultiple(InvitationDeliverySendRequestDto $dto): array
     {
         $deliveriesData = [];
         foreach ($dto->recipients as $recipient) {

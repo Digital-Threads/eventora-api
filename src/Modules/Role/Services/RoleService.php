@@ -2,8 +2,6 @@
 
 namespace Modules\Role\Services;
 
-
-use Infrastructure\Eloquent\Models\Role;
 use Infrastructure\Eloquent\Models\User;
 
 class RoleService

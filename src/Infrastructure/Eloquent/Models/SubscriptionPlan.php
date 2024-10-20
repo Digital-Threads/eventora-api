@@ -22,7 +22,7 @@ class SubscriptionPlan extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
@@ -32,7 +32,7 @@ class SubscriptionPlan extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'price' => 'decimal:2',

@@ -10,7 +10,6 @@ use Modules\Event\Dto\EventUpdateRequestDto;
 final class EventUpdateRequest extends FormRequest
 {
     /**
-     * @return array
      */
     public function rules(): array
     {

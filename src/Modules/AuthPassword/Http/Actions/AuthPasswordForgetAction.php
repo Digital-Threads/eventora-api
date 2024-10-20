@@ -3,6 +3,7 @@
 namespace Modules\AuthPassword\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Auth\Access\AuthorizationException;
 use Infrastructure\Auth\Checks\UserHasPasswordCheck;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\AuthPassword\Services\AuthPasswordCommandService;
@@ -52,11 +53,12 @@ final class AuthPasswordForgetAction
      *          ),
      *      ),
      * )
+     * @throws AuthorizationException
      */
     public function __invoke(AuthPasswordForgetRequest $request, AuthPasswordCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasPasswordCheck(\Auth::user()));
+        $this->authorize(new UserHasPasswordCheck($request->user()));
 
         $service->forget($dto);
 

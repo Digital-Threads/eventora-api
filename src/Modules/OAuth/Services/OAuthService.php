@@ -163,7 +163,7 @@ final class OAuthService
             ->first();
 
         if ($existingSocial) {
-            $user= User::find($existingSocial->user_id);
+            $user = User::find($existingSocial->user_id);
             return new UserEntity($user->getAuthIdentifier());
         }
 
@@ -227,7 +227,7 @@ final class OAuthService
             ->first();
 
         if ($existingSocial) {
-            $user= User::find($existingSocial->user_id);
+            $user = User::find($existingSocial->user_id);
             return new UserEntity($user->getAuthIdentifier());
         }
 

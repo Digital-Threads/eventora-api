@@ -20,7 +20,7 @@ class EventCategory extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
@@ -28,7 +28,7 @@ class EventCategory extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'created_at' => 'datetime',

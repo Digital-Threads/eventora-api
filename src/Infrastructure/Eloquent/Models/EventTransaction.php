@@ -27,7 +27,7 @@ class EventTransaction extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'user_id',
@@ -41,7 +41,7 @@ class EventTransaction extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'user_id' => 'integer',

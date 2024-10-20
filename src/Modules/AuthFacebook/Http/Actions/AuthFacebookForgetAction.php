@@ -49,7 +49,7 @@ final class AuthFacebookForgetAction
     public function __invoke(AuthFacebookForgetRequest $request, AuthFacebookCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasFacebookCheck(\Auth::user()));
+        $this->authorize(new UserHasFacebookCheck($request->user()));
 
         $service->forget($dto);
 

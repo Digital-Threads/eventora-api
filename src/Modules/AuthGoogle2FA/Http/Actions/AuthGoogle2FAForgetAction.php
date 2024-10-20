@@ -49,7 +49,7 @@ final class AuthGoogle2FAForgetAction
     public function __invoke(AuthGoogle2FAForgetRequest $request, AuthGoogle2FACommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasGoogle2FAEnabledCheck(\Auth::user()));
+        $this->authorize(new UserHasGoogle2FAEnabledCheck($request->user()));
 
         $service->forget($dto);
 

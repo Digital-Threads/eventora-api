@@ -27,7 +27,7 @@ class Role extends Model
     const string ADMIN = 'admin';
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
@@ -35,7 +35,6 @@ class Role extends Model
     ];
 
     /**
-     * @return self
      */
     public static function getDefaultRole(): static
     {

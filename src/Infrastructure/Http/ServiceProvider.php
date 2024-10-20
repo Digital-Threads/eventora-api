@@ -2,20 +2,20 @@
 
 namespace Infrastructure\Http;
 
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
-use Infrastructure\Http\Macros\ErrorMessageMacro;
 use Infrastructure\Http\Macros\IdMacro;
 use Illuminate\Cache\RateLimiting\Limit;
 use Infrastructure\Http\Macros\ErrorMacro;
 use Illuminate\Support\Facades\RateLimiter;
-use Infrastructure\Http\Macros\MessageMacro;
 use Infrastructure\Http\Macros\SchemaMacro;
+use Infrastructure\Http\Macros\MessageMacro;
 use Infrastructure\Http\Macros\ErrorBagMacro;
 use Infrastructure\Http\Macros\NotFoundMacro;
 use Infrastructure\Http\Macros\ErrorListMacro;
 use Infrastructure\Http\Macros\ForbiddenMacro;
+use Infrastructure\Http\Macros\ErrorMessageMacro;
 use Infrastructure\Http\Macros\UnauthenticatedMacro;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 
 /**

@@ -3,15 +3,13 @@
 namespace Infrastructure\Validation\Rules;
 
 use Exception;
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Contracts\Validation\Rule;
 
 class FacebookAccessTokenRule implements Rule
 {
     /**
      * Get the validation error message.
-     *
-     * @return string
      */
     public function message(): string
     {
@@ -22,8 +20,6 @@ class FacebookAccessTokenRule implements Rule
      * Determine if the validation rule passes.
      *
      * @param string $attribute
-     * @param mixed $value
-     * @return bool
      */
     public function passes($attribute, $value): bool
     {

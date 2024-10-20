@@ -49,12 +49,12 @@ final class AuthGoogleForgetAction
     public function __invoke(AuthGoogleForgetRequest $request, AuthGoogleCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasGoogleCheck(\Auth::user()));
+        $this->authorize(new UserHasGoogleCheck($request->user()));
 
         $service->forget($dto);
 
         return response()->json([
-            'message' => trans('messages.auth_google.google_forgot')
+            'message' => trans('messages.auth_google.google_forgot'),
         ]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Modules\Event\Checks;
 
-use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
+use Infrastructure\Eloquent\Models\User;
 
 final class UserCanCreateEventCheck extends Check
 {
@@ -16,9 +16,8 @@ final class UserCanCreateEventCheck extends Check
 
     public function execute(): CheckResponse
     {
-        // Здесь ваша логика проверки, может ли пользователь создавать события
-        // Например, проверка, что пользователь аутентифицирован
-        $canCreate = $this->user->is_authenticated;
+        //TODO Set usr event create role check
+        $canCreate = (bool) $this->user->id;
 
         return new CheckResponse(
             $canCreate,

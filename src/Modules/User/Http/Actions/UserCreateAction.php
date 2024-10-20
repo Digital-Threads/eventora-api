@@ -51,7 +51,7 @@ final class UserCreateAction
         $service->create($dto);
 
         return response()->json([
-            'message' => trans('messages.user.created')
+            'message' => trans('messages.user.created'),
         ]);
     }
 }

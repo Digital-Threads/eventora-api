@@ -19,9 +19,11 @@
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^11.0",
         "laravel/passport": "^12.0",
+        "laravel/socialite": "^5.16",
         "laravel/tinker": "^2.8",
         "pragmarx/google2fa": "^8.0",
         "pragmarx/google2fa-qrcode": "^3.0",
+        "pragmarx/recovery": "^0.2.1",
         "ramsey/uuid": "^4.7"
     },
     "require-dev": {

@@ -9,7 +9,7 @@ class JsonResource extends BaseJsonResource
     /**
      * {@inheritDoc}
      */
-    public static function collection($resource)
+    public static function collection($resource): AnonymousResourceCollection
     {
         return new AnonymousResourceCollection($resource, static::class);
     }

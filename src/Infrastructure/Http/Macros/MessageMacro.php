@@ -11,7 +11,7 @@ final class MessageMacro extends AbstractMacro
     {
         response()->macro('message', function (string $message, ?int $code = null): JsonResponse {
             return response()->json([
-                'message' => $message
+                'message' => $message,
             ], $code ?? JsonResponse::HTTP_OK);
         });
     }

@@ -21,7 +21,7 @@ class EventTemplate extends Model
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
@@ -30,7 +30,7 @@ class EventTemplate extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'template_data' => 'array',

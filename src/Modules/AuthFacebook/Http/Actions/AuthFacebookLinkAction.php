@@ -56,7 +56,7 @@ final class AuthFacebookLinkAction
     public function __invoke(AuthFacebookLinkRequest $request, AuthFacebookCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
-        $this->authorize(new UserHasFacebookCheck(\Auth::user()));
+        $this->authorize(new UserHasFacebookCheck($request->user()));
 
         $service->link($dto);
 

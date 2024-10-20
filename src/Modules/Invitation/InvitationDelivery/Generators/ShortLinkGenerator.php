@@ -4,7 +4,6 @@ namespace Modules\Invitation\InvitationDelivery\Generators;
 
 use AshAllenDesign\ShortURL\Classes\Builder;
 
-
 class ShortLinkGenerator
 {
     public function generate(int $invitationId, int $recipientId): string

@@ -2,10 +2,10 @@
 
 namespace Modules\Invitation\InvitationDelivery\Checks;
 
-use Infrastructure\Eloquent\Models\User;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
+use Infrastructure\Eloquent\Models\User;
 
 final class UserCanSendInvitationCheck extends Check
 {

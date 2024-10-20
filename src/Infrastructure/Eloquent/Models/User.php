@@ -2,38 +2,39 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Mail;
 use Infrastructure\Utils\WebUrl;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\AuthPassword\Mail\AuthPasswordResetLinkMail;
 
 /**
- * @property int $id
- * @property string|null $email
- * @property string|null $email_verification_token
- * @property string|null $password
- * @property string|null $google_id
- * @property string|null $facebook_id
- * @property string|null $first_name
- * @property string|null $last_name
- * @property string|null $google_2fa_secret
- * @property string|null $google_2fa_recovery_code
- * @property bool $google_2fa_enabled
- * @property Carbon|null $email_verified_at
- * @property Carbon|null $password_changed_at
- * @property Carbon|null $registered_at
- * @property int $role_id
- * @property int|null $subscription_plan_id
- * @property int|null $company_id
- * @property Role $role
+ * @property int                   $id
+ * @property string|null           $email
+ * @property string|null           $email_verification_token
+ * @property string|null           $password
+ * @property string|null           $google_id
+ * @property string|null           $facebook_id
+ * @property string|null           $first_name
+ * @property string|null           $last_name
+ * @property string|null           $google_2fa_secret
+ * @property string|null           $google_2fa_recovery_code
+ * @property bool                  $google_2fa_enabled
+ * @property Carbon|null           $email_verified_at
+ * @property Carbon|null           $password_changed_at
+ * @property Carbon|null           $registered_at
+ * @property int                   $role_id
+ * @property int|null              $subscription_plan_id
+ * @property int|null              $company_id
+ * @property Role                  $role
  * @property SubscriptionPlan|null $subscriptionPlan
- * @property Company|null $company
+ * @property Company|null          $company
  */
 final class User extends Authenticatable
 {
@@ -47,7 +48,7 @@ final class User extends Authenticatable
     public $timestamps = false;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'first_name',
@@ -68,20 +69,18 @@ final class User extends Authenticatable
     ];
 
     /**
-     * Преобразование столбцов в типы данных
-     *
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at'   => 'datetime',
+        'email_verified_at' => 'datetime',
         'password_changed_at' => 'datetime',
-        'registered_at'       => 'datetime',
+        'registered_at' => 'datetime',
     ];
 
     /**
      * Отправка уведомления для восстановления пароля
      *
-     * @param  string  $token
+     * @param string $token
      */
     public function sendPasswordResetNotification($token): void
     {
@@ -141,10 +140,16 @@ final class User extends Authenticatable
     }
 
     /**
-     * @return HasMany
      */
     public function socialProviders(): HasMany
     {
         return $this->hasMany(SocialProvider::class);
+    }
+
+    /**
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role->name === Role::ADMIN;
     }
 }
