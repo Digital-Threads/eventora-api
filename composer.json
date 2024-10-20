@@ -13,7 +13,7 @@
         "ext-pgsql": "*",
         "ext-redis": "*",
         "ashallendesign/short-url": "^8.1",
-        "bacon/bacon-qr-code": "^2.0",
+        "bacon/bacon-qr-code": "^3.0",
         "darkaonline/l5-swagger": "^8.4",
         "google/apiclient": "^2.16",
         "guzzlehttp/guzzle": "^7.5",
