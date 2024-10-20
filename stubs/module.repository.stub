@@ -1,0 +1,23 @@
+<?php
+
+namespace Modules\{{ module }}\Repositories;
+
+use Modules\{{ module }}\Repositories\Interfaces\{{ module }}CommandRepositoryInterface;
+use Modules\{{ module }}\Dto\{{ module }}CreateRequestDto;
+
+class Eloquent{{ module }}CommandRepository implements {{ module }}CommandRepositoryInterface
+{
+    public function create({{ module }}CreateRequestDto $dto)
+    {
+    }
+
+    public function update(int $id, array $data)
+    {
+    }
+
+    public function delete(int $id): void
+    {
+    }
+
+
+}

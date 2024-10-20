@@ -1,0 +1,16 @@
+<?php
+
+namespace Modules\{{ module }}\Services;
+
+use Modules\{{ module }}\Dto\{{ module }}CreateRequestDto;
+use Modules\{{ module }}\Repositories\Interfaces\{{ module }}CommandRepositoryInterface;
+
+final class {{ module }}CommandService
+{
+    public function __construct(private {{ module }}CommandRepositoryInterface $repository) {}
+
+    public function create({{ module }}CreateRequestDto $dto)
+    {
+        return $this->repository->create($dto);
+    }
+}

@@ -7,6 +7,11 @@ use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Http\Middleware\HandleCors;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Routing\Middleware\ThrottleRequests;
+use Infrastructure\Console\Commands\CiCommand;
+use Infrastructure\Console\Commands\InstallCommand;
+use Infrastructure\Console\Commands\MakeCommands\MakeModuleFileCommand;
+use Infrastructure\Console\Commands\MakeCommands\ModelMakeCommand;
+use Infrastructure\Console\Commands\MakeCommands\ModuleMakeCommand;
 use Infrastructure\Http\Middlewares\Authenticate;
 use Infrastructure\Http\Middlewares\BlockWhenInProduction;
 use Infrastructure\Http\Middlewares\CheckRoleMiddleware;
@@ -15,20 +20,28 @@ use Infrastructure\Http\Middlewares\TrimStrings;
 use Infrastructure\Http\Middlewares\TrustProxies;
 
 return Application::configure(basePath: dirname(__DIR__))
+    ->withCommands([
+        InstallCommand::class,
+        CiCommand::class,
+        ModelMakeCommand::class,
+        ModuleMakeCommand::class,
+        MakeModuleFileCommand::class,
+    ])
     ->withProviders([
 
     ])
     ->withRouting(
         health: '/up',
+        commands: __DIR__.'/../src/Infrastructure/Console/console.php',
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Глобальные миддлвары
-//        $middleware->append(HandleCors::class);
-//        $middleware->append(TrimStrings::class);
-//        $middleware->append(TrustProxies::class);
-//        $middleware->append(PreventRequestsDuringMaintenance::class);
-//        $middleware->append(ConvertEmptyStringsToNull::class);
-//        $middleware->append(BlockWhenInProduction::class);
+        $middleware->append(HandleCors::class);
+        $middleware->append(TrimStrings::class);
+        $middleware->append(TrustProxies::class);
+        $middleware->append(PreventRequestsDuringMaintenance::class);
+        $middleware->append(ConvertEmptyStringsToNull::class);
+        $middleware->append(BlockWhenInProduction::class);
         // Группы миддлваров
         $middleware->appendToGroup('api', [
             'throttle:api',

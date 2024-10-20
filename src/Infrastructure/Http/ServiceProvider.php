@@ -40,6 +40,7 @@ final class ServiceProvider extends RouteServiceProvider
         ErrorMessageMacro::bind();
 
         $this->configureRateLimiting();
+
     }
 
     protected function configureRateLimiting(): void

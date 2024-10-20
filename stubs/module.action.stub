@@ -1,19 +1,44 @@
 <?php
 
-namespace {{ namespace }}\Http\Actions;
+namespace Modules\{{ module }}\Http\Actions;
 
-use Infrastructure\Auth\Authorize;
-use {{ namespace }}\Services\{{ module }}QueryService;
-use {{ namespace }}\Http\Requests\{{ module }}QueryRequest;
-use Illuminate\Http\Resources\Json\JsonResource;
-use {{ namespace }}\Http\Resources\{{ module }}Resource;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use  Modules\{{ module }}\Services\{{ module }}CommandService;
+use  Modules\{{ module }}\Http\Requests\{{ module }}CreateRequest;
+use Modules\{{ module }}\Http\Resources\{{ module }}Resource;
 
-final class QueryAction
+/**
+ * @OA\Post(
+ *      path="/{{ moduleLower }}",
+ *      tags={"{{ module }}"},
+ *      description="Create a new {{ module }}",
+ *      security={{"passport": {}}},
+ *      @OA\RequestBody(
+ *          required=true,
+ *          @OA\JsonContent(ref="#/components/schemas/{{ module }}Schema"),
+ *      ),
+ *      @OA\Response(
+ *          response=201,
+ *          description="{{ module }} created",
+ *          @OA\JsonContent(ref="#/components/schemas/{{ module }}Schema"),
+ *      ),
+ *      @OA\Response(
+ *          response=400,
+ *          description="Bad request",
+ *          @OA\JsonContent(ref="#/components/schemas/ErrorSchema"),
+ *      )
+ * )
+ */
+final class CreateAction
 {
-    use Authorize;
+    use AuthorizesRequests;
 
-    public function __invoke({{ module }}QueryRequest $request, {{ module }}QueryService $service): JsonResource
+    public function __invoke({{ module }}CreateRequest $request, {{ module }}CommandService $service): {{ module }}Resource
     {
+        $dto = $request->toDto();
+        $entity = $service->create($dto);
 
+        return new {{ module }}Resource($entity);
     }
 }

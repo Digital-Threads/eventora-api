@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use {{ namespace }}\Http\Actions\QueryAction;
+use {{ namespace }}\Http\Actions\CreateAction;
 
 Route::name('{{ moduleLower }}.')->prefix('{{ moduleLower }}')->middleware(['api'])->group(function () {
-    Route::name('query')->get('/', QueryAction::class);
+//Route::get('/{{{moduleLower}}}', ViewAction::class);
+//Route::get('/', QueryAction::class);
+//Route::put('/{{{moduleLower}}}', UpdateAction::class);
+Route::post('/', CreateAction::class);
 });

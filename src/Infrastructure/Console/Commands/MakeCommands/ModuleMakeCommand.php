@@ -75,6 +75,8 @@ class ModuleMakeCommand extends GeneratorCommand
             'Http/Resources',
             'Http/Schemas',
             'Services',
+            'Repositories', // Добавляем директорию Repositories
+            'Repositories/Interfaces', // Добавляем директорию для интерфейсов репозиториев
         ];
 
         foreach ($directories as $dir) {
@@ -88,32 +90,28 @@ class ModuleMakeCommand extends GeneratorCommand
     protected function createFiles($modulePath, $moduleName, $directory): void
     {
         $files = [
-            "Dto/{$moduleName}QueryRequestDto.php" => 'module.dto.stub',
-            "Dto/{$moduleName}QueryRequestDto.php" => 'module.dto.stub',
-            'Http/Actions/QueryAction.php' => 'module.action.stub',
-            "Http/Requests/{$moduleName}QueryRequest.php" => 'module.request.stub',
+            "Dto/{$moduleName}CreateRequestDto.php" => 'module.dto.stub',
+            "Http/Actions/CreateAction.php" => 'module.action.stub',
+            "Http/Requests/{$moduleName}CreateRequest.php" => 'module.request.stub',
             "Http/Resources/{$moduleName}Resource.php" => 'module.resource.stub',
             "Http/Schemas/{$moduleName}Schema.php" => 'module.schema.stub',
             'Http/routes.php' => 'module.routes.stub',
-            "Services/{$moduleName}QueryService.php" => 'module.service.stub',
+            "Services/{$moduleName}CommandService.php" => 'module.command.service.stub',
             'ServiceProvider.php' => 'module.serviceprovider.stub',
+            "Repositories/Eloquent{$moduleName}CommandRepository.php" => 'module.repository.stub',
+            "Repositories/Interfaces/{$moduleName}CommandRepositoryInterface.php" => 'module.repository.interface.stub',
         ];
 
         foreach ($files as $path => $stub) {
             $filePath = "$modulePath/$path";
-            if ($this->files->exists($filePath)) {
-                if (!$this->confirm("The file [$filePath] already exists. Do you want to overwrite it?")) {
-                    $this->info("Skipped: [$filePath]");
-                    continue;
-                }
-            }
+
+            // Создаем директорию, если она не существует
+            $this->makeDirectory(dirname($filePath));
 
             $content = $this->buildFileContent($stub, $moduleName, $directory);
             $this->files->put($filePath, $content);
-            $this->info("Created: [$filePath]");
         }
     }
-
 
     protected function buildFileContent($stub, $moduleName, $directory): array|string
     {
@@ -144,7 +142,7 @@ class ModuleMakeCommand extends GeneratorCommand
         }
         $providerClass .= '\\' . $moduleName . '\\ServiceProvider::class';
 
-        if (strpos($configContents, $providerClass) === false) {
+        if (!str_contains($configContents, $providerClass)) {
             // Ищем место вставки
             $search = 'Modules\HealthCheck\ServiceProvider::class,';
             $replace = "$search\n        $providerClass,";
