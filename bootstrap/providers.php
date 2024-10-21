@@ -50,4 +50,5 @@ return [
     Modules\Event\ServiceProvider::class,
     Modules\Invitation\ServiceProvider::class,
     Modules\Company\ServiceProvider::class,
+    Modules\Ticket\ServiceProvider::class,
 ];
