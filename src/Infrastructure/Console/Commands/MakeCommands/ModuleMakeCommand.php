@@ -91,7 +91,7 @@ class ModuleMakeCommand extends GeneratorCommand
     {
         $files = [
             "Dto/{$moduleName}CreateRequestDto.php" => 'module.dto.stub',
-            "Http/Actions/CreateAction.php" => 'module.action.stub',
+            "Http/Actions/{$moduleName}CreateAction.php" => 'module.action.stub',
             "Http/Requests/{$moduleName}CreateRequest.php" => 'module.request.stub',
             "Http/Resources/{$moduleName}Resource.php" => 'module.resource.stub',
             "Http/Schemas/{$moduleName}Schema.php" => 'module.schema.stub',

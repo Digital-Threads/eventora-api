@@ -7,5 +7,5 @@ Route::name('{{ moduleLower }}.')->prefix('{{ moduleLower }}')->middleware(['api
 //Route::get('/{{{moduleLower}}}', ViewAction::class);
 //Route::get('/', QueryAction::class);
 //Route::put('/{{{moduleLower}}}', UpdateAction::class);
-Route::post('/', CreateAction::class);
+Route::post('/', {{module}}CreateAction::class);
 });

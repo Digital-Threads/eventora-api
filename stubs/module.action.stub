@@ -30,7 +30,7 @@ use Modules\{{ module }}\Http\Resources\{{ module }}Resource;
  *      )
  * )
  */
-final class CreateAction
+final class {{ module }}CreateAction
 {
     use AuthorizesRequests;
 
