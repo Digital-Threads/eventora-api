@@ -12,8 +12,8 @@ final class ServiceProvider extends BaseServiceProvider
 {
     public function boot(): void
     {
-
-        $this->app->register(\Modules\Frontend\Dashboard\Invitation\InvitationDelivery\ServiceProvider::class);
+        $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+        $this->app->register(InvitationDelivery\ServiceProvider::class);
     }
 
     public function register(): void
