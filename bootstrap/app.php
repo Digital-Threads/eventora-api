@@ -29,7 +29,6 @@ function getModuleRoutes(string $modulePath): array
     return $routes;
 }
 
-// Находим все файлы маршрутов модулей
 $moduleRoutes = getModuleRoutes(__DIR__ . '/../src/Modules');
 return Application::configure(basePath: dirname(__DIR__))
     ->withCommands([
