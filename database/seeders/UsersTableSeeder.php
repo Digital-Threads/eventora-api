@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'test@finance.test',
             'password' => Hash::make('password'),
             'registered_at' => now(),
+            'role_id' => 1,
         ]);
     }
 }
