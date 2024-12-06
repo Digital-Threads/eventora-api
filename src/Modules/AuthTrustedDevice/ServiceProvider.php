@@ -17,6 +17,5 @@ final class ServiceProvider extends BaseServiceProvider
     public function boot(): void
     {
         $this->registerListeners();
-
     }
 }

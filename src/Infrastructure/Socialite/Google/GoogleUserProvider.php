@@ -2,12 +2,11 @@
 
 namespace Infrastructure\Socialite\Google;
 
-use Laravel\Socialite\AbstractUser;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Socialite\Facades\Socialite;
 use GuzzleHttp\Exception\ClientException;
-use Infrastructure\Socialite\Exceptions\InvalidAccessTokenException;
 use Laravel\Socialite\Two\GoogleProvider;
+use Infrastructure\Socialite\Exceptions\InvalidAccessTokenException;
 
 final class GoogleUserProvider
 {

@@ -10,5 +10,6 @@ final class TicketCreateRequestDto
         public float $price,
         public int $quantity,
         public ?float $discount = null,
-    ) {}
+    ) {
+    }
 }

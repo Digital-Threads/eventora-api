@@ -3,19 +3,18 @@
 namespace Modules\Frontend\Dashboard\Invitation\InvitationDelivery;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryCommandRepository;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryQueryRepository;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryCommandRepositoryInterface;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryQueryRepositoryInterface;
 use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Services\InvitationDeliverySendService;
 use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Strategies\EmailInvitationChannelStrategy;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryQueryRepository;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\EloquentInvitationDeliveryCommandRepository;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryQueryRepositoryInterface;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryCommandRepositoryInterface;
 
 final class ServiceProvider extends BaseServiceProvider
 {
     public function boot(): void
     {
         // Загружаем маршруты подмодуля
-
     }
 
     public function register(): void

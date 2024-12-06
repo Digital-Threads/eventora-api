@@ -2,13 +2,13 @@
 
 namespace Modules\Frontend\Dashboard\Invitation\Http\Actions;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\JsonResponse;
-use Modules\Frontend\Dashboard\Invitation\Checks\UserCanCreateInvitationCheck;
-use Modules\Frontend\Dashboard\Invitation\Http\Requests\InvitationCreateRequest;
 use Modules\Frontend\Dashboard\Invitation\Http\Resources\InvitationResource;
 use Modules\Frontend\Dashboard\Invitation\Services\InvitationCommandService;
+use Modules\Frontend\Dashboard\Invitation\Checks\UserCanCreateInvitationCheck;
+use Modules\Frontend\Dashboard\Invitation\Http\Requests\InvitationCreateRequest;
 
 final class InvitationCreateAction
 {

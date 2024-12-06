@@ -3,9 +3,9 @@
 namespace Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Resources;
 
 use Illuminate\Http\Request;
+use Infrastructure\Http\Resources\JsonResource;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Infrastructure\Http\Resources\ConvertsSchemaToArray;
-use Infrastructure\Http\Resources\JsonResource;
 use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Schemas\InvitationDeliverySchema;
 
 /**

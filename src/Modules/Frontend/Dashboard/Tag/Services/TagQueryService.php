@@ -2,10 +2,10 @@
 
 namespace Modules\Frontend\Dashboard\Tag\Services;
 
-use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\Tag;
-use Modules\Frontend\Dashboard\Tag\Dto\TagSearchRequestDto;
+use Illuminate\Database\Eloquent\Collection;
 use Modules\Frontend\Dashboard\Tag\Dto\TagViewRequestDto;
+use Modules\Frontend\Dashboard\Tag\Dto\TagSearchRequestDto;
 use Modules\Frontend\Dashboard\Tag\Repositories\Interfaces\TagQueryRepositoryInterface;
 
 final class TagQueryService

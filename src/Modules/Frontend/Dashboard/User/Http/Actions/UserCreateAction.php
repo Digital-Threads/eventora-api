@@ -3,9 +3,8 @@
 namespace Modules\Frontend\Dashboard\User\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Modules\Frontend\Dashboard\User\Http\Requests\UserCreateRequest;
 use Modules\Frontend\Dashboard\User\Services\UserCommandService;
-
+use Modules\Frontend\Dashboard\User\Http\Requests\UserCreateRequest;
 
 final class UserCreateAction
 {

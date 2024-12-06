@@ -3,8 +3,8 @@
 namespace Modules\Frontend\Dashboard\Invitation\Repositories;
 
 use Infrastructure\Eloquent\Models\Invitation;
-use Modules\Frontend\Dashboard\Invitation\Dto\InvitationQueryRequestDto;
 use Modules\Frontend\Dashboard\Invitation\Dto\InvitationViewRequestDto;
+use Modules\Frontend\Dashboard\Invitation\Dto\InvitationQueryRequestDto;
 use Modules\Frontend\Dashboard\Invitation\Repositories\Interfaces\InvitationQueryRepositoryInterface;
 
 class EloquentInvitationQueryRepository implements InvitationQueryRepositoryInterface

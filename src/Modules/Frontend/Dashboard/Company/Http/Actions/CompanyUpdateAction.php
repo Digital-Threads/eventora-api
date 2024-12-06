@@ -4,12 +4,12 @@ namespace Modules\Frontend\Dashboard\Company\Http\Actions;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Modules\Frontend\Dashboard\Company\Checks\UserCanUpdateCompanyCheck;
 use Modules\Frontend\Dashboard\Company\Dto\CompanyViewRequestDto;
-use Modules\Frontend\Dashboard\Company\Http\Requests\CompanyUpdateRequest;
+use Modules\Frontend\Dashboard\Company\Services\CompanyQueryService;
 use Modules\Frontend\Dashboard\Company\Http\Resources\CompanyResource;
 use Modules\Frontend\Dashboard\Company\Services\CompanyCommandService;
-use Modules\Frontend\Dashboard\Company\Services\CompanyQueryService;
+use Modules\Frontend\Dashboard\Company\Checks\UserCanUpdateCompanyCheck;
+use Modules\Frontend\Dashboard\Company\Http\Requests\CompanyUpdateRequest;
 
 final class CompanyUpdateAction
 {

@@ -2,9 +2,9 @@
 
 namespace Modules\Frontend\Dashboard\Company\Http\Actions;
 
-use Modules\Frontend\Dashboard\Company\Http\Requests\CompanyViewRequest;
-use Modules\Frontend\Dashboard\Company\Http\Resources\CompanyResource;
 use Modules\Frontend\Dashboard\Company\Services\CompanyQueryService;
+use Modules\Frontend\Dashboard\Company\Http\Resources\CompanyResource;
+use Modules\Frontend\Dashboard\Company\Http\Requests\CompanyViewRequest;
 
 /**
  * @OA\Get(

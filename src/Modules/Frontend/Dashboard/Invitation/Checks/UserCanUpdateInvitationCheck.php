@@ -5,8 +5,8 @@ namespace Modules\Frontend\Dashboard\Invitation\Checks;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
-use Infrastructure\Eloquent\Models\Invitation;
 use Infrastructure\Eloquent\Models\User;
+use Infrastructure\Eloquent\Models\Invitation;
 
 final class UserCanUpdateInvitationCheck extends Check
 {

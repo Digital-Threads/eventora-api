@@ -2,13 +2,13 @@
 
 namespace Modules\Frontend\Dashboard\Event\Http\Actions;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\JsonResponse;
-use Modules\Frontend\Dashboard\Event\Checks\UserCanCreateEventCheck;
-use Modules\Frontend\Dashboard\Event\Http\Requests\EventCreateRequest;
 use Modules\Frontend\Dashboard\Event\Http\Resources\EventResource;
 use Modules\Frontend\Dashboard\Event\Services\EventCommandService;
+use Modules\Frontend\Dashboard\Event\Checks\UserCanCreateEventCheck;
+use Modules\Frontend\Dashboard\Event\Http\Requests\EventCreateRequest;
 
 final class EventCreateAction
 {

@@ -5,8 +5,8 @@ namespace Modules\Frontend\Dashboard\Company\Checks;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
-use Infrastructure\Eloquent\Models\Company;
 use Infrastructure\Eloquent\Models\User;
+use Infrastructure\Eloquent\Models\Company;
 
 class UserCanDeleteCompanyCheck extends Check
 {

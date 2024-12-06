@@ -4,8 +4,8 @@ namespace Modules\Frontend\Dashboard\Tag\Http\Resources;
 
 use Illuminate\Http\Request;
 use Infrastructure\Eloquent\Models\Tag;
-use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Infrastructure\Http\Resources\JsonResource;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Modules\Frontend\Dashboard\Tag\Http\Schemas\TagSchema;
 
 /**

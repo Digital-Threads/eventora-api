@@ -2,10 +2,10 @@
 
 namespace Modules\Frontend\Dashboard\Tag\Http\Actions;
 
-use Infrastructure\Http\Resources\AnonymousResourceCollection;
-use Modules\Frontend\Dashboard\Tag\Http\Requests\TagSearchRequest;
-use Modules\Frontend\Dashboard\Tag\Http\Resources\TagResource;
 use Modules\Frontend\Dashboard\Tag\Services\TagQueryService;
+use Infrastructure\Http\Resources\AnonymousResourceCollection;
+use Modules\Frontend\Dashboard\Tag\Http\Resources\TagResource;
+use Modules\Frontend\Dashboard\Tag\Http\Requests\TagSearchRequest;
 
 final class TagSearchAction
 {

@@ -3,8 +3,8 @@
 namespace Modules\Frontend\Dashboard\Ticket\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Modules\Frontend\Dashboard\Ticket\Http\Requests\TicketUpdateRequest;
 use Modules\Frontend\Dashboard\Ticket\Services\TicketCommandService;
+use Modules\Frontend\Dashboard\Ticket\Http\Requests\TicketUpdateRequest;
 
 final class TicketUpdateAction
 {

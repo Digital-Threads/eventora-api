@@ -12,7 +12,8 @@ final class TicketCommandService
 {
     public function __construct(
         protected TicketCommandRepositoryInterface $ticketCommandRepository
-    ) {}
+    ) {
+    }
 
     public function create(TicketCreateRequestDto $dto): Ticket
     {
@@ -21,13 +22,15 @@ final class TicketCommandService
 
     public function update(TicketUpdateRequestDto $dto): void
     {
-        $this->ticketCommandRepository->update($dto->ticketId,
+        $this->ticketCommandRepository->update(
+            $dto->ticketId,
             [
-                'type'     => $dto->type,
-                'price'    => $dto->price,
+                'type' => $dto->type,
+                'price' => $dto->price,
                 'quantity' => $dto->quantity,
                 'discount' => $dto->discount,
-            ]);
+            ]
+        );
     }
 
     public function delete(TicketDeleteRequestDto $dto): void

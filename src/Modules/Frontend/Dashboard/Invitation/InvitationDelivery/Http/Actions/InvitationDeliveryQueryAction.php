@@ -3,9 +3,9 @@
 namespace Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Actions;
 
 use Illuminate\Http\JsonResponse;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Requests\InvitationDeliveryQueryRequest;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Resources\InvitationDeliveryResource;
 use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Services\InvitationDeliveryQueryService;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Resources\InvitationDeliveryResource;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Http\Requests\InvitationDeliveryQueryRequest;
 
 final class InvitationDeliveryQueryAction
 {

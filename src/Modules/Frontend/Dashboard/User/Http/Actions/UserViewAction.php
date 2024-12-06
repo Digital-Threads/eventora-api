@@ -2,13 +2,12 @@
 
 namespace Modules\Frontend\Dashboard\User\Http\Actions;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Infrastructure\Eloquent\Models\User;
-use Modules\Frontend\Dashboard\User\Http\Requests\UserViewRequest;
-use Modules\Frontend\Dashboard\User\Http\Resources\UserResource;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Modules\Frontend\Dashboard\User\Services\UserQueryService;
-
+use Modules\Frontend\Dashboard\User\Http\Resources\UserResource;
+use Modules\Frontend\Dashboard\User\Http\Requests\UserViewRequest;
 
 final class UserViewAction
 {

@@ -5,8 +5,8 @@ namespace Modules\Frontend\Dashboard\Event\Checks;
 use Infrastructure\Auth\Check;
 use Infrastructure\Auth\CheckFailure;
 use Infrastructure\Auth\CheckResponse;
-use Infrastructure\Eloquent\Models\Event;
 use Infrastructure\Eloquent\Models\User;
+use Infrastructure\Eloquent\Models\Event;
 
 final class UserCanDeleteEventCheck extends Check
 {

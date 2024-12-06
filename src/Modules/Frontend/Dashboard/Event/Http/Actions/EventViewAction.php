@@ -3,9 +3,9 @@
 namespace Modules\Frontend\Dashboard\Event\Http\Actions;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Frontend\Dashboard\Event\Http\Requests\EventViewRequest;
-use Modules\Frontend\Dashboard\Event\Http\Resources\EventResource;
 use Modules\Frontend\Dashboard\Event\Services\EventQueryService;
+use Modules\Frontend\Dashboard\Event\Http\Resources\EventResource;
+use Modules\Frontend\Dashboard\Event\Http\Requests\EventViewRequest;
 
 final class EventViewAction
 {

@@ -3,9 +3,9 @@
 namespace Modules\Frontend\Dashboard\Ticket\Http\Actions;
 
 use Infrastructure\Http\Resources\AnonymousResourceCollection;
-use Modules\Frontend\Dashboard\Ticket\Http\Requests\TicketQueryRequest;
-use Modules\Frontend\Dashboard\Ticket\Http\Resources\TicketResource;
 use Modules\Frontend\Dashboard\Ticket\Services\TicketQueryService;
+use Modules\Frontend\Dashboard\Ticket\Http\Resources\TicketResource;
+use Modules\Frontend\Dashboard\Ticket\Http\Requests\TicketQueryRequest;
 
 final class TicketQueryAction
 {

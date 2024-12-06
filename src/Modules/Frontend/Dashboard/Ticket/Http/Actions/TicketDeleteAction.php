@@ -4,8 +4,8 @@ namespace Modules\Frontend\Dashboard\Ticket\Http\Actions;
 
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Modules\Frontend\Dashboard\Ticket\Http\Requests\TicketDeleteRequest;
 use Modules\Frontend\Dashboard\Ticket\Services\TicketCommandService;
+use Modules\Frontend\Dashboard\Ticket\Http\Requests\TicketDeleteRequest;
 
 final class TicketDeleteAction
 {

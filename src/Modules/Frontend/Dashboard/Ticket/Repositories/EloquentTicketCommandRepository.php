@@ -13,8 +13,8 @@ class EloquentTicketCommandRepository implements TicketCommandRepositoryInterfac
     {
         return Ticket::create([
             'event_id' => $dto->eventId,
-            'type'     => $dto->type,
-            'price'    => $dto->price,
+            'type' => $dto->type,
+            'price' => $dto->price,
             'quantity' => $dto->quantity,
             'discount' => $dto->discount,
         ]);
@@ -32,5 +32,4 @@ class EloquentTicketCommandRepository implements TicketCommandRepositoryInterfac
     {
         Ticket::query()->whereId($id)->update($data);
     }
-
 }

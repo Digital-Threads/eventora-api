@@ -2,11 +2,11 @@
 
 namespace Modules\Frontend\Dashboard\Event\Http\Actions;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Modules\Frontend\Dashboard\Event\Services\EventCommandService;
 use Modules\Frontend\Dashboard\Event\Checks\UserCanUpdateEventCheck;
 use Modules\Frontend\Dashboard\Event\Http\Requests\EventUpdateRequest;
-use Modules\Frontend\Dashboard\Event\Services\EventCommandService;
 
 final class EventUpdateAction
 {

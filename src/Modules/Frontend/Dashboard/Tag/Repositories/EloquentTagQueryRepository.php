@@ -2,8 +2,8 @@
 
 namespace Modules\Frontend\Dashboard\Tag\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\Tag;
+use Illuminate\Database\Eloquent\Collection;
 use Modules\Frontend\Dashboard\Tag\Repositories\Interfaces\TagQueryRepositoryInterface;
 
 class EloquentTagQueryRepository implements TagQueryRepositoryInterface

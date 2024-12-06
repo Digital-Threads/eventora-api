@@ -3,9 +3,9 @@
 namespace Modules\Frontend\Dashboard\Role\Http\Actions;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Frontend\Dashboard\Role\Http\Requests\AssignRoleRequest;
-use Modules\Frontend\Dashboard\Role\Http\Resources\RoleResource;
 use Modules\Frontend\Dashboard\Role\Services\RoleService;
+use Modules\Frontend\Dashboard\Role\Http\Resources\RoleResource;
+use Modules\Frontend\Dashboard\Role\Http\Requests\AssignRoleRequest;
 
 /**
  * @OA\Post(

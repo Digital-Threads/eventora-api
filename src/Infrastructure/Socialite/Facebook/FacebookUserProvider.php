@@ -2,12 +2,12 @@
 
 namespace Infrastructure\Socialite\Facebook;
 
-use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use Infrastructure\Socialite\Exceptions\InvalidAccessTokenException;
 use Laravel\Socialite\Facades\Socialite;
+use GuzzleHttp\Exception\ClientException;
 use Laravel\Socialite\Two\FacebookProvider;
+use Infrastructure\Socialite\Exceptions\InvalidAccessTokenException;
 
 final class FacebookUserProvider
 {

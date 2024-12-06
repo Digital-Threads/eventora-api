@@ -10,7 +10,8 @@ class TicketQueryService
 {
     public function __construct(
         protected TicketQueryRepositoryInterface $ticketQueryRepository
-    ) {}
+    ) {
+    }
 
     public function query(TicketQueryRequestDto $dto): Collection
     {

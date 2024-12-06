@@ -3,10 +3,10 @@
 namespace Modules\Frontend\Dashboard\Company\Http\Actions;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Modules\Frontend\Dashboard\Company\Checks\UserCanCreateCompanyCheck;
-use Modules\Frontend\Dashboard\Company\Http\Requests\CompanyCreateRequest;
 use Modules\Frontend\Dashboard\Company\Http\Resources\CompanyResource;
 use Modules\Frontend\Dashboard\Company\Services\CompanyCommandService;
+use Modules\Frontend\Dashboard\Company\Checks\UserCanCreateCompanyCheck;
+use Modules\Frontend\Dashboard\Company\Http\Requests\CompanyCreateRequest;
 
 class CompanyCreateAction
 {

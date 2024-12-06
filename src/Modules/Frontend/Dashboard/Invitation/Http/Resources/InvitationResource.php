@@ -4,8 +4,8 @@ namespace Modules\Frontend\Dashboard\Invitation\Http\Resources;
 
 use Illuminate\Http\Request;
 use Infrastructure\Eloquent\Models\Invitation;
-use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Infrastructure\Http\Resources\JsonResource;
+use Infrastructure\Http\Resources\ConvertsSchemaToArray;
 use Modules\Frontend\Dashboard\Invitation\Http\Schemas\InvitationSchema;
 
 /**
