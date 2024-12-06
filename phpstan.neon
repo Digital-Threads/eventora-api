@@ -6,7 +6,7 @@ parameters:
         - database/factories
         - database/migrations
         - database/seeders
-    level: 5
+    level: 8
     ignoreErrors:
         - '#Parameter (.*) of class (.*)Dto constructor expects (.*), (.*) given.#'
         - '#Parameter(.*)of class(.*)Schema constructor expects(.*)given.#'
