@@ -2,12 +2,12 @@
 
 namespace Infrastructure\Socialite\Facebook;
 
-use Illuminate\Support\Arr;
-use Laravel\Socialite\AbstractUser;
-use Illuminate\Support\Facades\Cache;
-use Laravel\Socialite\Facades\Socialite;
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 use Infrastructure\Socialite\Exceptions\InvalidAccessTokenException;
+use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\FacebookProvider;
 
 final class FacebookUserProvider
 {
@@ -15,8 +15,10 @@ final class FacebookUserProvider
     {
         return Cache::remember("facebook_user_provider_{$accessToken}", 30, static function () use ($accessToken) {
             try {
-                /** @var AbstractUser $source */
-                $source = Socialite::driver('facebook')->userFromToken($accessToken);
+                /** @var FacebookProvider $provider */
+                $provider = Socialite::driver('facebook');
+
+                $source = $provider->userFromToken($accessToken);
 
                 return new FacebookUser(
                     $source->getId(),
