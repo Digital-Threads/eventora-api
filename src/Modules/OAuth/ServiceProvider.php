@@ -45,8 +45,6 @@ final class ServiceProvider extends BaseServiceProvider
 
     public function boot(): void
     {
-        $this->loadRoutesFrom(__DIR__ . '/Http/routes.php');
-
         Passport::tokensCan(config('passport.scopes'));
         Passport::tokensExpireIn(now()->addDays(config('passport.tokens_expire_in')));
         Passport::personalAccessTokensExpireIn(now()->addDays(config('passport.personal_access_tokens_expire_in')));

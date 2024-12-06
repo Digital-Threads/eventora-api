@@ -18,7 +18,19 @@ use Infrastructure\Http\Middlewares\CheckRoleMiddleware;
 use Infrastructure\Http\Middlewares\PreventRequestsDuringMaintenance;
 use Infrastructure\Http\Middlewares\TrimStrings;
 use Infrastructure\Http\Middlewares\TrustProxies;
+function getModuleRoutes(string $modulePath): array
+{
+    $routes = [];
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($modulePath)) as $file) {
+        if ($file->isFile() && $file->getFilename() === 'routes.php') {
+            $routes[] = $file->getPathname();
+        }
+    }
+    return $routes;
+}
 
+// Находим все файлы маршрутов модулей
+$moduleRoutes = getModuleRoutes(__DIR__ . '/../src/Modules');
 return Application::configure(basePath: dirname(__DIR__))
     ->withCommands([
         InstallCommand::class,
@@ -31,8 +43,10 @@ return Application::configure(basePath: dirname(__DIR__))
 
     ])
     ->withRouting(
-        health: '/up',
+        api: $moduleRoutes,
         commands: __DIR__.'/../src/Infrastructure/Console/console.php',
+        health: '/up',
+        apiPrefix: '/api',
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Глобальные миддлвары

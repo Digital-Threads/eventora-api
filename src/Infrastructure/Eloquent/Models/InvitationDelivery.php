@@ -2,11 +2,11 @@
 
 namespace Infrastructure\Eloquent\Models;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
+use Illuminate\Support\Carbon;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 
 /**
  * Infrastructure\Eloquent\Models\InvitationDelivery

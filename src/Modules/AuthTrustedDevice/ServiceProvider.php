@@ -17,6 +17,6 @@ final class ServiceProvider extends BaseServiceProvider
     public function boot(): void
     {
         $this->registerListeners();
-        $this->loadRoutesFrom(__DIR__ . '/Http/routes.php');
+
     }
 }
