@@ -6,49 +6,15 @@ use Illuminate\Http\JsonResponse;
 use Modules\Frontend\Dashboard\User\Http\Requests\UserCreateRequest;
 use Modules\Frontend\Dashboard\User\Services\UserCommandService;
 
-/**
- * @OA\Post(
- *      path="/user/create",
- *      tags={"User"},
- *      description="Create a new user",
- *      security={
- *          {"passport": {}},
- *      },
- *      @OA\RequestBody(
- *          required=true,
- *          @OA\JsonContent(
- *              type="object",
- *              @OA\Property(property="email", type="string", nullable=false),
- *              @OA\Property(property="password", type="string", nullable=false),
- *              @OA\Property(property="firstName", type="string", nullable=true),
- *              @OA\Property(property="lastName", type="string", nullable=true),
- *          ),
- *      ),
- *      @OA\Response(
- *          response=200,
- *          description="Successful",
- *          @OA\JsonContent(
- *              type="object",
- *              ref="#/components/schemas/MessageSchema",
- *          ),
- *      ),
- *      @OA\Response(
- *          response=401,
- *          description="Unauthenticated",
- *          @OA\JsonContent(
- *              type="object",
- *              ref="#/components/schemas/ErrorSchema",
- *          ),
- *      ),
- * )
- */
+
 final class UserCreateAction
 {
     /**
      * @OA\Post(
      *      path="/user/create",
      *      tags={"User"},
-     *      description="Create a new user",
+     *      summary="Create a new user",
+     *      description="Creates a new user with provided details",
      *      security={
      *          {"passport": {}},
      *      },
@@ -56,18 +22,18 @@ final class UserCreateAction
      *          required=true,
      *          @OA\JsonContent(
      *              type="object",
-     *              @OA\Property(property="email", type="string", nullable=false),
-     *              @OA\Property(property="password", type="string", nullable=false),
-     *              @OA\Property(property="firstName", type="string", nullable=true),
-     *              @OA\Property(property="lastName", type="string", nullable=true),
+     *              @OA\Property(property="email", type="string", example="user@example.com"),
+     *              @OA\Property(property="password", type="string", example="password123"),
+     *              @OA\Property(property="firstName", type="string", nullable=true, example="John"),
+     *              @OA\Property(property="lastName", type="string", nullable=true, example="Doe"),
      *          ),
      *      ),
      *      @OA\Response(
      *          response=201,
-     *          description="User created",
+     *          description="User created successfully",
      *          @OA\JsonContent(
      *              type="object",
-     *              ref="#/components/schemas/MessageSchema",
+     *              @OA\Property(property="message", type="string", example="User created successfully."),
      *          ),
      *      ),
      *      @OA\Response(
@@ -75,12 +41,19 @@ final class UserCreateAction
      *          description="Validation errors",
      *          @OA\JsonContent(
      *              type="object",
+     *              @OA\Property(property="errors", type="object", example={"email": {"The email field is required."}}),
+     *          ),
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthorized",
+     *          @OA\JsonContent(
+     *              type="object",
      *              ref="#/components/schemas/ErrorSchema",
      *          ),
      *      ),
      * )
      */
-
     public function __invoke(UserCreateRequest $request, UserCommandService $service): JsonResponse
     {
         $dto = $request->toDto();
@@ -89,6 +62,6 @@ final class UserCreateAction
 
         return response()->json([
             'message' => trans('messages.user.created'),
-        ]);
+        ], 201);
     }
 }
