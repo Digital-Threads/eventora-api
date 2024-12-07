@@ -2,9 +2,9 @@
 
 namespace Domain\Invitation\Repositories;
 
+use Modules\Invitation\Dto\InvitationQueryRequestDto;
+use Modules\Invitation\Dto\InvitationViewRequestDto;
 use Infrastructure\Eloquent\Models\Invitation;
-use Modules\Frontend\Dashboard\Invitation\Dto\InvitationQueryRequestDto;
-use Modules\Frontend\Dashboard\Invitation\Dto\InvitationViewRequestDto;
 
 interface InvitationQueryRepositoryInterface
 {

@@ -2,7 +2,7 @@
 
 namespace Domain\Ticket\Repositories;
 
-use Modules\Frontend\Dashboard\Ticket\Dto\TicketCreateRequestDto;
+use Modules\Ticket\Dto\TicketCreateRequestDto;
 
 interface TicketCommandRepositoryInterface
 {

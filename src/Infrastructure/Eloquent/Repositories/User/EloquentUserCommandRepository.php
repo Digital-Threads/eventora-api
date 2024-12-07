@@ -2,11 +2,11 @@
 
 namespace Infrastructure\Eloquent\Repositories\User;
 
+use Modules\User\Dto\UserCreateRequestDto;
+use Modules\User\Dto\UserUpdateRequestDto;
 use Domain\User\Repositories\UserCommandRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Infrastructure\Eloquent\Models\User;
-use Modules\Frontend\Dashboard\User\Dto\UserCreateRequestDto;
-use Modules\Frontend\Dashboard\User\Dto\UserUpdateRequestDto;
 
 final class EloquentUserCommandRepository implements UserCommandRepositoryInterface
 {

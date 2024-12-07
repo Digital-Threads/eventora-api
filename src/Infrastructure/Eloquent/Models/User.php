@@ -2,17 +2,17 @@
 
 namespace Infrastructure\Eloquent\Models;
 
+use Modules\Auth\AuthPassword\Mail\AuthPasswordResetLinkMail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Infrastructure\Utils\WebUrl;
 use Laravel\Passport\HasApiTokens;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Modules\AuthPassword\Mail\AuthPasswordResetLinkMail;
 
 /**
  * @property int                   $id

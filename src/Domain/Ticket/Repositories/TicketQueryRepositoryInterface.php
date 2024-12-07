@@ -2,8 +2,8 @@
 
 namespace Domain\Ticket\Repositories;
 
+use Modules\Ticket\Dto\TicketQueryRequestDto;
 use Illuminate\Database\Eloquent\Collection;
-use Modules\Frontend\Dashboard\Ticket\Dto\TicketQueryRequestDto;
 
 interface TicketQueryRepositoryInterface
 {

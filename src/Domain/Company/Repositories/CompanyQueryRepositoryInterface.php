@@ -2,8 +2,8 @@
 
 namespace Domain\Company\Repositories;
 
+use Modules\Company\Dto\CompanyViewRequestDto;
 use Infrastructure\Eloquent\Models\Company;
-use Modules\Frontend\Dashboard\Company\Dto\CompanyViewRequestDto;
 
 interface CompanyQueryRepositoryInterface
 {

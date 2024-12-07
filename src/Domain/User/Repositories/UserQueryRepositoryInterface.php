@@ -2,8 +2,8 @@
 
 namespace Domain\User\Repositories;
 
+use Modules\User\Dto\UserViewRequestDto;
 use Infrastructure\Eloquent\Models\User;
-use Modules\Frontend\Dashboard\User\Dto\UserViewRequestDto;
 
 interface UserQueryRepositoryInterface
 {

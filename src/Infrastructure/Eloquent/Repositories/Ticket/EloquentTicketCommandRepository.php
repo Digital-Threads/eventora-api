@@ -2,10 +2,10 @@
 
 namespace Infrastructure\Eloquent\Repositories\Ticket;
 
+use Modules\Ticket\Dto\TicketCreateRequestDto;
 use Domain\Ticket\Repositories\TicketCommandRepositoryInterface;
 use Exception;
 use Infrastructure\Eloquent\Models\Ticket;
-use Modules\Frontend\Dashboard\Ticket\Dto\TicketCreateRequestDto;
 
 class EloquentTicketCommandRepository implements TicketCommandRepositoryInterface
 {

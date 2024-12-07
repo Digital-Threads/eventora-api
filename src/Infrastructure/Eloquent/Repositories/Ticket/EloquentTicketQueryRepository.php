@@ -3,10 +3,10 @@
 namespace Infrastructure\Eloquent\Repositories\Ticket;
 
 
+use Modules\Ticket\Dto\TicketQueryRequestDto;
 use Domain\Ticket\Repositories\TicketQueryRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Infrastructure\Eloquent\Models\Ticket;
-use Modules\Frontend\Dashboard\Ticket\Dto\TicketQueryRequestDto;
 
 class EloquentTicketQueryRepository implements TicketQueryRepositoryInterface
 {

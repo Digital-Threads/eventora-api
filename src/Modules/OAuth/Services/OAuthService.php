@@ -2,34 +2,34 @@
 
 namespace Modules\OAuth\Services;
 
+use Modules\Company\Dto\CompanyCreateRequestDto;
+use Modules\Company\Services\CompanyCommandService;
 use DB;
-use Str;
 use Exception;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Event;
-use Modules\OAuth\Dto\OAuthGoogleDto;
-use Modules\OAuth\Dto\OAuthFacebookDto;
-use Modules\OAuth\Dto\OAuthPasswordDto;
-use Infrastructure\Eloquent\Models\Role;
-use Infrastructure\Eloquent\Models\User;
-use Modules\OAuth\Dto\OAuthVerifyOtpDto;
-use Modules\OAuth\Dto\OAuthGoogleSignupDto;
-use Modules\OAuth\Enums\SocialProviderEnum;
-use Modules\OAuth\Dto\OAuthFacebookSignupDto;
-use Modules\OAuth\Dto\OAuthPasswordSignupDto;
-use Infrastructure\Google2FA\Google2FAService;
-use Laravel\Passport\Bridge\User as UserEntity;
-use Modules\OAuth\Exceptions\InvalidOtpException;
-use Infrastructure\Eloquent\Models\SocialProvider;
-use Modules\OAuth\Exceptions\OAuthServerException;
-use Infrastructure\Eloquent\Models\UserTrustedDevice;
-use League\OAuth2\Server\Entities\UserEntityInterface;
-use Infrastructure\Socialite\Google\GoogleUserProvider;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Hash;
+use Infrastructure\Eloquent\Models\Role;
+use Infrastructure\Eloquent\Models\SocialProvider;
+use Infrastructure\Eloquent\Models\User;
+use Infrastructure\Eloquent\Models\UserTrustedDevice;
+use Infrastructure\Google2FA\Google2FAService;
 use Infrastructure\Socialite\Facebook\FacebookUserProvider;
+use Infrastructure\Socialite\Google\GoogleUserProvider;
+use Laravel\Passport\Bridge\User as UserEntity;
+use League\OAuth2\Server\Entities\UserEntityInterface;
+use Modules\OAuth\Dto\OAuthFacebookDto;
+use Modules\OAuth\Dto\OAuthFacebookSignupDto;
+use Modules\OAuth\Dto\OAuthGoogleDto;
+use Modules\OAuth\Dto\OAuthGoogleSignupDto;
+use Modules\OAuth\Dto\OAuthPasswordDto;
+use Modules\OAuth\Dto\OAuthPasswordSignupDto;
+use Modules\OAuth\Dto\OAuthVerifyOtpDto;
+use Modules\OAuth\Enums\SocialProviderEnum;
+use Modules\OAuth\Exceptions\InvalidOtpException;
 use Modules\OAuth\Exceptions\InvalidOtpRecoveryCodeException;
-use Modules\Frontend\Dashboard\Company\Dto\CompanyCreateRequestDto;
-use Modules\Frontend\Dashboard\Company\Services\CompanyCommandService;
+use Modules\OAuth\Exceptions\OAuthServerException;
+use Str;
 
 final class OAuthService
 {

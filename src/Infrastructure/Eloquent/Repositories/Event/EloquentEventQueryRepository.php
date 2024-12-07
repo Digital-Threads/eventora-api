@@ -2,11 +2,11 @@
 
 namespace Infrastructure\Eloquent\Repositories\Event;
 
+use Modules\Event\Dto\EventQueryRequestDto;
+use Modules\Event\Dto\EventViewRequestDto;
 use Domain\Event\Repositories\EventQueryRepositoryInterface;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Infrastructure\Eloquent\Models\Event;
-use Modules\Frontend\Dashboard\Event\Dto\EventQueryRequestDto;
-use Modules\Frontend\Dashboard\Event\Dto\EventViewRequestDto;
 
 class EloquentEventQueryRepository implements EventQueryRepositoryInterface
 {

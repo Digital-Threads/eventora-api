@@ -2,9 +2,9 @@
 
 namespace Infrastructure\Eloquent\Repositories\Company;
 
+use Modules\Company\Dto\CompanyViewRequestDto;
 use Domain\Company\Repositories\CompanyQueryRepositoryInterface;
 use Infrastructure\Eloquent\Models\Company;
-use Modules\Frontend\Dashboard\Company\Dto\CompanyViewRequestDto;
 
 class EloquentCompanyQueryRepository implements CompanyQueryRepositoryInterface
 {

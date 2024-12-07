@@ -2,9 +2,9 @@
 
 namespace Infrastructure\Eloquent\Repositories\Tag;
 
+use Modules\Tag\Dto\TagCreateRequestDto;
 use Domain\Tag\Repositories\TagCommandRepositoryInterface;
 use Infrastructure\Eloquent\Models\Tag;
-use Modules\Frontend\Dashboard\Tag\Dto\TagCreateRequestDto;
 
 class EloquentTagCommandRepository implements TagCommandRepositoryInterface
 {

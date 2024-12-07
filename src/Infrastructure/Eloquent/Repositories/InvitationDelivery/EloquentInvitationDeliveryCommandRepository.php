@@ -2,10 +2,10 @@
 
 namespace Infrastructure\Eloquent\Repositories\InvitationDelivery;
 
+use Modules\Invitation\InvitationDelivery\Dto\InvitationDeliveryCreateDto;
 use Domain\InvitationDelivery\Repositories\InvitationDeliveryCommandRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Dto\InvitationDeliveryCreateDto;
 
 // Новый DTO
 

@@ -2,10 +2,10 @@
 
 namespace Infrastructure\Eloquent\Repositories\Event;
 
+use Modules\Event\Dto\EventCreateRequestDto;
+use Modules\Event\Dto\EventUpdateRequestDto;
 use Domain\Event\Repositories\EventCommandRepositoryInterface;
 use Infrastructure\Eloquent\Models\Event;
-use Modules\Frontend\Dashboard\Event\Dto\EventCreateRequestDto;
-use Modules\Frontend\Dashboard\Event\Dto\EventUpdateRequestDto;
 
 class EloquentEventCommandRepository implements EventCommandRepositoryInterface
 {

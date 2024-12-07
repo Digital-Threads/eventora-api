@@ -2,9 +2,9 @@
 
 namespace Domain\Invitation\Repositories;
 
+use Modules\Invitation\Dto\InvitationCreateRequestDto;
+use Modules\Invitation\Dto\InvitationUpdateRequestDto;
 use Infrastructure\Eloquent\Models\Invitation;
-use Modules\Frontend\Dashboard\Invitation\Dto\InvitationCreateRequestDto;
-use Modules\Frontend\Dashboard\Invitation\Dto\InvitationUpdateRequestDto;
 
 interface InvitationCommandRepositoryInterface
 {

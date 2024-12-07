@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryChannel;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
 use Illuminate\Database\Migrations\Migration;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Enums\InvitationDeliveryChannel;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     /**
