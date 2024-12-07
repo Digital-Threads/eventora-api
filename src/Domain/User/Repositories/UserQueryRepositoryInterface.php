@@ -8,4 +8,11 @@ use Infrastructure\Eloquent\Models\User;
 interface UserQueryRepositoryInterface
 {
     public function view(UserViewRequestDto $dto): User;
+
+    public function findByEmail(string $email): ?User;
+
+    public function existsBySocialId(string $socialId, string $provider): bool;
+
+    public function findAllByUserId(int $userId): iterable;
+
 }
