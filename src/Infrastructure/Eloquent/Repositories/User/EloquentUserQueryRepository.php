@@ -13,6 +13,11 @@ final class EloquentUserQueryRepository implements UserQueryRepositoryInterface
         return User::query()->findOrFail($dto->userId);
     }
 
+    public function findById(int $id): User
+    {
+        return User::query()->findOrFail($id);
+    }
+
     public function findByEmail(string $email): ?User
     {
         return User::where('email', $email)->first();

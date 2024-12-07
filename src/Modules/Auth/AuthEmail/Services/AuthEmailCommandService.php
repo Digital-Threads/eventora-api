@@ -2,6 +2,8 @@
 
 namespace Modules\Auth\AuthEmail\Services;
 
+use Domain\User\Repositories\UserCommandRepositoryInterface;
+use Domain\User\Repositories\UserQueryRepositoryInterface;
 use Modules\Auth\AuthEmail\Dto\AuthEmailForgetDto;
 use Modules\Auth\AuthEmail\Dto\AuthEmailSendVerificationLinkDto;
 use Modules\Auth\AuthEmail\Dto\AuthEmailUpdateDto;
@@ -18,11 +20,15 @@ use Infrastructure\Utils\WebUrl;
 
 final class AuthEmailCommandService
 {
+
+
+    public function __construct( private readonly UserQueryRepositoryInterface $userQueryRepository, private readonly UserCommandRepositoryInterface $userCommandRepository){
+
+    }
     public function sendVerificationLink(AuthEmailSendVerificationLinkDto $request): void
     {
         DB::transaction(static function () use ($request): void {
-            $user = User::findOrFail($request->userId);
-
+            $user = $this->userQueryRepository->findById($request->userId);
             $user->update([
                 'email_verification_token' => Str::random(30),
             ]);

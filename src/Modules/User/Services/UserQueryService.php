@@ -14,6 +14,6 @@ final readonly class UserQueryService
 
     public function view(UserViewRequestDto $dto): User
     {
-        return $this->userQueryRepository->view($dto);
+        return $this->userQueryRepository->findById($dto->userId);
     }
 }
