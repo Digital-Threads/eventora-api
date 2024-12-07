@@ -2,16 +2,18 @@
 
 namespace Modules\Frontend\Dashboard\User\Services;
 
+use Domain\User\Repositories\UserQueryRepositoryInterface;
 use Infrastructure\Eloquent\Models\User;
 use Modules\Frontend\Dashboard\User\Dto\UserViewRequestDto;
 
-final class UserQueryService
+final readonly class UserQueryService
 {
-    /**
-     *
-     */
+    public function __construct(private UserQueryRepositoryInterface $userQueryRepository)
+    {
+    }
+
     public function view(UserViewRequestDto $dto): User
     {
-        return User::findOrFail($dto->userId);
+        return $this->userQueryRepository->view($dto);
     }
 }

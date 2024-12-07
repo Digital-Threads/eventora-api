@@ -2,10 +2,10 @@
 
 namespace Modules\Frontend\Dashboard\Invitation\Services;
 
+use Domain\Invitation\Repositories\InvitationCommandRepositoryInterface;
 use Infrastructure\Eloquent\Models\Invitation;
 use Modules\Frontend\Dashboard\Invitation\Dto\InvitationCreateRequestDto;
 use Modules\Frontend\Dashboard\Invitation\Dto\InvitationUpdateRequestDto;
-use Modules\Frontend\Dashboard\Invitation\Repositories\Interfaces\InvitationCommandRepositoryInterface;
 
 final class InvitationCommandService
 {

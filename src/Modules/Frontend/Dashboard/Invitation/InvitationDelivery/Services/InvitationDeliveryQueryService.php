@@ -2,9 +2,9 @@
 
 namespace Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Services;
 
+use Domain\InvitationDelivery\Repositories\InvitationDeliveryQueryRepositoryInterface;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
 use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Dto\InvitationDeliveryQueryRequestDto;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryQueryRepositoryInterface;
 
 final class InvitationDeliveryQueryService
 {

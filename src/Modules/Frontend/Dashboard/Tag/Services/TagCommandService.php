@@ -2,8 +2,8 @@
 
 namespace Modules\Frontend\Dashboard\Tag\Services;
 
+use Domain\Tag\Repositories\TagCommandRepositoryInterface;
 use Modules\Frontend\Dashboard\Tag\Dto\TagCreateRequestDto;
-use Modules\Frontend\Dashboard\Tag\Repositories\Interfaces\TagCommandRepositoryInterface;
 
 final class TagCommandService
 {

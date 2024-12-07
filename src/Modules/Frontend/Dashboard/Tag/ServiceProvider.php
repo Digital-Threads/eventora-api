@@ -2,18 +2,17 @@
 
 namespace Modules\Frontend\Dashboard\Tag;
 
+use Domain\Tag\Repositories\TagCommandRepositoryInterface;
+use Domain\Tag\Repositories\TagQueryRepositoryInterface;
+use Infrastructure\Eloquent\Repositories\Tag\EloquentTagCommandRepository;
+use Infrastructure\Eloquent\Repositories\Tag\EloquentTagQueryRepository;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Frontend\Dashboard\Tag\Repositories\EloquentTagQueryRepository;
-use Modules\Frontend\Dashboard\Tag\Repositories\EloquentTagCommandRepository;
-use Modules\Frontend\Dashboard\Tag\Repositories\Interfaces\TagQueryRepositoryInterface;
-use Modules\Frontend\Dashboard\Tag\Repositories\Interfaces\TagCommandRepositoryInterface;
 
 class ServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        $this->app->bind(TagCommandRepositoryInterface::class, EloquentTagCommandRepository::class);
-        $this->app->bind(TagQueryRepositoryInterface::class, EloquentTagQueryRepository::class);
+
     }
 
     public function boot()

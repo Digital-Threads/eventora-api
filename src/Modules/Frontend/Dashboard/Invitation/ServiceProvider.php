@@ -2,11 +2,11 @@
 
 namespace Modules\Frontend\Dashboard\Invitation;
 
+use Domain\Invitation\Repositories\InvitationCommandRepositoryInterface;
+use Domain\Invitation\Repositories\InvitationQueryRepositoryInterface;
+use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationCommandRepository;
+use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationQueryRepository;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Frontend\Dashboard\Invitation\Repositories\EloquentInvitationQueryRepository;
-use Modules\Frontend\Dashboard\Invitation\Repositories\EloquentInvitationCommandRepository;
-use Modules\Frontend\Dashboard\Invitation\Repositories\Interfaces\InvitationQueryRepositoryInterface;
-use Modules\Frontend\Dashboard\Invitation\Repositories\Interfaces\InvitationCommandRepositoryInterface;
 
 final class ServiceProvider extends BaseServiceProvider
 {
@@ -18,7 +18,6 @@ final class ServiceProvider extends BaseServiceProvider
 
     public function register(): void
     {
-        $this->app->bind(InvitationCommandRepositoryInterface::class, EloquentInvitationCommandRepository::class);
-        $this->app->bind(InvitationQueryRepositoryInterface::class, EloquentInvitationQueryRepository::class);
+
     }
 }

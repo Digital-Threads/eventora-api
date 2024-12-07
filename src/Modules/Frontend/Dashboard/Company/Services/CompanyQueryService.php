@@ -2,9 +2,9 @@
 
 namespace Modules\Frontend\Dashboard\Company\Services;
 
+use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyQueryRepository;
 use Infrastructure\Eloquent\Models\Company;
 use Modules\Frontend\Dashboard\Company\Dto\CompanyViewRequestDto;
-use Modules\Frontend\Dashboard\Company\Repositories\EloquentCompanyQueryRepository;
 
 class CompanyQueryService
 {

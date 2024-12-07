@@ -8,6 +8,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Infrastructure" isTestSource="false" packagePrefix="Infrastructure\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Modules" isTestSource="false" packagePrefix="Modules\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Domain" isTestSource="false" packagePrefix="Domain\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Infrastructure" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Integration" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

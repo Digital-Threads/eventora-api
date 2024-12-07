@@ -41,6 +41,7 @@
             "App\\": "src",
             "Modules\\": "src/Modules/",
             "Infrastructure\\": "src/Infrastructure/",
+            "Domain\\": "src/Domain/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

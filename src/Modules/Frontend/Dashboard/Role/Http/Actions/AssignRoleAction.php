@@ -2,10 +2,11 @@
 
 namespace Modules\Frontend\Dashboard\Role\Http\Actions;
 
+
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Frontend\Dashboard\Role\Services\RoleService;
-use Modules\Frontend\Dashboard\Role\Http\Resources\RoleResource;
 use Modules\Frontend\Dashboard\Role\Http\Requests\AssignRoleRequest;
+use Modules\Frontend\Dashboard\Role\Http\Resources\RoleResource;
+use Modules\Frontend\Dashboard\Role\Services\RoleQueryService;
 
 /**
  * @OA\Post(
@@ -37,9 +38,9 @@ use Modules\Frontend\Dashboard\Role\Http\Requests\AssignRoleRequest;
  */
 final class AssignRoleAction
 {
-    public function __invoke(AssignRoleRequest $request, RoleService $service): JsonResource
+    public function __invoke(AssignRoleRequest $request, RoleQueryService $service): JsonResource
     {
-        $dto = $request->toDto();
+        $dto  = $request->toDto();
         $role = $service->assignRole($dto->userId, $dto->roleId);
 
         return new RoleResource($role);

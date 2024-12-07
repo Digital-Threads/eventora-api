@@ -2,11 +2,11 @@
 
 namespace Modules\Frontend\Dashboard\Company;
 
+use Domain\Company\Repositories\CompanyCommandRepositoryInterface;
+use Domain\Company\Repositories\CompanyQueryRepositoryInterface;
+use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyCommandRepository;
+use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyQueryRepository;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Modules\Frontend\Dashboard\Company\Repositories\EloquentCompanyQueryRepository;
-use Modules\Frontend\Dashboard\Company\Repositories\EloquentCompanyCommandRepository;
-use Modules\Frontend\Dashboard\Company\Repositories\Interfaces\CompanyQueryRepositoryInterface;
-use Modules\Frontend\Dashboard\Company\Repositories\Interfaces\CompanyCommandRepositoryInterface;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -16,7 +16,6 @@ class ServiceProvider extends BaseServiceProvider
 
     public function register(): void
     {
-        $this->app->bind(CompanyCommandRepositoryInterface::class, EloquentCompanyCommandRepository::class);
-        $this->app->bind(CompanyQueryRepositoryInterface::class, EloquentCompanyQueryRepository::class);
+
     }
 }

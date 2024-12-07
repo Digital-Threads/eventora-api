@@ -2,11 +2,11 @@
 
 namespace Modules\Frontend\Dashboard\Event\Services;
 
+use Domain\Event\Repositories\EventCommandRepositoryInterface;
 use Infrastructure\Eloquent\Models\Event;
 use Modules\Frontend\Dashboard\Event\Dto\EventCreateRequestDto;
 use Modules\Frontend\Dashboard\Event\Dto\EventDeleteRequestDto;
 use Modules\Frontend\Dashboard\Event\Dto\EventUpdateRequestDto;
-use Modules\Frontend\Dashboard\Event\Repositories\Interfaces\EventCommandRepositoryInterface;
 
 final class EventCommandService
 {

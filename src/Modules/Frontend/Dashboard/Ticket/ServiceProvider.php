@@ -8,7 +8,6 @@ final class ServiceProvider extends BaseServiceProvider
 {
     public function register(): void
     {
-        // Bind your services or repositories here
     }
 
     public function boot(): void

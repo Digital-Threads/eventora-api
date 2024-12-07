@@ -2,11 +2,11 @@
 
 namespace Modules\Frontend\Dashboard\Ticket\Services;
 
+use Domain\Ticket\Repositories\TicketCommandRepositoryInterface;
 use Infrastructure\Eloquent\Models\Ticket;
 use Modules\Frontend\Dashboard\Ticket\Dto\TicketCreateRequestDto;
 use Modules\Frontend\Dashboard\Ticket\Dto\TicketDeleteRequestDto;
 use Modules\Frontend\Dashboard\Ticket\Dto\TicketUpdateRequestDto;
-use Modules\Frontend\Dashboard\Ticket\Repositories\Interfaces\TicketCommandRepositoryInterface;
 
 final class TicketCommandService
 {

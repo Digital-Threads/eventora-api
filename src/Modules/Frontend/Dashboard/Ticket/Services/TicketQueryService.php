@@ -2,9 +2,9 @@
 
 namespace Modules\Frontend\Dashboard\Ticket\Services;
 
+use Domain\Ticket\Repositories\TicketQueryRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\Frontend\Dashboard\Ticket\Dto\TicketQueryRequestDto;
-use Modules\Frontend\Dashboard\Ticket\Repositories\Interfaces\TicketQueryRepositoryInterface;
 
 class TicketQueryService
 {

@@ -2,10 +2,10 @@
 
 namespace Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Services;
 
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Generators\ShortLinkGenerator;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
+use Domain\InvitationDelivery\Repositories\InvitationDeliveryCommandRepositoryInterface;
 use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Dto\InvitationDeliverySendRequestDto;
-use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Repositories\Interfaces\InvitationDeliveryCommandRepositoryInterface;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Enums\InvitationDeliveryStatus;
+use Modules\Frontend\Dashboard\Invitation\InvitationDelivery\Generators\ShortLinkGenerator;
 
 // Этот DTO для запроса извне
 
