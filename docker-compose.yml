@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: nichex
+    container_name: eventora
     volumes:
       - .:/var/www
     ports:
