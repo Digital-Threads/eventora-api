@@ -23,4 +23,29 @@ class EloquentEventQueryRepository implements EventQueryRepositoryInterface
     {
         return Event::query()->findOrFail($dto->id);
     }
+
+
+
+    public function findPopular(array $popularEventIds,int $perPage, ?string $cursor): CursorPaginator
+    {
+        return Event::query()
+            ->whereIn('id', $popularEventIds)
+            ->cursorPaginate($perPage, cursor: $cursor);
+    }
+
+    public function findBetweenDates(string $startDate, string $endDate, int $perPage, ?string $cursor): CursorPaginator
+    {
+        return Event::query()
+            ->where('is_public', true)
+            ->whereBetween('event_date', [$startDate, $endDate])
+            ->cursorPaginate($perPage, cursor: $cursor);
+    }
+
+    public function findIncoming(int $perPage, ?string $cursor): CursorPaginator
+    {
+        return Event::query()
+            ->where('event_date', '>=', now())
+            ->orderBy('event_date', 'asc')
+            ->cursorPaginate($perPage, cursor: $cursor);
+    }
 }

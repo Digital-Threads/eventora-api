@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Event\Http\Actions;
+namespace Modules\Event\Http\Actions\Dashboard;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\JsonResponse;
 use Modules\Event\Checks\UserCanUpdateEventCheck;
 use Modules\Event\Http\Requests\EventUpdateRequest;
 use Modules\Event\Services\EventCommandService;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\JsonResponse;
 
 final class EventUpdateAction
 {

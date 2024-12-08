@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Event\Http\Actions;
+namespace Modules\Event\Http\Actions\Dashboard;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Event\Http\Requests\EventViewRequest;
 use Modules\Event\Http\Resources\EventResource;
 use Modules\Event\Services\EventQueryService;
-use Illuminate\Http\Resources\Json\JsonResource;
 
 final class EventViewAction
 {

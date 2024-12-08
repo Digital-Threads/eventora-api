@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Event\Http\Actions;
+namespace Modules\Event\Http\Actions\Dashboard;
 
-use Modules\Event\Checks\UserCanDeleteEventCheck;
-use Modules\Event\Http\Requests\EventDeleteRequest;
-use Modules\Event\Services\EventCommandService;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
+use Modules\Event\Checks\UserCanDeleteEventCheck;
+use Modules\Event\Http\Requests\EventDeleteRequest;
+use Modules\Event\Services\EventCommandService;
 
 final class EventDeleteAction
 {

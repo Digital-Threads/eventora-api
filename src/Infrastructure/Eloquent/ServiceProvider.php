@@ -7,6 +7,8 @@ use Domain\Company\Repositories\CompanyCommandRepositoryInterface;
 use Domain\Company\Repositories\CompanyQueryRepositoryInterface;
 use Domain\Event\Repositories\EventCommandRepositoryInterface;
 use Domain\Event\Repositories\EventQueryRepositoryInterface;
+use Domain\EventMetric\Repositories\EventMetricCommandRepositoryInterface;
+use Domain\EventMetric\Repositories\EventMetricQueryRepositoryInterface;
 use Domain\Invitation\Repositories\InvitationCommandRepositoryInterface;
 use Domain\Invitation\Repositories\InvitationQueryRepositoryInterface;
 use Domain\InvitationDelivery\Repositories\InvitationDeliveryCommandRepositoryInterface;
@@ -24,6 +26,8 @@ use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyCommandRepositor
 use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyQueryRepository;
 use Infrastructure\Eloquent\Repositories\Event\EloquentEventCommandRepository;
 use Infrastructure\Eloquent\Repositories\Event\EloquentEventQueryRepository;
+use Infrastructure\Eloquent\Repositories\EventMetric\EloquentEventMetricCommandRepository;
+use Infrastructure\Eloquent\Repositories\EventMetric\EloquentEventMetricQueryRepository;
 use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationCommandRepository;
 use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationQueryRepository;
 use Infrastructure\Eloquent\Repositories\InvitationDelivery\EloquentInvitationDeliveryCommandRepository;
@@ -68,6 +72,9 @@ final class ServiceProvider extends BaseServiceProvider
         $this->app->bind(RoleQueryRepositoryInterface::class, EloquentRoleQueryRepository::class);
         $this->app->bind(SocialProviderCommandRepositoryInterface::class, EloquentSocialProviderCommandRepository::class);
         $this->app->bind(SocialProviderQueryRepositoryInterface::class, EloquentSocialProviderQueryRepository::class);
+
+        $this->app->bind(EventMetricCommandRepositoryInterface::class, EloquentEventMetricCommandRepository::class);
+        $this->app->bind(EventMetricQueryRepositoryInterface::class, EloquentEventMetricQueryRepository::class);
 
 
     }
