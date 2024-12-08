@@ -21,4 +21,9 @@ class EloquentSocialProviderCommandRepository implements SocialProviderCommandRe
             ->where('provider_name', $providerName)
             ->delete();
     }
+
+    public function unlinkAllProvidersForUser(int $userId): void
+    {
+        // TODO: Implement unlinkAllProvidersForUser() method.
+    }
 }

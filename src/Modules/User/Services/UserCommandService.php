@@ -3,9 +3,9 @@
 namespace Modules\User\Services;
 
 
+use Domain\User\Repositories\UserCommandRepositoryInterface;
 use Modules\User\Dto\UserCreateRequestDto;
 use Modules\User\Dto\UserUpdateRequestDto;
-use Domain\User\Repositories\UserCommandRepositoryInterface;
 
 final readonly class UserCommandService
 {
@@ -13,7 +13,9 @@ final readonly class UserCommandService
 
     public function create(UserCreateRequestDto $dto): void
     {
-        $this->userCommandRepository->create($dto);
+        $this->userCommandRepository->create(
+            $dto->toArray(),
+        );
     }
 
     public function update(int $userId, UserUpdateRequestDto $dto): void

@@ -18,4 +18,9 @@ class EloquentSocialProviderQueryRepository implements SocialProviderQueryReposi
             ->where('provider_name', $providerName)
             ->first();
     }
+
+    public function findAllProvidersByUserId(int $userId): iterable
+    {
+        // TODO: Implement findAllProvidersByUserId() method.
+    }
 }

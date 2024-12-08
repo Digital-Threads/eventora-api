@@ -9,4 +9,6 @@ interface SocialProviderQueryRepositoryInterface
     public function findByProviderId(string $providerId): ?SocialProvider;
 
     public function findByUserIdAndProviderName(int $userId, string $providerName): ?SocialProvider;
+
+    public function findAllProvidersByUserId(int $userId): iterable;
 }

@@ -10,15 +10,9 @@ use Infrastructure\Eloquent\Models\User;
 
 final class EloquentUserCommandRepository implements UserCommandRepositoryInterface
 {
-    public function create(UserCreateRequestDto $dto): User
+    public function create(array $data): User
     {
-        return User::query()->create([
-            'email' => $dto->email,
-            'password' => Hash::make($dto->password),
-            'first_name' => $dto->firstName,
-            'last_name' => $dto->lastName,
-            'role_id' => $dto->roleId,
-        ]);
+        return User::query()->create($data);
     }
 
     public function update(int $userId, array $data): User

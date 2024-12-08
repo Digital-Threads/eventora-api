@@ -12,7 +12,6 @@ interface UserQueryRepositoryInterface
     public function findById(int $id): ?User;
 
 
-    public function existsBySocialId(string $socialId, string $provider): bool;
 
     public function findAllByUserId(int $userId): iterable;
 
