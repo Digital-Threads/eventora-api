@@ -16,4 +16,6 @@ interface UserQueryRepositoryInterface
 
     public function findAllByUserId(int $userId): iterable;
 
+    public function findWithEmailAndToken(string $email, string $token):?User;
+
 }

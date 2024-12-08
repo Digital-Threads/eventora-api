@@ -10,5 +10,6 @@ interface UserCommandRepositoryInterface
 {
     public function create(UserCreateRequestDto $dto): User;
 
-    public function update(int $userId, UserUpdateRequestDto $dto): void;
+    public function update(int $userId, array $data): User;
+    public function updateEmailVerificationToken(int $userId, string $token): void;
 }

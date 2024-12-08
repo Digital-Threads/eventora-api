@@ -2,14 +2,19 @@
 
 namespace Modules\Auth\AuthProfile\Services;
 
-use Modules\Auth\AuthProfile\Dto\AuthProfileViewDto;
-use Infrastructure\Eloquent\Models\User;
 
-final class AuthProfileQueryService
+use Domain\User\Repositories\UserQueryRepositoryInterface;
+use Infrastructure\Eloquent\Models\User;
+use Modules\Auth\AuthProfile\Dto\AuthProfileViewDto;
+
+final readonly class AuthProfileQueryService
 {
+    public function __construct(private UserQueryRepositoryInterface $userQueryRepository) {}
+
     public function view(AuthProfileViewDto $request): User
     {
-        $user = User::findOrFail($request->userId);
+        $user = $this->userQueryRepository->findById($request->userId);
+
         return $user->load('ownCompanies');
     }
 }

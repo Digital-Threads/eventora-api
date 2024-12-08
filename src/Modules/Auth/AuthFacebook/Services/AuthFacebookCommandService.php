@@ -2,6 +2,9 @@
 
 namespace Modules\Auth\AuthFacebook\Services;
 
+use Domain\SocialProvider\Repositories\SocialProviderCommandRepositoryInterface;
+use Domain\SocialProvider\Repositories\SocialProviderQueryRepositoryInterface;
+use Domain\User\Repositories\UserQueryRepositoryInterface;
 use Modules\Auth\AuthFacebook\Dto\AuthFacebookForgetDto;
 use Modules\Auth\AuthFacebook\Dto\AuthFacebookLinkDto;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -14,6 +17,9 @@ final class AuthFacebookCommandService
 {
     public function __construct(
         private readonly FacebookUserProvider $facebook,
+        private readonly SocialProviderCommandRepositoryInterface $socialProviderCommandRepository,
+        private readonly SocialProviderQueryRepositoryInterface $socialProviderQueryRepository,
+        private readonly UserQueryRepositoryInterface $userQueryRepository
     ) {
         //
     }
@@ -21,16 +27,14 @@ final class AuthFacebookCommandService
     public function link(AuthFacebookLinkDto $request): void
     {
         DB::transaction(function () use ($request): void {
-            $user = User::findOrFail($request->userId);
+            $user = $this->userQueryRepository->findById($request->userId);
             $source = $this->facebook->request($request->token);
 
-            if (User::where('facebook_id', $source->id)->exists()) {
+            if ($this->socialProviderQueryRepository->findByProviderId($source->id)) {
                 throw new AuthorizationException();
             }
 
-            $user->update([
-                'facebook_id' => $source->id,
-            ]);
+            $this->socialProviderCommandRepository->linkProvider($user->id, 'facebook', $source->id);
 
             Event::dispatch('auth_facebook.linked', [$user->id]);
         });
@@ -39,11 +43,9 @@ final class AuthFacebookCommandService
     public function forget(AuthFacebookForgetDto $request): void
     {
         DB::transaction(static function () use ($request): void {
-            $user = User::findOrFail($request->userId);
+            $user = $this->userQueryRepository->findById($request->userId);
 
-            $user->update([
-                'facebook_id' => null,
-            ]);
+            $this->socialProviderCommandRepository->unlinkProvider($user->id, 'facebook');
 
             Event::dispatch('auth_facebook.forgot', [$user->id]);
         });

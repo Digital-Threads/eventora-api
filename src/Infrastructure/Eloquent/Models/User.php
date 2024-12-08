@@ -19,8 +19,6 @@ use Laravel\Passport\HasApiTokens;
  * @property string|null           $email
  * @property string|null           $email_verification_token
  * @property string|null           $password
- * @property string|null           $google_id
- * @property string|null           $facebook_id
  * @property string|null           $first_name
  * @property string|null           $last_name
  * @property string|null           $google_2fa_secret
@@ -59,8 +57,6 @@ final class User extends Authenticatable
         'google_2fa_secret',
         'google_2fa_recovery_code',
         'google_2fa_enabled',
-        'google_id',
-        'facebook_id',
         'email_verified_at',
         'password_changed_at',
         'registered_at',

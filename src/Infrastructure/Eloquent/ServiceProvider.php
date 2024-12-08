@@ -12,6 +12,8 @@ use Domain\Invitation\Repositories\InvitationQueryRepositoryInterface;
 use Domain\InvitationDelivery\Repositories\InvitationDeliveryCommandRepositoryInterface;
 use Domain\InvitationDelivery\Repositories\InvitationDeliveryQueryRepositoryInterface;
 use Domain\Role\Repositories\RoleQueryRepositoryInterface;
+use Domain\SocialProvider\Repositories\SocialProviderCommandRepositoryInterface;
+use Domain\SocialProvider\Repositories\SocialProviderQueryRepositoryInterface;
 use Domain\Tag\Repositories\TagCommandRepositoryInterface;
 use Domain\Tag\Repositories\TagQueryRepositoryInterface;
 use Domain\Ticket\Repositories\TicketCommandRepositoryInterface;
@@ -26,6 +28,8 @@ use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationCommandRep
 use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationQueryRepository;
 use Infrastructure\Eloquent\Repositories\InvitationDelivery\EloquentInvitationDeliveryCommandRepository;
 use Infrastructure\Eloquent\Repositories\InvitationDelivery\EloquentInvitationDeliveryQueryRepository;
+use Infrastructure\Eloquent\Repositories\SocialProvider\EloquentSocialProviderCommandRepository;
+use Infrastructure\Eloquent\Repositories\SocialProvider\EloquentSocialProviderQueryRepository;
 use Infrastructure\Eloquent\Repositories\Tag\EloquentTagCommandRepository;
 use Infrastructure\Eloquent\Repositories\Tag\EloquentTagQueryRepository;
 use Infrastructure\Eloquent\Repositories\Ticket\EloquentTicketCommandRepository;
@@ -62,6 +66,8 @@ final class ServiceProvider extends BaseServiceProvider
         $this->app->bind(UserCommandRepositoryInterface::class, EloquentUserCommandRepository::class);
         $this->app->bind(UserQueryRepositoryInterface::class, EloquentUserQueryRepository::class);
         $this->app->bind(RoleQueryRepositoryInterface::class, EloquentRoleQueryRepository::class);
+        $this->app->bind(SocialProviderCommandRepositoryInterface::class, EloquentSocialProviderCommandRepository::class);
+        $this->app->bind(SocialProviderQueryRepositoryInterface::class, EloquentSocialProviderQueryRepository::class);
 
 
     }

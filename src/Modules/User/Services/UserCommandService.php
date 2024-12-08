@@ -18,6 +18,6 @@ final readonly class UserCommandService
 
     public function update(int $userId, UserUpdateRequestDto $dto): void
     {
-        $this->userCommandRepository->update($userId, $dto);
+        $this->userCommandRepository->update($userId, $dto->toArray());
     }
 }

@@ -20,16 +20,24 @@ final class EloquentUserQueryRepository implements UserQueryRepositoryInterface
 
     public function findByEmail(string $email): ?User
     {
-        return User::where('email', $email)->first();
+        return User::query()->where('email', $email)->first();
     }
 
     public function existsBySocialId(string $socialId, string $provider): bool
     {
-        return User::where("{$provider}_id", $socialId)->exists();
+        return User::query()->where("{$provider}_id", $socialId)->exists();
     }
 
     public function findAllByUserId(int $userId): iterable
     {
-        return User::where('id', $userId)->get();
+        return User::query()->where('id', $userId)->get();
+    }
+
+    public function findWithEmailAndToken(string $email, string $token): ?User
+    {
+        return User::query()
+            ->where('email', $email)
+            ->where('email_verification_token', $token)
+            ->firstOrFail();
     }
 }

@@ -2,12 +2,13 @@
 
 namespace Modules\User\Http\Actions;
 
-use Modules\User\Http\Requests\UserUpdateRequest;
-use Modules\User\Services\UserCommandService;
+
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Infrastructure\Eloquent\Models\User;
+use Modules\User\Http\Requests\UserUpdateRequest;
+use Modules\User\Services\UserCommandService;
 
 final class UserUpdateAction
 {

@@ -21,13 +21,18 @@ final class EloquentUserCommandRepository implements UserCommandRepositoryInterf
         ]);
     }
 
-    public function update(int $userId, UserUpdateRequestDto $dto): void
+    public function update(int $userId, array $data): User
     {
         $user = User::query()->findOrFail($userId);
 
-        $user->update([
-            'first_name' => $dto->firstName,
-            'last_name' => $dto->lastName,
-        ]);
+        $user->update($data);
+       return $user->fresh();
+    }
+
+    public function updateEmailVerificationToken(int $userId, string $token): User
+    {
+        $user = User::query()->findOrFail($userId);
+        $user->update(['email_verification_token' => $token]);
+        return $user->fresh();
     }
 }
