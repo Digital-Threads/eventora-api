@@ -4,13 +4,13 @@ namespace Infrastructure\Auth;
 
 use Exception;
 
-final class CheckFailure
+final readonly class CheckFailure
 {
     public function __construct(
-        public readonly string $error = 'forbidden',
-        public readonly ?string $errorDescription = null,
-        public readonly ?string $message = null,
-        public readonly ?string $hint = null,
+        public string $error = 'forbidden',
+        public ?string $errorDescription = null,
+        public ?string $message = null,
+        public ?string $hint = null,
     ) {
         //
     }
