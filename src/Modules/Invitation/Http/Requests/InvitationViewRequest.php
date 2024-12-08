@@ -20,4 +20,11 @@ final class InvitationViewRequest extends FormRequest
             $this->route('id')
         );
     }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'id' => $this->route('id'),
+        ]);
+    }
 }

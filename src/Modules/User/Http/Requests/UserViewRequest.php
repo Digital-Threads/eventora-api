@@ -2,8 +2,9 @@
 
 namespace Modules\User\Http\Requests;
 
-use Modules\User\Dto\UserViewRequestDto;
+
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\User\Dto\UserViewRequestDto;
 
 final class UserViewRequest extends FormRequest
 {
@@ -11,7 +12,9 @@ final class UserViewRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [];
+        return [
+            'id' => ['required', 'integer', 'exists:users,id'],
+        ];
     }
 
     /**
@@ -19,5 +22,12 @@ final class UserViewRequest extends FormRequest
     public function toDto(): UserViewRequestDto
     {
         return new UserViewRequestDto($this->user()->id);
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'id' => $this->route('id'),
+        ]);
     }
 }
