@@ -11,7 +11,7 @@ final class EventQueryAction
 {
     /**
      * @OA\Get(
-     *     path="/events",
+     *     path="/dashboard/events",
      *     tags={"Events"},
      *     description="Получение всех мероприятий с фильтром и пагинацией",
      *     security={{"passport": {}} },

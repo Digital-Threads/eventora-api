@@ -15,7 +15,7 @@ final class EventDeleteAction
 
     /**
      * @OA\Delete(
-     *      path="/events/{id}",
+     *      path="/dashboard/events/{id}",
      *      tags={"Events"},
      *      description="Delete an existing event",
      *      security={

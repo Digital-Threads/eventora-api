@@ -14,7 +14,7 @@ final class EventUpdateAction
 
     /**
      * @OA\Put(
-     *      path="/events/{id}",
+     *      path="/dashboard/events/{id}",
      *      tags={"Events"},
      *      description="Update an existing event",
      *      security={

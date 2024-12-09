@@ -11,7 +11,7 @@ final class EventViewAction
 {
     /**
      * @OA\Get(
-     *     path="/events/{id}",
+     *     path="/dashboard/events/{id}",
      *     tags={"Events"},
      *     description="Получение одного мероприятия",
      *     security={{"passport": {}} },

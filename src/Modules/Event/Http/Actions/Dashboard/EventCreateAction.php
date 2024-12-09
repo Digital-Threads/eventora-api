@@ -16,7 +16,7 @@ final class EventCreateAction
 
     /**
      * @OA\Post(
-     *      path="/events",
+     *      path="/dashboard/events",
      *      tags={"Events"},
      *      description="Create a new event",
      *      security={
