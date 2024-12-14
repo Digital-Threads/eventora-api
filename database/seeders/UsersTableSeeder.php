@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use Infrastructure\Eloquent\Models\User;
 
@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::firstOrCreate([
+        User::query()->firstOrCreate([
             'first_name' => 'Test',
             'last_name' => 'Test',
             'email' => 'test@finance.test',

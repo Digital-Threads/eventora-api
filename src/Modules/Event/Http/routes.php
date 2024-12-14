@@ -18,7 +18,6 @@ Route::prefix('dashboard/events')->middleware(['api', 'auth'])->group(function (
     Route::get('/{id}', EventViewAction::class)->name('dashboard.events.view');
     Route::get('/', EventQueryAction::class)->name('dashboard.events.query');
 });
-
 // Роуты для Client
 Route::prefix('events')->middleware(['api'])->group(function () {
     Route::get('/top', EventListTopAction::class)->name('events.top');
