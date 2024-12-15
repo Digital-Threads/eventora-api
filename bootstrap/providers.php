@@ -52,4 +52,5 @@ return [
     \Modules\Company\ServiceProvider::class,
     \Modules\Ticket\ServiceProvider::class,
     \Modules\EventMetric\ServiceProvider::class,
+    \Modules\EventCategory\ServiceProvider::class,
 ];

@@ -7,6 +7,7 @@ use Domain\Company\Repositories\CompanyCommandRepositoryInterface;
 use Domain\Company\Repositories\CompanyQueryRepositoryInterface;
 use Domain\Event\Repositories\EventCommandRepositoryInterface;
 use Domain\Event\Repositories\EventQueryRepositoryInterface;
+use Domain\EventCategory\Repositories\EventCategoryQueryRepositoryInterface;
 use Domain\EventMetric\Repositories\EventMetricCommandRepositoryInterface;
 use Domain\EventMetric\Repositories\EventMetricQueryRepositoryInterface;
 use Domain\Invitation\Repositories\InvitationCommandRepositoryInterface;
@@ -26,6 +27,7 @@ use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyCommandRepositor
 use Infrastructure\Eloquent\Repositories\Company\EloquentCompanyQueryRepository;
 use Infrastructure\Eloquent\Repositories\Event\EloquentEventCommandRepository;
 use Infrastructure\Eloquent\Repositories\Event\EloquentEventQueryRepository;
+use Infrastructure\Eloquent\Repositories\EventCategory\EloquentEventCategoryQueryRepository;
 use Infrastructure\Eloquent\Repositories\EventMetric\EloquentEventMetricCommandRepository;
 use Infrastructure\Eloquent\Repositories\EventMetric\EloquentEventMetricQueryRepository;
 use Infrastructure\Eloquent\Repositories\Invitation\EloquentInvitationCommandRepository;
@@ -75,6 +77,7 @@ final class ServiceProvider extends BaseServiceProvider
 
         $this->app->bind(EventMetricCommandRepositoryInterface::class, EloquentEventMetricCommandRepository::class);
         $this->app->bind(EventMetricQueryRepositoryInterface::class, EloquentEventMetricQueryRepository::class);
+        $this->app->bind(EventCategoryQueryRepositoryInterface::class, EloquentEventCategoryQueryRepository::class);
 
 
     }
