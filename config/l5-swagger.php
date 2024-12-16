@@ -171,10 +171,10 @@ return [
                 ],
                 */
 
-                'token' => [
+                'passport' => [
                     'type' => 'apiKey',
                     'description' => 'Bearer token authorization',
-                    'name' => 'authorization',
+                    'name' => 'Authorization',
                     'in' => 'header',
                 ],
 

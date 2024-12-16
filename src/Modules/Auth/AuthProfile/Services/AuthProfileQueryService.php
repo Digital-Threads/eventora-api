@@ -13,8 +13,6 @@ final readonly class AuthProfileQueryService
 
     public function view(AuthProfileViewDto $request): User
     {
-        $user = $this->userQueryRepository->findById($request->userId);
-
-        return $user->load('ownCompanies');
+        return $this->userQueryRepository->findById($request->userId);
     }
 }

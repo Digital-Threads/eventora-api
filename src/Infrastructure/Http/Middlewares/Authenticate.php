@@ -23,19 +23,13 @@ final class Authenticate extends Middleware
     {
         $this->authenticate($request, $guards);
 
-        // Custom logic before passing to next middleware
-        if ($request->user()->isSuspended()) {
-            return response()->json(['error' => 'Account is suspended'], 403);
-        }
-
         return $next($request);
     }
 
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
-     * @param  Request  $request
-     *
+     * @param Request $request
      * @return string|null
      */
     protected function redirectTo(Request $request): ?string

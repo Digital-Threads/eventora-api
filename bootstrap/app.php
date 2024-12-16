@@ -114,11 +114,11 @@ return Application::configure(basePath: dirname(__DIR__))
             }
         });
 
-        $exceptions->renderable(function (Throwable $e, $request) {
-            return response()->json([
-                'error'   => 'Unexpected error occurred',
-                'message' => $e->getMessage(),
-            ], 500);
-        });
+//        $exceptions->renderable(function (Throwable $e, $request) {
+//            return response()->json([
+//                'error'   => 'Unexpected error occurred',
+//                'message' => $e->getMessage(),
+//            ], 500);
+//        });
     })
     ->create();

@@ -20,7 +20,8 @@ RUN chmod +x /usr/local/bin/install-php-extensions && install-php-extensions \
     opcache \
     @composer \
     pcov \
-    xdebug
+    xdebug \
+    imagick
 
 # Устанавливаем дополнительные пакеты, необходимые для Laravel и работы контейнера
 RUN apk update && apk add --no-cache \
@@ -29,7 +30,8 @@ RUN apk update && apk add --no-cache \
     curl \
     nginx \
     supervisor \
-    postgresql15-client
+    postgresql15-client \
+    bash
 
 # Копируем конфигурационные файлы в контейнер
 COPY ./nginx.conf /etc/nginx/http.d/default.conf
