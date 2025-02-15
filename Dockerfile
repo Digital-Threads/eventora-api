@@ -13,7 +13,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && install-php-extensions \
     opcache \
     @composer
 
-RUN apk update && apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     git \
     unzip \
     curl \
