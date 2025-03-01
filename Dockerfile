@@ -11,6 +11,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && install-php-extensions \
     pdo_pgsql \
     redis \
     opcache \
+    imagick \
     @composer
 
 RUN apt-get update && apt-get install -y \
