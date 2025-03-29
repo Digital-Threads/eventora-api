@@ -15,7 +15,8 @@ return [
                  * Route for accessing api documentation interface
                 */
                 'api' => 'docs',
-            ],
+                'docs' => 'docs/api',
+                ],
             'paths' => [
                 /*
                  * Absolute paths while generating asset paths
