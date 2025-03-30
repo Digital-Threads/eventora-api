@@ -17,7 +17,7 @@ final class InvitationDeliveryRespondRequest extends FormRequest
 
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function toDto(): InvitationDeliveryRespondDto
