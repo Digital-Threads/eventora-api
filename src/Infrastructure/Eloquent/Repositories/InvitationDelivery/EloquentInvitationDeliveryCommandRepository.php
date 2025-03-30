@@ -6,6 +6,7 @@ use Modules\Invitation\InvitationDelivery\Dto\InvitationDeliveryCreateDto;
 use Domain\InvitationDelivery\Repositories\InvitationDeliveryCommandRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Infrastructure\Eloquent\Models\InvitationDelivery;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationResponseStatus;
 
 // Новый DTO
 
@@ -34,5 +35,11 @@ class EloquentInvitationDeliveryCommandRepository implements InvitationDeliveryC
         });
 
         return $createdDeliveries;
+    }
+
+    public function updateResponseStatus(InvitationDelivery $delivery, InvitationResponseStatus $status): void
+    {
+        $delivery->response_status = $status;
+        $delivery->save();
     }
 }

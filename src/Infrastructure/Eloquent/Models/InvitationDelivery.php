@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Modules\Invitation\InvitationDelivery\Enums\InvitationResponseStatus;
 
 /**
  * Infrastructure\Eloquent\Models\InvitationDelivery
@@ -16,6 +17,7 @@ use Illuminate\Support\Carbon;
  * @property string      $recipient_contact
  * @property string      $channel
  * @property string      $status
+ * @property string      $response_status
  * @property string      $link
  * @property int         $retry_count
  * @property Invitation  $invitation
@@ -37,6 +39,7 @@ class InvitationDelivery extends Model
 
     protected $casts = [
         'status' => InvitationDeliveryStatus::class,
+        'response_status' => InvitationResponseStatus::class,
     ];
 
     /**

@@ -9,6 +9,7 @@ final class InvitationDeliveryQueryRequest extends FormRequest
 {
     public function rules(): array
     {
+        dd(1);
         return [
             'invitationId' => 'required|integer|exists:invitations,id',
             'status' => 'nullable|string|in:pending,sent,delivered,failed', // Фильтр по статусу

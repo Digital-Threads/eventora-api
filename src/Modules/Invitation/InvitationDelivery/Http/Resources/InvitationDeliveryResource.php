@@ -15,9 +15,7 @@ final class InvitationDeliveryResource extends JsonResource
 {
     use ConvertsSchemaToArray;
 
-    /**
-     *
-     */
+
     public function toSchema(Request $request): InvitationDeliverySchema
     {
         return new InvitationDeliverySchema(
@@ -26,6 +24,7 @@ final class InvitationDeliveryResource extends JsonResource
             $this->resource->recipient_contact,
             $this->resource->channel,
             $this->resource->status,
+            $this->resource->response_status,
             $this->resource->retry_count,
             $this->resource->created_at->toDateTimeString(),
             $this->resource->updated_at->toDateTimeString(),

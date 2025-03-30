@@ -25,6 +25,9 @@ final class InvitationDeliverySchema extends AbstractSchema
         /** @OA\Property(enum={"pending", "sent", "delivered", "failed"}) */
         public string $status,
 
+        /** @OA\Property(enum={"none", "accepted", "rejected", "considering"}) */
+        public string $responseStatus,
+
         /** @OA\Property() */
         public int $retryCount,
 

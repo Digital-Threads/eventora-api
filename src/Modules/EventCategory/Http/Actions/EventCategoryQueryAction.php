@@ -16,7 +16,7 @@ use Modules\EventCategory\Services\EventCategoryQueryService;
  *         description="Успешный ответ",
  *         @OA\JsonContent(
  *             type="object",
- *             @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/"))
+ *             @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/EventCategorySchema"))
  *         )
  *     )
  * )

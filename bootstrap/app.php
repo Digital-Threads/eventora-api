@@ -36,7 +36,6 @@ function getModuleRoutes(string $modulePath): array
             $routes[] = $file->getPathname();
         }
     }
-
     return $routes;
 }
 

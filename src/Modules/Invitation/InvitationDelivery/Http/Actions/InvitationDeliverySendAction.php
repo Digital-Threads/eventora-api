@@ -2,22 +2,18 @@
 
 namespace Modules\Invitation\InvitationDelivery\Http\Actions;
 
+use Illuminate\Http\JsonResponse;
 use Modules\Invitation\InvitationDelivery\Http\Requests\InvitationDeliverySendRequest;
+use Modules\Invitation\InvitationDelivery\Http\Resources\InvitationDeliveryResource;
 use Modules\Invitation\InvitationDelivery\Services\InvitationDeliveryCommandService;
 use Modules\Invitation\InvitationDelivery\Services\InvitationDeliverySendService;
-use Illuminate\Http\JsonResponse;
 
 final class InvitationDeliverySendAction
 {
-    private InvitationDeliveryCommandService $invitationDeliveryCommandService;
-    private InvitationDeliverySendService $invitationSendService;
-
     public function __construct(
-        InvitationDeliveryCommandService $invitationDeliveryCommandService,
-        InvitationDeliverySendService $invitationSendService
+        private InvitationDeliveryCommandService $invitationDeliveryCommandService,
+        private InvitationDeliverySendService $invitationSendService
     ) {
-        $this->invitationDeliveryCommandService = $invitationDeliveryCommandService;
-        $this->invitationSendService = $invitationSendService;
     }
 
     /**
@@ -50,6 +46,6 @@ final class InvitationDeliverySendAction
 
         $this->invitationSendService->sendInvitations($deliveries);
 
-        return response()->json($deliveries, 201);
+        return response()->json(InvitationDeliveryResource::collection($deliveries), 201);
     }
 }
